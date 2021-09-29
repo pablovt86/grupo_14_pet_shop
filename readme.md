@@ -24,6 +24,6 @@ Grupo 14, integrantes:Pablo Vaccotti,Federico Herrero,Albert Eloy,Ulises Armolla
 *[FAUNATOWN]* *(https://faunatown.com.ar)*
 
 ## wireframe
-*[detalle del producto]**(grupo_14_pet_shop/wireframe/detalle-producto_desktop.pdf)*
+*[detalle del producto]**(grupo_14_pet_shop/wireframe/detalle-del-producto_desktop.pdf)*
 
 
