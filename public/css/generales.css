@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    
+
+
+body{
+    background-image: url("../images/fondo-2.png");
+    width: 1440px;
+    font-family:'Roboto', sans-serif;
+    font-size: 12px;}
