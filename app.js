@@ -6,7 +6,7 @@ let port = 3000;
  app.use(express.static("public"))
 
 app.get('/productDetail', function(req, res){
-    res.sendFile(path.join(__dirname, 'views/productDetail.htm'))
+    res.sendFile(path.join(__dirname, 'views/productDetail.html'))
 
 })
 app.get('/', function(req, res){
