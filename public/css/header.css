@@ -10,6 +10,7 @@ header{
     height: 160px;
     text-align: center;
     background: linear-gradient( white,rgb(8, 8, 8));
+    
     /* background-color:white; */
 }
     /* background: linear-gradient(to right, pink, white);  este desgrade va de derecha a izquierda*/
