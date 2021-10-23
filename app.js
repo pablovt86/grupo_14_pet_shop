@@ -6,7 +6,11 @@ let port = 3000;
 app.use(express.static("public"));
 
 app.get('/productDetail', function(req, res){
+<<<<<<< HEAD
     res.sendFile(path.join(__dirname, 'views/productDetail.htm'));
+=======
+    res.sendFile(path.join(__dirname, 'views/productDetail.html'))
+>>>>>>> 5bc6229326342c52c064c090013e38dcea82c3a6
 
 });
 app.get('/', function(req, res){
