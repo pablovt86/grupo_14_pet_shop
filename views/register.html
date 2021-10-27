@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/forms.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,32 +10,39 @@
 </head>
 <body>
     <header></header>
-    <main class="forms">
+    <main>
+      <div class="forms">
         <form autocomplete="off">
-            <div><img src="images/images-forms/duo-2.png" width="272px" height="150px" alt="foto de mascotas"></div>
+            <div class="img-card"><img src="images/images-forms/duo-2.png" width="380px" alt="foto de mascotas"></div>
             <div class="icon-form"><img src="images/icons-forms/register.png" alt="icono registro"></div>
             <div>
                 <img class="icon-input" src="images/icons-forms/login.png" width="30px" alt="icono usuario">
                 <input class="input-text" type="text" id="user" placeholder="Nombre de usuario">
             </div>
+            <div class="div-error"><p class="text-error"><img src="images/icons-forms/error.png"style="margin-bottom: -7px" width="25px" alt="icono de error">Ingrese un nombre de usuario.</p></div>
             <div>
                 <img class="icon-input" src="images/icons-forms/email.png" width="30px" alt="icono email">
                 <input class="input-text" type="text" id="email" placeholder="Email">
             </div>
+            <div class="div-error"><p class="text-error"><img src="images/icons-forms/error.png"style="margin-bottom: -7px" width="25px" alt="icono de error">Debe ingresar un email.</p></div>
             <div>
                 <img class="icon-input" src="images/icons-forms/lock-open.png" width="30px" alt="icono contraseña">
                 <input class="input-text" type="text" id="pass" placeholder="Contraseña">
             </div>
+            <div class="div-error"><p class="text-error"><img src="images/icons-forms/error.png"style="margin-bottom: -7px" width="25px" alt="icono de error">Debe ingresar una contraseña.</p></div>
             <div>
                 <img class="icon-input" src="images/icons-forms/modern-key.png" width="30px" alt="icono confirmar contraseña">
                 <input class="input-text" type="text" id="pass-confirm" placeholder="Confirma contraseña">
             </div>
-            <div><button class="button-form" type="submit">Guardar</button></div>
+            <div class="div-error"><p class="text-error"><img src="images/icons-forms/error.png"style="margin-bottom: -7px" width="25px" alt="icono de error">Ingrese la contraseña anterior.</p></div>
+            <div><button class="button-form" type="submit">Registrarme</button></div>
             <div class="link"><a class="link-login" href="/login">Ya tengo cuenta!</a></div>
         </form>
+        <div class="card"><img src="images/images-forms/cachorro-1.png" alt="foto de mascotas"></div>
+      </div>  
     </main>
     <footer>
-        <div class="footer">
+          <div class="footer">
             <div class="container">
               <div class="row">
                 <div class="footer-col-1">

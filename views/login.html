@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/forms.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,29 +10,34 @@
 </head>
 <body>
     <header></header>
-    <main class="forms">
+    <main>
+      <div class="forms">
         <form autocomplete="off">
-            <div><img src="images/images-forms/duo-1.png" width="272px" height="150px" alt="foto de mascotas"></div>
+            <div class="img-card"><img src="images/images-forms/duo-1.png" width="380px" alt="foto de mascotas"></div>
             <div class="icon-form"><img src="images/icons-forms/account-circle.png" alt="icono login"></div>
             <div>
                 <img class="icon-input" src="images/icons-forms/login.png" width="35px" alt="icono usuario">
                 <input class="input-text" type="text" id="user" placeholder="Usuario o email">
             </div>
+            <div class="div-error"><p class="text-error"><img src="images/icons-forms/error.png"style="margin-bottom: -7px" width="25px" alt="icono de error">Ingrese su usuario o email.</p></div>
             <div>
                 <img class="icon-input" src="images/icons-forms/lock.png" width="35px" alt="icono contraseña">
                 <input class="input-text" type="text" id="pass" placeholder="Contraseña">
             </div>
-            <div>
+            <div class="div-error"><p class="text-error"><img  class="icon-error" src="images/icons-forms/error.png"style="margin-bottom: -7px" width="25px" alt="icono de error">Debe ingresar su contraseña.</p></div>
+            <div class="div-remember">
                 <div class="input-checkbox"><input type="checkbox" id="remember"></div>
-                <div><label>Recordarme</label></div>
+                <div><label for="remember">Recordarme</label></div>
             </div>
             <div><button class="button-form" type="submit">Iniciar Sesión</button></div>
             <div class="link"><a class="link-login" href="#">¿Olvidaste tu contraseña?</a></div>
-            <div><a class="button-link-register" href="/register">Crear nueva Cuenta</a></div>
+            <div class="button-register"><a class="button-link-register" href="/register">Crear nueva Cuenta</a></div>
         </form>
+        <div class="card"><img src="images/images-forms/mascotas.png" alt="foto de mascotas"></div>
+      </div>
     </main>
     <footer>
-        <div class="footer">
+      <div class="footer">
             <div class="container">
               <div class="row">
                 <div class="footer-col-1">
