@@ -1,0 +1,161 @@
+/* estructura mobile */
+.productDetail{
+    background-color: white;
+}
+ .productDetail p{
+  font-size: var(--etique-p);
+}
+.productDetail-container{
+    display: flex;
+    flex-direction: column;
+}
+.contenedor{
+    width: 90%;
+    background-color: white;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-bottom: 2px;
+    border-bottom: 0.5px solid var(--greyLigth);
+}
+.foto1,.foto2,.foto3 {
+    display: none;
+}
+.foto4{
+    width: 100%;
+}
+.product-description{
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    }
+
+    .product-description p{
+     margin-top: 10px;
+     margin-left: 10px;
+     color:var(--greyLigth);
+    }
+     
+
+
+.product-price{
+    width: 90%;
+    background-color: white;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-bottom: 0.5px solid var(--greyLigth);
+    }
+
+    .product-price p{
+     margin-top: 10px;
+     margin-left: 10px;
+     color:var(--greyLigth);
+    }
+    .product-price h2{
+        font-size: var(--estandar);
+        color: var(--greyLigth);
+        padding-left: 6px;
+    }
+     
+    .product-price h1{
+        font-size: var(--extra-big);
+        color: var(--tex);
+        margin-top: 10px;
+        margin-left: 6px;
+    }
+    .product-price span{
+        color: black;
+    }
+    .product-price .esp-a{
+     margin: 10px 0;
+    }
+    .product-price a{
+        text-decoration:  none;
+        margin-left: 10px;
+        color: var(--tex);
+        font-size: var(--etique-p);
+        margin-top: 10px;
+    }
+    
+    .fa-credit-card:before {
+        color:var(--greyLigth);
+        margin-right: 6px;
+        font-size: var(--etique-p)
+    }
+
+    .product-price .button-signos{
+display: flex;
+justify-content: space-around;
+margin-top: 20px ;
+    }
+  .product-price .signos{
+
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid var(--greyLigth);
+    border-radius: 10px;
+    width: 30%;
+  }
+.product-price .button-signos .signos .union{
+    display: flex;
+    
+}
+.product-price .button-signos .signos .union input{
+    width: 100%;
+    border:none;
+    text-align: center;
+}
+.product-price .button-shopping{
+    display: flex;
+    padding: 16px;
+    width: 9rem;
+    border-radius: 20px;
+    background-color: var(--tex);
+    justify-content: center;
+    align-items: center;
+}
+.product-price .button-shopping button{
+    border: none;
+    background: none;
+    color: white;
+    font-size: var(--etique-p);}
+
+
+    /* redes-sociales */
+    .redesSociales{
+        height: 120px;
+    }
+    .redesSociales ul
+    {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: space-evenly;    }
+
+    .redesSociales ul li i{
+        color:var(--tex);
+        font-size: var(--etique-p);
+        padding: 10px;
+        border: 1px solid var(--tex);
+        border-radius: 100%;
+    }
+
+    
+
+
+    /* product-racionados */
+.product-relac{
+    background-color: white;
+    height: 460px;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-bottom: 2px;
+}
+
+    .product-relac h2{
+    text-align: center;
+    color: var(--tex);
+    font-size: var(--estandar);
+    margin-top: 20px;
+
+    }
