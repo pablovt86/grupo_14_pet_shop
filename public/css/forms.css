@@ -49,17 +49,8 @@ body {background: radial-gradient(#fff, #ffd6d6);  font-size: 14px;}
     body {font-size: 16px;}    
 }
 
-<<<<<<< HEAD
 .forms form div a.button-link-register:hover {border: solid 2px black; background: white; color: black; font-size: 16px; font-weight: bold;}
 
 
 
 
-=======
-@media (min-width: 992px){
-    .forms form {border: none;}
-    .forms div.img-card {display: none;}
-    .forms div.card {display: flex; margin-left: 15px;}
-    .forms form {border: solid; border-radius: 20px;}
-}
->>>>>>> 3d1226302f851677b5311fa092562c35c39a8088
