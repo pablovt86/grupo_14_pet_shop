@@ -36,7 +36,7 @@ body {background: radial-gradient(#fff, #ffd6d6);}
 
 .forms form div.button-register a.button-link-register:hover {border: solid 2px black; background: white; color: black; font-size: 16px; font-weight: bold;}
 
-.forms div.card {display: none; align-items: center;}
+.forms div.mascotas-img {display: none; align-items: center;}
 
 @media (min-width: 480px){
     .forms form {border: solid; border-radius: 20px; padding: 20px;} 
