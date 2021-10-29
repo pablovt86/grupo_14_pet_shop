@@ -50,6 +50,6 @@ body {background: radial-gradient(#fff, #ffd6d6);}
 @media (min-width: 992px){
     .forms form {border: none;}
     .forms div.img-card {display: none;}
-    .forms div.card {display: flex; margin-left: 15px;}
+    .forms div.mascotas-img {display: flex; margin-left: 15px;}
     .forms form {border: solid; border-radius: 20px;}
 }
