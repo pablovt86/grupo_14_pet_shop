@@ -1,0 +1,55 @@
+body {background: radial-gradient(#fff, #ffd6d6);}
+
+.forms {display: flex; justify-content: center; margin: 30px;}
+
+.forms div.img-card {display: none; justify-content: center;}
+
+.forms form {width: 400px;}
+
+.forms form div {display: flex;}
+
+.forms form div.div-error {margin-bottom: 25px;}
+
+.forms form div.icon-form {justify-content: center;}
+
+.forms form div img.icon-input {border-bottom: solid 2px black;}
+
+.forms form div input.input-text {border: none; background: none; outline: none; border-bottom: solid 2px black; width: 100%;}
+
+.forms form div p.text-error {color: red; font-weight: bold; padding-left: 3px;}
+
+.forms form div.div-remember {margin-bottom: 25px;}
+
+.forms form div div.input-checkbox {padding-left: 10px;}
+
+.forms form div div label {margin-left: 10px; color: #555;}
+
+.forms form div button.button-form {width: 100%; height: 40px; border: none; background-color: black; color: white;}
+
+.forms form div button.button-form:hover {border: solid 2px black; background: white; color: black; font-size: 16px; font-weight: bold;}
+
+.forms form div.link {justify-content: end;}
+
+.forms form div a.link-login {color: #555; margin-bottom: 25px;}
+
+.forms form div.button-register a.button-link-register {text-decoration: none; width: 100%; height: 40px; background: black; color: white; text-align: center; padding-top: 10px; font-size: 14px;}
+
+.forms form div.button-register a.button-link-register:hover {border: solid 2px black; background: white; color: black; font-size: 16px; font-weight: bold;}
+
+.forms div.card {display: none; align-items: center;}
+
+@media (min-width: 480px){
+    .forms form {border: solid; border-radius: 20px; padding: 20px;} 
+}
+
+@media (min-width: 768px){
+    .forms div.img-card {display: flex;}
+    body {font-size: 16px;}    
+}
+
+@media (min-width: 992px){
+    .forms form {border: none;}
+    .forms div.img-card {display: none;}
+    .forms div.card {display: flex; margin-left: 15px;}
+    .forms form {border: solid; border-radius: 20px;}
+}
