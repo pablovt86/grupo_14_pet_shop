@@ -91,6 +91,7 @@ font-size: var(--etique-p)
 display: flex;
 justify-content: space-around;
 margin-top: 20px ;
+
 }
 .product-price .signos{
 
@@ -181,6 +182,9 @@ margin-bottom: 2px;
     background-color: white;
     margin-bottom: 10px;
     border-radius: 15px;
+    padding: 36px;
+    width: 90%;
+    margin: 20px auto;
     
 }
 .card img{
@@ -229,8 +233,7 @@ justify-content: center;
 .product-name{
    padding: 10px 0px 20px 14px; 
       font-size: var(--etique-p);
-   margin-left: 10px;
-   color: var(--Gris);
+   color: var(--greyLigth);
    text-align: center;
 
 }
@@ -252,7 +255,9 @@ hr{
   small {
     color: #555;
   }
-  
+  .relleno-1200px{
+    display: none;
+}
 
 @media(min-width:768px){
     .banner{
@@ -269,32 +274,52 @@ hr{
    }
    .foto1,.foto2,.foto3 {
     display: flex;
+    max-width: 115px;
+    max-height: 115px;
     /* width: 33%; */
     }
+  
+    
   
    .container-foto-left{
        width: 25%;
        display: flex;
        flex-direction: column;
-       justify-content: space-between;
-       background-color: #FFF;
+       background-color: white;
    }
    .product-price{
 width: 40%;
 border-bottom: none;   
 
 }
-.product-envio{
-    border: 1px solid green;
-    margin-top: 12px;
-    margin-left: 10px;
-}   
+  /*contenedor de envio  */
 .container-envio{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
+.product-envio{
+    margin-top: 12px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+} 
+.product-envio h4.title-envio{
+    font-size: var(--etique-p);
+    color: var(--tex);
 
+}
+.product-envio h5.text-precio{
+    font-size: var(--prices);
+    color: var(--tex);
 
+}
+.container-envio .text{
+    max-width: 130px;
+}
+.price-envio{
+padding: 15px;
+}
 /* container de fotos */
 .container-foto-left img{
     width: 100%;
@@ -305,17 +330,18 @@ border-bottom: none;
 
    .container-foto-rigth{
     width: 75%;
+    background-color: white;
 
 }
 .container-foto-rigth img{
 width: 100%;
 }
- 
+ /* card-product-relacionado */
    .card{
    max-width: 22%;   
    box-shadow: 15px 15px 15px rgba(0, 0, 0, .4);
         display: inline-block; 
-       /* padding: 15px; */
+       padding: 15px;
        margin-left: 15px; 
        margin-bottom: 15px; 
    }
@@ -324,13 +350,25 @@ width: 100%;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
     transform: scale(1.1);
 }
+.product-name{
+    padding: 10px 0px;
+    font-size: var(--etique-p);
+    /* margin-left: 10
+px
+; */
+    color: var(--tex);
+}
+
 
 .redesSociales{
     display: none;
 }
 }
 
+.product-price .button-signos{
+    margin-left:4px ;
 
+}
 @media(min-width:1200px){
      .card{
         max-width: 22%;   
@@ -341,7 +379,9 @@ width: 100%;
             margin-bottom: 25px;
 
         }
-    
+    .relleno-1200px{
+        display: block;
+    }
 }
 
 
