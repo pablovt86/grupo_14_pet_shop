@@ -1,4 +1,3 @@
-* {margin: 0%; padding: 0; box-sizing: border-box; font-size: 12px;}
 body {
     background: radial-gradient(#fff, #ffd6d6);
 }
@@ -55,8 +54,7 @@ form div.contenedor-articulo div.accountant {
 
 form div.contenedor-articulo div.accountant button.button-accountant {
     width: 40px; 
-    height: 40px; 
-    font-size: 18px; 
+    height: 40px;  
     font-weight: bold; 
     border: none; 
     border-radius: 5px; 
@@ -141,7 +139,7 @@ form div.pay-delivery {
 }
 
 form div.pay-delivery select {
-    width: 75px; 
+    width: 80px; 
     height: 30px; 
     border: none; 
     border-radius: 5px; 
@@ -205,19 +203,20 @@ form div.back-shop a {
 }
 
 @media (min-width: 768px) {
-    * {font-size: 16px;}
-    form div.pay-delivery select {width: 90px;}
+    form div.pay-delivery select {width: 90px; font-size: 16px;}
     form div.back-shop a {font-size: 14px;}
 }
 
 @media (min-width: 992px) {
-    .buy-cart-form {width: 800px;}
+    .buy-cart-form {width: 800px; font-size: 18px;}
     form div.contenedor-articulo div.vista-articulo div.imagen-cucha img {width: 200px;}
     form div.buy button {width: 30%;}
     form div.contenedor-articulo div.accountant button.button-accountant:hover {
         background: black; 
         font-size: 20px;
     }
+
+    form div.buy button {font-size: 16px;}
 
     form div.buy button:hover {
         background: black; 
