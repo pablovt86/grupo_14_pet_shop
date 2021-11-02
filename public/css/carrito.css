@@ -11,11 +11,15 @@ form div.buy-cart {
     padding: 10px 20px 10px;
 }
 
-form div.encabezados-carrito {
+form div.encabezados-carrito  {
     display: flex; 
     padding: 10px 20px 10px; 
     height: 40px; 
     background: #555; 
+    color: white;
+}
+
+form div.encabezados-carrito p {
     color: white;
 }
 
@@ -130,6 +134,7 @@ form div.gral-delivery {
 
 form div.gral-delivery p {
     padding: 10px 20px 10px;
+    color:white;
 }
 
 form div.pay-delivery {
@@ -166,6 +171,9 @@ form div.total-buy {
     padding: 10px 20px 10px; 
     height: 40px; 
     background: #555; 
+}
+
+form div.total-buy p {
     color: white;
 }
 
