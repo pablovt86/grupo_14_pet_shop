@@ -5,10 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Mi cuenta</title>
 </head>
 <body>
-    <header></header>
+  <header class=" main-header">
+    <div class="main-header-top-bar">
+        <img src="images/logo.png"  class="logo" alt="">
+    <div class="container-search">
+    <form action="" method="get" class="search-form">
+      <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
+      <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+  </form>
+</div>
+
+
+
+<!-- burgue modo mobile -->
+        <input type="checkbox" id="menu">
+          <label for="menu"> ☰ </label>
+          <nav class="main-navbar">
+
+            <ul class =" rigth-navbar">
+              <li>
+                <a href="/">Productos</a><i class="fas fa-shopping-basket"></i> </li>
+            <li>
+                <a href="">Mascotas </a><i class="fas fa-bone"></i></li>
+                <li>
+                    <a href="/register">crea tu cuenta   </a><i class="far fa-address-card"></i>
+                </li>
+                <li>
+                    <a href="/login">ingresa </a><i class="fas fa-sign-in-alt"></i>
+                </li>
+                <li>
+                    <a href="/carrito">carrito</a><i class="fas fa-shopping-cart"></i>
+                </li>
+          
+            </ul>
+          
+          </nav>
+        </div>
+</header>
     <main>
       <div class="forms">
         <form autocomplete="off">

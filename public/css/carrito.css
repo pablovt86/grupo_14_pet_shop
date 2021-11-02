@@ -205,7 +205,7 @@ form div.back-shop a {
 }
 
 @media (min-width: 768px) {
-    * {font-size: 16px;}
+    /* * {font-size: 16px;} */
     form div.pay-delivery select {width: 90px;}
     form div.back-shop a {font-size: 14px;}
 }

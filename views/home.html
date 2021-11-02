@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Ecomerce</title>
     <link rel="stylesheet" href="css/style.css" />
     <link
@@ -11,46 +15,43 @@
     />
   </head>
   <body>
-    <div class="header">
-      <div class="container">
-        <div class="navbar">
-          <div class="logo">
-            <img src="images/logo.png" width="150px" />
+    <header class=" main-header">
+      <div class="main-header-top-bar">
+          <img src="images/logo.png"  class="logo" alt="">
+      <div class="container-search">
+      <form action="" method="get" class="search-form">
+        <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
+        <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+ 
+  
+ 
+<!-- burgue modo mobile -->
+          <input type="checkbox" id="menu">
+            <label for="menu"> ☰ </label>
+            <nav class="main-navbar">
+ 
+              <ul class =" rigth-navbar">
+                <li>
+                  <a href="/">Productos</a><i class="fas fa-shopping-basket"></i> </li>
+              <li>
+                  <a href="">Mascotas </a><i class="fas fa-bone"></i></li>
+                  <li>
+                      <a href="register">crea tu cuenta   </a><i class="far fa-address-card"></i>
+                  </li>
+                  <li>
+                      <a href="/login">ingresa </a><i class="fas fa-sign-in-alt"></i>
+                  </li>
+                  <li>
+                      <a href="/carrito">carrito</a><i class="fas fa-shopping-cart"></i>
+                  </li>
+            
+              </ul>
+            
+            </nav>
           </div>
-          <nav>
-            <ul id="MenuItems">
-              <li><a href="">Inicio</a></li>
-              <li><a href="">Productos</a></li>
-              <li><a href="">Acerca de</a></li>
-              <li><a href="">Contacto</a></li>
-              <li><a href="">Cuenta</a></li>
-            </ul>
-          </nav>
-          <img src="images/cart.png" width="30px height=30px" />
-          <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
-        </div>
-
-        <div>
-          <div class="row">
-            <div class="col-2">
-              <h1>Pagina de Petshop <br />con estilo nuevo</h1>
-              <p>
-                Esta es una pagina web modelo para un petshop y
-                accesorios<br />
-                adaptable a cualquier dispositivo y lo mejor de todo es que
-                podemos diseñar<br />
-                lo que el cliente necesite para poder satisfacer sus necesidades
-              </p>
-              <a href="" class="btn">Explorar Ahora &#8594;</a>
-            </div>
-
-            <div class="col-2">
-              <img src="images/image1.png" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  </header>
 
     <!------------------features categories------------>
 
@@ -75,7 +76,7 @@
       <h2 class="title">Productos Nuevos</h2>
       <div class="row">
         <div class="col-4">
-          <img src="images/product-1.jpg" />
+          <a href="/productDetail">          <img src="/images/cucha-gato.png" /></a>
           <h4>Alimento Balanceado</h4>
           <div class="rating">
             <i class="fa fa-star"></i>
@@ -88,7 +89,7 @@
         </div>
 
         <div class="col-4">
-          <img src="images/product-2.jpg" />
+          <a href="/productDetail">          <img src="images/product-2.jpg" /></a>
           <h4>Anti Pulgas</h4>
           <div class="rating">
             <i class="fa fa-star"></i>
@@ -101,7 +102,8 @@
         </div>
 
         <div class="col-4">
-          <img src="images/product-3.jpg" />
+          <a href="/productDetail">          <img src="images/product-3.jpg" />
+        </a>
           <h4>Alimento para Gatos</h4>
           <div class="rating">
             <i class="fa fa-star"></i>
@@ -114,7 +116,9 @@
         </div>
 
         <div class="col-4">
+          <a href="/productDetail">
           <img src="images/product-4.jpg" />
+        </a>
           <h4>ALimentos Premium</h4>
           <div class="rating">
             <i class="fa fa-star"></i>
