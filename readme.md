@@ -17,7 +17,7 @@ Grupo 14, integrantes:Pablo Vaccotti,Federico Herrero,Albert Eloy,Ulises Armolla
 *Entre los productos que se ofrecen se encuentran alimentos, golosinas, accesorios, indumentaria,*
 *juguetes, muebles y productos de higiéne.*
 
-***Además cuenta con servicios de baño y peluquería.***
+>***Además cuenta con servicios de baño y peluquería.***
 
 *Sitios que utilizamos como referencia para la construcción de nuestro e-commerce:*
 
@@ -30,15 +30,10 @@ Grupo 14, integrantes:Pablo Vaccotti,Federico Herrero,Albert Eloy,Ulises Armolla
 *[PETMANIA]* *(https://www.petmania.com.ar)*
 
 *[FAUNATOWN]* *(https://faunatown.com.ar)*
-## wireframes
 
 
--*carrito de compra*
+>link de trello!
 
--*detalle del producto*
-
--*login*
-
--*register*
+*[TRELLO-GRUPO14]*(https://trello.com/b/dkHByc5j/grupo14c12)
 
 
