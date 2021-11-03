@@ -3,6 +3,9 @@
 
 Grupo 14, integrantes:Pablo Vaccotti,Federico Herrero,Albert Eloy,Ulises Armolla
 
+> nuestro logo
+![logotipo](/public/images/logo.png)
+
 ***soy pablo vaccotti me gusta la programacion tengo 34 años***
 ***este es el segundo curso que participo en digital house anteriormente me recibi en el curso de php (lan) ahora decidi orientarme en la parte del front por eso, en  ente momento nos reunimos con un  grupo de compañeros a crear un petshop en (javascript)***
 
@@ -28,8 +31,7 @@ Grupo 14, integrantes:Pablo Vaccotti,Federico Herrero,Albert Eloy,Ulises Armolla
 
 *[FAUNATOWN]* *(https://faunatown.com.ar)*
 ## wireframes
-*[ProductDeatail]*("/productDetail.html")*
--*home*  
+
 
 -*carrito de compra*
 
