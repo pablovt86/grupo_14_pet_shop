@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %> 
+
+<body class="forms-body">
+  <%- include('../partials/header.ejs') %>    <main>
+      <div class="forms">
+        <form autocomplete="off">
+            <div class="img-card"><img src="../images/images-forms/duo-2.png" width="380px" alt="foto de mascotas"></div>
+            <div class="icon-form"><img src="../images/icons-forms/register.png" alt="icono registro"></div>
+            <div>
+                <img class="icon-input" src="../images/icons-forms/login.png" width="30px" alt="icono usuario">
+                <input class="input-text" type="text" id="user" placeholder="Nombre de usuario">
+            </div>
+            <div class="div-error"><img src="../images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Ingrese un nombre de usuario.</p></div>
+            <div>
+                <img class="icon-input" src="../images/icons-forms/email.png" width="30px" alt="icono email">
+                <input class="input-text" type="text" id="email" placeholder="Email">
+            </div>
+            <div class="div-error"><img src="../images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Debe ingresar un email.</p></div>
+            <div>
+                <img class="icon-input" src="../images/icons-forms/lock-open.png" width="30px" alt="icono contraseña">
+                <input class="input-text" type="text" id="pass" placeholder="Contraseña">
+            </div>
+            <div class="div-error"><img src="../images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Debe ingresar una contraseña.</p></div>
+            <div>
+                <img class="icon-input" src="../images/icons-forms/modern-key.png" width="30px" alt="icono confirmar contraseña">
+                <input class="input-text" type="text" id="pass-confirm" placeholder="Confirma contraseña">
+            </div>
+            <div class="div-error"><img src="../images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Ingrese la contraseña anterior.</p></div>
+            <div><button class="button-form" type="submit">Registrarme</button></div>
+            <div class="link"><a class="link-login" href="/login">Ya tengo cuenta!</a></div>
+        </form>
+        <div class="mascotas-img"><img src="../images/images-forms/cachorro-1.png" alt="foto de mascotas"></div>
+      </div>  
+    </main>
+    <%- include('../partials/footer.ejs') %> 
+
+</body>
+</html>
