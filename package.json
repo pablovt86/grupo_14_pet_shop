@@ -2,7 +2,7 @@
   "name": "grupo_14_pet_shop",
   "version": "1.0.0",
   "description": "proyecto-del-grupo-14",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Ulises-Armolla/grupo_14_pet_shop#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1"
   }
 }

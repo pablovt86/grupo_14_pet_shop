@@ -87,6 +87,7 @@ width: 100%;
 
 
 input.search-form_input{
+    background-color: #091418;
 margin-left: 6px;
 width: 90%;
 border: none;
@@ -98,7 +99,7 @@ button.search-form_button{
 padding: 4px; */
 border: none;
 border-radius: 4px;
-background-color: white;
+background-color: grey;
 position: relative;
 left: -6px;
 }
@@ -112,6 +113,7 @@ background-image:url("/images/fondo-2.png") ;
 /* background: radial-gradient(#fff, #ffd6d6);  */
 font-size:12px;
 padding-bottom: 10px;
+background-color: black;
 
 }
 header .logo {

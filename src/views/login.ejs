@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <title>Crear nueva cuenta</title>
+    <title>Mi cuenta</title>
 </head>
-<body>
+<body class="forms-body">
   <header class=" main-header">
     <div class="main-header-top-bar">
         <img src="images/logo.png"  class="logo" alt="">
@@ -48,39 +48,35 @@
           
           </nav>
         </div>
-</header>    <main>
+</header>
+    <main>
       <div class="forms">
         <form autocomplete="off">
-            <div class="img-card"><img src="images/images-forms/duo-2.png" width="380px" alt="foto de mascotas"></div>
-            <div class="icon-form"><img src="images/icons-forms/register.png" alt="icono registro"></div>
+            <div class="img-card"><img src="images/images-forms/duo-1.png" width="380px" alt="foto de mascotas"></div>
+            <div class="icon-form"><img src="images/icons-forms/account-circle.png" alt="icono login"></div>
             <div>
-                <img class="icon-input" src="images/icons-forms/login.png" width="30px" alt="icono usuario">
-                <input class="input-text" type="text" id="user" placeholder="Nombre de usuario">
+                <img class="icon-input" src="images/icons-forms/login.png" width="35px" alt="icono usuario">
+                <input class="input-text" type="text" id="user" placeholder="Usuario o email">
             </div>
-            <div class="div-error"><img src="images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Ingrese un nombre de usuario.</p></div>
+            <div class="div-error"><img src="images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Ingrese su usuario o email.</p></div>
             <div>
-                <img class="icon-input" src="images/icons-forms/email.png" width="30px" alt="icono email">
-                <input class="input-text" type="text" id="email" placeholder="Email">
-            </div>
-            <div class="div-error"><img src="images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Debe ingresar un email.</p></div>
-            <div>
-                <img class="icon-input" src="images/icons-forms/lock-open.png" width="30px" alt="icono contraseña">
+                <img class="icon-input" src="images/icons-forms/lock.png" width="35px" alt="icono contraseña">
                 <input class="input-text" type="text" id="pass" placeholder="Contraseña">
             </div>
-            <div class="div-error"><img src="images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Debe ingresar una contraseña.</p></div>
-            <div>
-                <img class="icon-input" src="images/icons-forms/modern-key.png" width="30px" alt="icono confirmar contraseña">
-                <input class="input-text" type="text" id="pass-confirm" placeholder="Confirma contraseña">
+            <div class="div-error"><img  class="icon-error" src="images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Debe ingresar su contraseña.</p></div>
+            <div class="div-remember">
+                <div class="input-checkbox"><input type="checkbox" id="remember"></div>
+                <div><label for="remember">Recordarme</label></div>
             </div>
-            <div class="div-error"><img src="images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Ingrese la contraseña anterior.</p></div>
-            <div><button class="button-form" type="submit">Registrarme</button></div>
-            <div class="link"><a class="link-login" href="/login">Ya tengo cuenta!</a></div>
+            <div><button class="button-form" type="submit">Iniciar Sesión</button></div>
+            <div class="link"><a class="link-login" href="#">¿Olvidaste tu contraseña?</a></div>
+            <div class="button-register"><a class="button-link-register" href="/register">Crear nueva Cuenta</a></div>
         </form>
-        <div class="mascotas-img"><img src="images/images-forms/cachorro-1.png" alt="foto de mascotas"></div>
-      </div>  
+        <div class="mascotas-img"><img src="images/images-forms/mascotas.png" alt="foto de mascotas"></div>
+      </div>
     </main>
     <footer>
-          <div class="footer">
+      <div class="footer">
             <div class="container">
               <div class="row">
                 <div class="footer-col-1">

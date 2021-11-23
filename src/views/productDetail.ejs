@@ -16,7 +16,7 @@
 <body class="productDetail">
     <header class=" main-header">
       <div class="main-header-top-bar">
-          <img src="images/logo.png"  class="logo" alt="">
+          <img src="images/fatiga-logo.png"  class="logo" alt="">
       <div class="container-search">
       <form action="" method="get" class="search-form">
         <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
@@ -52,18 +52,29 @@
           </div>
   </header>
 
+
+  
+   
+
+
+
     <main class="productDetail-container">
         <div class="contenedor">
+          
+  <!-- <div class="images-container"> -->
           <div class="container-foto-left">
-            <div class="foto1"><img src="/images/cucha-gato1.png"  alt=""></div>
-            <div class="foto2"><img src="/images/cucha-gato2.png" alt=""> </div>
-            <div class="foto3"><img src="/images/cucha-gato3.png" alt=""></div>
+            <div class="thumbnailImages">
+              <div class="foto1">  <img src="/images/cucha-gato1.png" alt="Imagen de producto" onclick="myFunction(this);"></div>
+                <div class="foto2"> <img src="/images/cucha-gato2.png" alt="Imagen de producto" onclick="myFunction(this);"></div>
+                  <div class="foto3">  <img src="/images/cucha-gato3.png" alt="Imagen de producto" onclick="myFunction(this);"></div>
+          </div>
+          
           </div>
           <div class="container-foto-rigth">
-            <div class="foto4">
-         <img src="/images/cucha-gato.png" width="100%"alt="">
-        </div>
-      </div>
+            <img src="/images/cucha-gato.png" alt="Imagen de producto" id="expandedImg">
+
+         
+    </div>
     
       <div class="product-price">
         <p>categorias ->subcategoria ->nombreProducto</p>
@@ -77,11 +88,22 @@
       <div class="button-signos">
       <div class="signos">
         <div class="union">
-          <span> - </span>
+          <span> <button type="button" class="btn-subtract" onclick="subtract();">
+            -
+        </button></span>
           <div>
-            <input type="number" name="autocrement" value="1">
+
+            <div id="count">1</div>
           </div>
-          <span> + </span>
+
+          
+
+                    
+
+        
+          <span> <button type="button" id="btn-add" onclick="add();">
+            +
+        </button> </span>
         </div>
 
       </div>
@@ -355,6 +377,6 @@
             </div>
           </div>
     </footer>
-
+    <script src="/js/productDetail.js"></script>
 </body>
 </html>

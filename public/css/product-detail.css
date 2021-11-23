@@ -297,9 +297,29 @@ hr{
     margin-top: 2px;
     margin-right: 5px;
 }
+button#btn-add {
+    background: none;
+    border: none;
+
+}
+button.btn-subtract{
+    background: none;
+    border: none;
+}
 /* trabajar aca como aparecer los botones al pasar el mouse */
 .button-container{
 display: flex;    
+}
+@media(min-width:320px){
+    .foto1,.foto2,.foto3 {
+        display: none;
+    }
+    img#expandedImg{
+        width: 100%;
+    }
+    .product-price .signos .union{
+        justify-content: space-around;
+    }
 }
 
 @media(min-width:768px){
