@@ -104,6 +104,8 @@ width: 30%;
 .product-price .button-signos .signos .union{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
 }
 .product-price .button-signos .signos .union input{
 width: 100%;
@@ -502,3 +504,4 @@ align-items: center;
 }
 
 }
+/* carrusel */

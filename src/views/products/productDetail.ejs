@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head') %> 
+<%- include('../partials/head') %> 
 
  
 <body class="productDetail">
  
-<%- include('./partials/header') %> 
+<%- include('../partials/header') %> 
   
    
 
@@ -24,7 +24,7 @@
           
           </div>
           <div class="container-foto-rigth">
-            <img src="/images/cucha-gato.png" alt="Imagen de producto" id="expandedImg">
+            <img src="../images/cucha-gato.png" alt="Imagen de producto" id="expandedImg">
 
          
     </div>
@@ -44,10 +44,10 @@
           <span> <button type="button" class="btn-subtract" onclick="subtract();">
             -
         </button></span>
-          <div>
+          <!-- <div> -->
 
             <div id="count">1</div>
-          </div>
+          <!-- </div> -->
 
           
 
@@ -61,7 +61,7 @@
 
       </div>
       <div class="button-shopping">
-        <form action="/carrito" method="get">
+        <form action="users/carrito" method="get">
         <button type="submit" name="button-carrito" value="agregar al carrito">agregar al carrito</button>
       </form>
       </div>
@@ -110,7 +110,7 @@
 </div>
 
 <div class="relleno-1200px">
-  <img src="images/images-forms/duo-2.png" alt="relleno">
+  <img src="../images/images-forms/duo-2.png" alt="relleno">
 
 </div>
 
@@ -154,7 +154,7 @@
 
 <!-- productos relacionados -->
  
-   <%- include('./partials/productRelac') %> 
+   <%- include('../partials/productRelac') %> 
     
     <!------------------features products------------>
 
@@ -162,7 +162,7 @@
       <div class="small-container">
         <div class="row">
           <div class="col-2">
-            <img src="images/exclusive.png" class="offer-img" />
+            <img src="../images/exclusive.png" class="offer-img" />
           </div>
           <div class="col-2">
             <p>Lo mejor en...</p>
@@ -178,8 +178,9 @@
     </div>
 
 </main>
-<%- include('./partials/footer.ejs') %> 
+<%- include('../partials/footer.ejs') %> 
 
     <script src="/js/productDetail.js"></script>
+   
 </body>
 </html>

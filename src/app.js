@@ -12,11 +12,15 @@ app.set('view engine', 'ejs');
 //ENRUTADOR
 
 let usersRouter = require('./routes/users');
+let productsRouter = require('./routes/products');
+
 
 
 
 // MIDDLEWARES
 app.use('/users', usersRouter)
+app.use('/', productsRouter)
+
 
 
 // app.get('/productDetail', function(req, res){

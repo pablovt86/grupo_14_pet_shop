@@ -1,15 +1,15 @@
 let usersController = {
 
     register:(req, res)=>{
-        res.render('users/register')
+        res.render('users/register',{title:"register"})
 
     },
     login:(req, res)=>{
-        res.render('users/login')
+        res.render('users/login',{title:"login"})
 
     },
     carrito:(req, res)=>{
-        res.render('users/carrito')
+        res.render('users/carrito',{title:"carrito"})
 
     }
 }
