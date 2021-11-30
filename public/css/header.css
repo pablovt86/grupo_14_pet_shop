@@ -50,6 +50,7 @@ outline: none;
 border: none;
 font-size: var(--estandar);
 color: var(--tex);
+background: none;
 }
 
 .header-bottom{
@@ -69,12 +70,13 @@ margin: 5px 10px;
 padding: 5px;
 }
 .header-bottom li{
-list-style: none;}
+list-style: none;
+}
 
 .header-bottom li a{
 color: white;
-font-size: var(--etique-p);
-margin-left: 10px;
+font-size: var(--subtitle);
+margin-left: 6px;
 text-decoration: none;
 }
 
@@ -82,7 +84,9 @@ text-decoration: none;
 color: white;
 font-size: var(--extra-big)
 }
-
+.header-bottom span{
+    margin-left: 6px;
+}
 
 .burger{
 display: flex;
