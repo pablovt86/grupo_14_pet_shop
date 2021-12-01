@@ -13,13 +13,14 @@ app.set('view engine', 'ejs');
 
 let usersRouter = require('./routes/users');
 let productsRouter = require('./routes/products');
-
+let adminRouter = require('./routes/adminRouter.js');
 
 
 
 // MIDDLEWARES
 app.use('/users', usersRouter)
 app.use('/', productsRouter)
+app.use('/administrador', adminRouter);
 
 
 

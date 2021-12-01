@@ -1,0 +1,223 @@
+/* formulario editar producto */
+.tablero-agregar-producto-administrador {
+    display: flex;
+    flex-grow: 1;
+    background: #f0f0f0;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% - 70px);
+    height: 100vh;
+}
+
+.tablero-agregar-producto-administrador .contenedor-formulario-agregar-producto {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 70px;
+    align-items: center;
+}
+
+.formulario-agregar-producto {
+    width: 100%;
+}
+
+.titulo-formulario-agregar {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.entrada-agregar-dato {
+    display: flex;
+    align-items: center;
+    border: 2px solid #234;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.input-agregar-dato {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0px 5px;
+    height: 30px;
+}
+
+.fa-pencil-alt, .fa-dollar-sign, .fa-registered, #fa-tags  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: #234;
+    font-size: 20px;
+    color: #f0f0f0;
+}
+
+.descripcion-productos-administrador {
+    background: #234;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.textarea-administrador {
+    outline: none;
+    border: none;
+    width: 100%;
+}
+
+.contenedor-imagenes-administrador {
+    display: flex;
+    flex-direction: column;
+}
+
+.Imagen-principal-producto-administrador {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.Imagen-producto-administrador {
+    max-width: 330px;
+}
+
+.editar-imagenes-administrador {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.editar-imagen-administrador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+}
+
+.botones-editar-administrador {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boton-editar-administrador {
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 105px;
+    height: 40px;
+    background: #234;
+
+}
+
+.titulo-boton-administrador {
+    color: #fff;
+    padding: 0px 5px;
+}
+
+.fa-times-circle {
+    font-size: 20px;
+    color: red;
+}
+
+.fa-check-circle {
+    font-size: 20px;
+    color: green;
+}
+
+@media (min-width: 468px){
+    .formulario-agregar-producto {
+        max-width: 90%;
+    }
+
+    .editar-imagen-administrador {
+        width: 80px;
+        height: 80px;
+    }
+
+    .boton-editar-administrador {
+        width: 120px;
+        height: 50px;
+    }
+
+    .seleccion-administrador {
+        width: 150px;
+        height: 50px;
+        padding: 5px;
+    }
+}
+
+@media (min-width: 768px){
+    .boton-editar-administrador {
+        width: 150px;
+        height: 50px;
+    }
+
+    .seleccion-administrador {
+        width: 150px;
+        height: 50px;
+        padding: 5px;
+    }
+}
+
+@media (min-width: 992px){
+    .tablero-agregar-producto-administrador {
+        width: 100vw;
+        height: calc(100vh - 70px);
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .tablero-agregar-producto-administrador .contenedor-formulario-agregar-producto {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .formulario-agregar-producto {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .entrada-agregar-dato {
+        margin-bottom: 30px;
+    }
+
+    .contenedor-agregar-administrador {
+        width: 50%;
+        height: 500px;
+    }
+
+    .botones-editar-administrador {
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 50px;
+    }
+
+    .contenedor-imagenes-administrador {
+        width: 50%;
+        height: 500px;
+        margin-top: 35px;
+    }
+
+    .Imagen-producto-administrador {
+        max-width: 330px;
+    }
+    .editar-imagenes-administrador {
+        margin-top: 50px;
+    }
+
+    .editar-imagen-administrador {
+        width: 120px;
+        height: 120px;
+    }
+}
