@@ -20,7 +20,7 @@ let controller = {
 
     actualizar: function(req, res){
         let title = 'Actualizar producto';
-        res.render('admin/actualizarProducto.ejs', {title});
+        res.render('admin/product-edit-form.ejs', {title});
     }
 }
 
