@@ -9,7 +9,7 @@ let app = express();
 
 router.get('/register', userController.register)
 router.get('/login', userController.login)
-router.get('/carrito', userController.carrito)
+router.get('/profile', userController.profile)
 
 
 

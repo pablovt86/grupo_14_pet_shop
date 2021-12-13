@@ -1,12 +1,21 @@
+const {getProductos} = require('../data/dataBase')
 let controller = {
     index: function(req, res){
         let title = 'Panel de administrador';
-        res.render('admin/administrador.ejs', {title});
+        res.render('admin/administrador.ejs', {title,
+            productos:getProductos
+        });
     },
 
     agregar: function(req, res){
-        let title = 'Guardar nuevo producto';
-        res.render('admin/agregarProducto.ejs', {title});
+        let productId = +req.params.id;
+        let productos = getProductos.find(product => product.id == productId)
+
+        res.render('admin/agregarProducto.ejs', {
+            title:'Guardar nuevo producto',
+            productos
+        
+        });
     },
 
     actualizar: function(req, res){
