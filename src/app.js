@@ -4,12 +4,11 @@ const path = require('path');
 let port = 3000;
 const methodOverride = require('method-override')
 
-
-
 app.use(express.static(path.join(__dirname, '../public/')));
 app.use(express.json())
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
+
 
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
@@ -18,7 +17,7 @@ app.set('view engine', 'ejs');
 
 let usersRouter = require('./routes/users');
 let productsRouter = require('./routes/products');
-let adminRouter = require('./routes/adminRouter.js');
+let adminRouter = require('./routes/adminRouter');
 
 
 

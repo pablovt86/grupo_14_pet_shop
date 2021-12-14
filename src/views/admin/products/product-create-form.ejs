@@ -49,7 +49,6 @@
                             <select class="seleccion-admin" name="category">
                                 <option selected hidden value="">categorias</option>
                                 <% categories.forEach(category => { %>
-                              
                                 <option class="opcion-admin" value="<%- category.id %> " ><%=category.name  %>  </option>
                                 <% }) %> 
                             </select>
@@ -58,10 +57,9 @@
                     <div class="select-opciones-administrador">
                         <label>Sub-Categorías:</label>
                         <div class="select-opcion-administrador">
-                            <select class="seleccion-admin" name="category">
+                            <select class="seleccion-admin" name="subcategory">
                                 <option selected hidden value="">sub-categorias</option>
-                                <% subcategory.forEach(subcategory => { %>
-                              
+                                <% subcategory.forEach(subcategory => { %>     
                                 <option class="opcion-admin" value="<%- subcategory %> " > <%=subcategory  %>  </option>
                                 <% }) %> 
                             </select>

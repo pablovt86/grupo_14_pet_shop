@@ -20,6 +20,9 @@
                        <th>Nombre</th>
                        <th>descripcion</th>
                        <th>Categoria</th>
+                       <th>
+                         subcategoria
+                       </th>
                        <th>descuento</th>
                        <th>Precio</th>
                        
@@ -34,9 +37,11 @@
                        <td><%= product.id %> </td>
                        <td><%= product.name %> </td>
                        <td><%= product.description %> </td>
+
                        <td>
                          <%= product.category %> 
                        </td>
+                       <td><%= product.subcategory %> </td>
                        <td><%= product.discount %> </td>
                        <td><%= product.price %> </td>
              
@@ -45,8 +50,8 @@
                        </td>
                          <td><%= product.marca %> </td>
                        <td>
-                        <a href="/admin/product/edit/<%=product.id %>" method ="get" >  <button class="btn btn-info"> editar</button></a>
-                        <a href="/admin/product/delete/<%=product.id %>?_method=DELETE" method="POST" ><button class="btn btn-danger">eliminar articulo</button></a>
+                        <a href="/admin/product/edit/<%=product.id %>" method="get" >  <button class="btn btn-info"> editar</button></a>
+                        <a href="/admin/product/delete/<%=product.id %>?_method=DELETE" method="post" ><button class="btn btn-danger">eliminar articulo</button></a>
                        </td>
              
                        </tr>
