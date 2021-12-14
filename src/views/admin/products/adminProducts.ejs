@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include('../partials/head.ejs')%>
+    <%- include('../../partials/head.ejs')%>
 <body>
-    <%- include('../partials/header-administracion.ejs')%>
+    <%- include('../../partials/header-administracion.ejs')%>
     <div class="row">
         <div class="col-lg-8 col-md-8 col-xs-12">
-          <h2>crear Productos<a href="/products/create"><button style="margin-left:10px" class="btn btn-success ">Nuevo</button></a></h2>
+          <h2>crear Productos<a href="/admin/products/create"><button style="margin-left:10px" class="btn btn-success ">Nuevo</button></a></h2>
        
         </div>
       </div>
@@ -41,12 +41,12 @@
                        <td><%= product.price %> </td>
              
                        <td>
-                           <img src="/images/products/<%=product.image[0]%> " height="100px" width="100px" class="img-thumbnail">
+                           <img src="/images/products<%= product.image[0] %> " height="100px" width="100px" class="img-thumbnail">
                        </td>
                          <td><%= product.marca %> </td>
                        <td>
-                       <a href="admin/product/edit/<%=product.id %>" method ="get" >  <button class="btn btn-info"> editar</button></a>
-                         <a href="#" ><button class="btn btn-danger">eliminar articulo</button></a>
+                        <a href="/admin/product/edit/<%=product.id %>" method ="get" >  <button class="btn btn-info"> editar</button></a>
+                        <a href="/admin/product/delete/<%=product.id %>?_method=DELETE" method="POST" ><button class="btn btn-danger">eliminar articulo</button></a>
                        </td>
              
                        </tr>

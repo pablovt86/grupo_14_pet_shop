@@ -1,15 +1,17 @@
 let express = require('express');
 let router = express.Router();
-let controller = require('../controller/adminController')
-
+let controller = require('../controller/adminController');
+let upload = require('../middleware/uploadProduct')
 
 router.get('/', controller.index);
-<<<<<<< HEAD
-router.get('/agregar/:id', controller.agregar);
-router.get('/actualizar', controller.actualizar);
-=======
-router.get('/agregar', controller.agregar);
-router.get('/editar', controller.actualizar);
->>>>>>> 2f3f2dde2c4c905f878e52051c41b82a66cd4225
+router.get('/products', controller.products)
+router.get('/products/create', controller.create);
+router.post('/products/store',upload.single("image"),controller.store);
+
+
+router.get('/product/edit/:id', controller.edit);
+router.put('/product/update/:id',upload.single("image") ,controller.update);
+router.delete('/product/delete/:id', controller.delete);
+
 
 module.exports = router;

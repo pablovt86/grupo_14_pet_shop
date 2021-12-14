@@ -2,10 +2,15 @@ const express = require('express');
 const app = express();
 const path = require('path');
 let port = 3000;
+const methodOverride = require('method-override')
 
 
 
 app.use(express.static(path.join(__dirname, '../public/')));
+app.use(express.json())
+app.use(express.urlencoded({extended:false}));
+app.use(methodOverride('_method'));
+
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
@@ -20,28 +25,9 @@ let adminRouter = require('./routes/adminRouter.js');
 // MIDDLEWARES
 app.use('/users', usersRouter)
 app.use('/', productsRouter)
-app.use('/administrador', adminRouter);
+app.use('/admin', adminRouter);
 
 
 
-// app.get('/productDetail', function(req, res){
-//     res.sendFile(path.join(__dirname, 'views/productDetail.html'))
-
-// });
-// app.get('/', function(req, res){
-//     res.sendFile(path.join(__dirname, 'views/home.html'));
-// });
-
-// app.get('/login', function(req, res){
-//     res.sendFile(path.join(__dirname, 'views/login.html'));
-// });
-
-// app.get('/register', function(req, res){
-//     res.sendFile(path.join(__dirname, 'views/register.html'));
-// });
-
-// app.get('/carrito', function(req, res){
-//     res.sendFile(path.join(__dirname, 'views/carrito.html'));
-// });
 app.listen(port, ()=>console.log(`servidor Escuchando en Puerto ${port} http://localhost:${port}`));
 
