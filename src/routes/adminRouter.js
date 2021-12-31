@@ -6,11 +6,11 @@ let upload = require('../middleware/uploadProduct')
 router.get('/', controller.index);
 router.get('/products', controller.products)
 router.get('/products/create', controller.create);
-router.post('/products/store',upload.single("image"),controller.store);
-
+router.post('/products/store',upload.single('image'),controller.store);
+router.get('/product/search', controller.search)
 
 router.get('/product/edit/:id', controller.edit);
-router.put('/product/update/:id',upload.single("image") ,controller.update);
+router.put('/product/update/:id',upload.single('image') ,controller.update);
 router.delete('/product/delete/:id', controller.delete);
 
 

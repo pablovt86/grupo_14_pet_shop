@@ -1,3 +1,7 @@
+.user-icons-desktop{
+    display: none;
+}
+
 .shopping i{
 font-size: var(--extra-big);
 color: var(--tex);
@@ -19,6 +23,10 @@ align-items: center;
 .caja-foto{
 display: block;
 line-height: 0;
+}
+.caja-foto img {    
+    width: 100%;
+
 }
 .nabvar-tablet{
 display: none;
@@ -170,7 +178,7 @@ display: none;
 /* fin burguer menu */
 .main-header-top-bar{
 display: flex;
-flex-direction: row-reverse;
+/* flex-direction: row-reverse; */
 padding: 30px 0;
 align-items: center;
 justify-content: space-around;
@@ -183,7 +191,7 @@ display: flex;
 width: 100%;
 }
 .search-form_input{
-margin-left: 26px;
+/* margin-left: 26px; */
 width: 100%;
 border: 1px solid grey;
 border-radius: 20px;
@@ -244,7 +252,7 @@ color: var(--tex)
 
 
 .main-header{
-background-image: url(/images/fondo-2.png);
+/* background-image: url(/images/fondo-2.png); */
 /* background: radial-gradient(#fff, #ffd6d6); */
 /* font-size: 12px; */
 padding-bottom: 10px;
@@ -288,15 +296,56 @@ display: flex;
 
 @media(min-width:768px){ 
     
-.main-header{
-    background-image: url(/images/fondo-2.png);
-}
+/* .main-header{
+    background: radial-gradient(#856666, #e30505);} */
 .nabvar-tablet{
 display: flex;
 }
 .search-tablet{
     display: flex;
 }
+/* usuario en session */
+.user-icons-desktop {
+    display: flex;
+    font-size: 24px;
+    order: 4;
+}
+.user-icons-desktop i {
+    margin-left: 10px;
+}
+
+.user {
+    position: relative;
+}
+
+.menu-user {
+    display: none;
+    position: absolute;
+    font-size: 1rem;
+    width: 9rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin-left: -3rem;
+}
+
+.user:hover .menu-user{
+   display: block;
+
+}
+
+.session {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #00d900;
+    border-radius: 50px;
+    position: relative;
+    top: -10px;
+    right: 0px;
+}
+/* end session */
+
 .buscador{
     display: none;
 }
@@ -364,7 +413,6 @@ margin: 0;
 .caja-foto{
     display: flex;
     order: 4;
-    width: 35%;
 }
 .caja-foto img {    
     width: 100%;
@@ -414,7 +462,8 @@ color: var(--tex);
 }
 
 .container-search{
-width: 47%;
+width: 50%;
+order: 4;
 }
 
 
@@ -435,11 +484,11 @@ margin: 0 5px;
 
 
 @media(min-width:1200px){
-.main-header-top-bar, .main-navbar{
+/* .main-header-top-bar, .main-navbar{
 max-width: 1200px;
 margin: auto;
 
-}
+} */
 .main-header-top-bar{
 align-items: center;
 }

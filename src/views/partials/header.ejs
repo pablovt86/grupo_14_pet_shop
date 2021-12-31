@@ -14,19 +14,37 @@
 <div class="shopping"> <i class="fal fa-shopping-cart"></i></div>
 
 <div class="caja-foto">
-  <img src="../images/zyro-image4.png"width="160px" height="160px"  >
+  <img src="../images/zyro-image4.png" >
 </div> 
 <div class="container-search">
 
 <p class="buscador"><i class="fas fa-search" onclick="search()"></i></p>
-<form action="" method="get" class="search-tablet">
-  <input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
+<form action="/product/search" method="get" class="search-tablet">
+  <input type="text" name="searchHome" placeholder="Buscar productos, marcas y más" class="search-form_input">
   <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
   </form>
 
 </div>
+<div class="user-icons-desktop " >
+  <div class="user">
+      <% if (typeof session.user != "undefined") { %>
+          <i class="fas fa-user"></i><span class="session"></span>
+          <div class="menu-user">
+              <a href="/users/profile">Mis datos</a>
+              <a href="/users/logout">Cerrar sesión</a>
+              <% if (session.user.rol === "ROL_ADMIN") { %>
+                  <a href="/admin/index">ADMIN</a>
+              <% } %>
+          </div>
+      <% } else {%>
+          <a href="/users/login"><i class="fas fa-user"></i></a>
+      <% } %>
+  </div>
+  <a href="/"><i class="fas fa-shopping-cart"></i></a>
+</div>
 
 </div>
+
 
 <!-- burgue modo mobile -->
 <div class = "burger">
@@ -133,7 +151,9 @@ mascotas
     
     
     </ul>
+ 
 </div>
+
 </header>
 <script src="/js/header.js"> 
 </script>

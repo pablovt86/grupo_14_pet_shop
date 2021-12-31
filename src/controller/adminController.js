@@ -103,8 +103,8 @@ delete:function(req,res){
     let productId = +req.params.id;
     products.forEach(product=> {
     if (product.id === productId) {
-        if(fs.existsSync('./public/images/products', product.image)){
-            fs.unlinkSync(`./public/images/products', ${product.image}`)
+        if(fs.existsSync('./public/images/products/', product.image[0])){
+            fs.unlinkSync(`./public/images/products/${product.image[0]}`)
         }else{
             console.log("no encontre el archivo");
     }
@@ -121,6 +121,17 @@ delete:function(req,res){
     writeProductsJson(products)
 
     res.redirect('/admin/products')
+
+},
+search:function(req,res){
+let search = req.query.searchAdmin.toLowerCase().trim();
+let resultados = products.filter(product=> product.name.toLowerCase().trim().includes(search))
+res.render('admin/products/searchAdmin.ejs',{
+    resultados,
+    title:"resultado de busqueda",
+    search
+   
+})
 
 }
 

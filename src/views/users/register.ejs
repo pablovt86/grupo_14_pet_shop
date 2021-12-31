@@ -3,31 +3,69 @@
   <%- include('../partials/head.ejs') %> 
 
 <body class="forms-body">
-  <%- include('../partials/header.ejs') %>    <main>
+  <%- include('../partials/header.ejs') %>   
+   <main>
       <div class="forms">
-        <form autocomplete="off">
-            <div class="img-card"><img src="../images/images-forms/duo-2.png" width="380px" alt="foto de mascotas"></div>
+        <form action="/users/register" method="POST" enctype="multipart/form-data" class="form-ad" >
+          <div class="img-card"><img src="../images/images-forms/duo-2.png" width="380px" alt="foto de mascotas"></div>
             <div class="icon-form"><img src="../images/icons-forms/register.png" alt="icono registro"></div>
-            <div>
+            <div class="input mb-1">
                 <img class="icon-input" src="../images/icons-forms/login.png" width="30px" alt="icono usuario">
-                <input class="input-text" type="text" id="user" placeholder="Nombre de usuario">
+
+                <input type="text" name="name" placeholder="Nombre" value="<%= locals.old && old.name %>">
+                <% if (locals.errors && errors.name) { %>
+                    <small class="text-danger"><%= errors.name.msg %> </small>
+                <% } %>
+
             </div>
-            <div class="div-error"><img src="../images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Ingrese un nombre de usuario.</p></div>
-            <div>
-                <img class="icon-input" src="../images/icons-forms/email.png" width="30px" alt="icono email">
-                <input class="input-text" type="text" id="email" placeholder="Email">
+            <div class="input mb-1">   
+                         <img class="icon-input" src="../images/icons-forms/login.png" width="30px" alt="icono usuario">
+
+              <input type="text" name="last_name" placeholder="apellido" value="<%= locals.old && old.last_name %>">
+              <% if (locals.errors && errors.name) { %>
+                  <small class="text-danger"><%= errors.last_name.msg %> </small>
+              <% } %>
+
+          </div>
+          <div class="input mb-1">                <img class="icon-input" src="../images/icons-forms/email.png" width="30px" alt="icono email">
+                <input type="text" name="email" placeholder="email" value="<%= locals.old && old.email %>">
+                <% if (locals.errors && errors.email) { %>
+                    <small class="text-danger"><%= errors.email.msg %> </small>
+                <% } %>
             </div>
-            <div class="div-error"><img src="../images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Debe ingresar un email.</p></div>
-            <div>
-                <img class="icon-input" src="../images/icons-forms/lock-open.png" width="30px" alt="icono contraseña">
-                <input class="input-text" type="text" id="pass" placeholder="Contraseña">
-            </div>
-            <div class="div-error"><img src="../images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Debe ingresar una contraseña.</p></div>
+
+
+            <div class="input mb-1">                <img class="icon-input" src="../images/icons-forms/lock-open.png" width="30px" alt="icono contraseña">
+                <input type="password" name="pass1" placeholder="Contraseña">
+                <% if (locals.errors && errors.pass1) { %>
+                    <small class="text-danger"><%= errors.pass1.msg %> </small>
+                <% } %>
+              </div>
             <div>
                 <img class="icon-input" src="../images/icons-forms/modern-key.png" width="30px" alt="icono confirmar contraseña">
-                <input class="input-text" type="text" id="pass-confirm" placeholder="Confirma contraseña">
+           
+                <input type="password" name="pass2" placeholder="Repetir contraseña">
+                <% if (locals.errors && errors.pass2) { %>
+                    <small class="text-danger"><%= errors.pass2.msg %> </small>
+                <% } %>
+           
+           
+              </div>
+              <div class="input-file">
+                <input type="file" name="avatar">
+                <% if (locals.errors && errors.image) { %>
+                    <small class="text-danger"><%= errors.image.msg %> </small>
+                <% } %>
             </div>
-            <div class="div-error"><img src="../images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Ingrese la contraseña anterior.</p></div>
+
+            <div class="form-ad-input_check  " >
+              <input type="checkbox" name="terms" id="check">
+              <label for="check">Acepto los términos y condiciones</label>
+              <% if (locals.errors && errors.terms) { %>
+                  <small class="text-danger"><%= errors.terms.msg %> </small>
+              <% } %>
+          </div>
+
             <div><button class="button-form" type="submit">Registrarme</button></div>
             <div class="link"><a class="link-login" href="/login">Ya tengo cuenta!</a></div>
         </form>

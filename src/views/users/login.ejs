@@ -5,26 +5,34 @@
   <%- include('../partials/header.ejs') %> 
     <main>
       <div class="forms">
-        <form autocomplete="off">
+        <form action="/users/login" method="POST" class="form-ad">
             <div class="img-card"><img src="../images/images-forms/duo-1.png" width="380px" alt="foto de mascotas"></div>
             <div class="icon-form"><img src="../images/icons-forms/account-circle.png" alt="icono login"></div>
             <div>
                 <img class="icon-input" src="../images/icons-forms/login.png" width="35px" alt="icono usuario">
-                <input class="input-text" type="text" id="user" placeholder="Usuario o email">
-            </div>
-            <div class="div-error"><img src="../images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Ingrese su usuario o email.</p></div>
+                <input type="text" class="input-text" name="email" placeholder="email" value="<%= locals.old && old.email %>">
+                <% if (locals.errors && errors.email) { %>
+                    <small class="text-danger"><%= errors.email.msg %> </small>
+                <% } %>            </div>
             <div>
                 <img class="icon-input" src="../images/icons-forms/lock.png" width="35px" alt="icono contraseña">
-                <input class="input-text" type="text" id="pass" placeholder="Contraseña">
-            </div>
-            <div class="div-error"><img  class="icon-error" src="../images/icons-forms/error.png" width="25px" alt="icono de error"><p class="text-error">Debe ingresar su contraseña.</p></div>
-            <div class="div-remember">
-                <div class="input-checkbox"><input type="checkbox" id="remember"></div>
-                <div><label for="remember">Recordarme</label></div>
-            </div>
+                <input type="password" class="input-text"name="pass" placeholder="Contraseña">
+
+                <% if (locals.errors && errors.pass) { %>
+                  <small class="text-danger"><%= errors.pass.msg %> </small>
+              <% } %>            </div>
+              <br>
+              <div class="form-ad-input_check  " >
+              <input type="checkbox" name="terms" id="check">
+              <label for="check">Acepto los términos y condiciones</label>
+              <% if (locals.errors && errors.terms) { %>
+                  <small class="text-danger"><%= errors.terms.msg %> </small>
+              <% } %>
+          </div>
+          <br>
             <div><button class="button-form" type="submit">Iniciar Sesión</button></div>
             <div class="link"><a class="link-login" href="#">¿Olvidaste tu contraseña?</a></div>
-            <div class="button-register"><a class="button-link-register" href="/register">Crear nueva Cuenta</a></div>
+            <div class="button-register"><a class="button-link-register" href="/users/register">Crear nueva Cuenta</a></div>
         </form>
         <div class="mascotas-img"><img src="../images/images-forms/mascotas.png" alt="foto de mascotas"></div>
       </div>

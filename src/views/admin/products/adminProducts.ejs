@@ -46,13 +46,17 @@
                        <td><%= product.price %> </td>
              
                        <td>
-                           <img src="/images/products<%= product.image[0] %> " height="100px" width="100px" class="img-thumbnail">
+                           <img src="/images/products/<%= product.image[0] %> " height="100px" width="100px" class="img-thumbnail">
                        </td>
                          <td><%= product.marca %> </td>
                        <td>
                         <a href="/admin/product/edit/<%=product.id %>" method="get" >  <button class="btn btn-info"> editar</button></a>
-                        <a href="/admin/product/delete/<%=product.id %>?_method=DELETE" method="post" ><button class="btn btn-danger">eliminar articulo</button></a>
-                       </td>
+                        <form method="POST" action="/admin/product/delete/<%= product.id %>?_method=DELETE">
+                          <button class="btn btn-danger"type="submit">eliminar</button> 
+                        </form>
+                     
+                     
+                      </td>
              
                        </tr>
                        <% }) %>  
