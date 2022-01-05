@@ -13,6 +13,8 @@ router.post('/register',uploadAvatar.single('avatar'), registerValidator,userCon
 
 router.get('/login', userController.login)
 router.post('/login',loginValidator, userController.processLogin)
+router.get('/logout', userController.logout)
+
 
 router.get('/profile', userController.profile)
 

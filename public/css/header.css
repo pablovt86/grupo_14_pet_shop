@@ -1,7 +1,57 @@
+
+/* .main-header{
+} */
 .user-icons-desktop{
     display: none;
 }
 
+/* usuario en session en mobile */
+
+.user-icons-mobile {
+    display: flex;
+    font-size: 24px;
+    order: 4;
+    margin-right: 30px;
+}
+.user-icons-mobile i {
+    margin-left: 10px;
+}
+
+.user-mobile {
+    position: relative;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-user-mobile {
+    display: none;
+    position: absolute;
+    font-size: 1rem;
+    width: 9rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin-left: -3rem;
+}
+
+.user-mobile:hover .menu-user-mobile{
+   display: block;
+
+}
+
+.session-mobile {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #00d900;
+    border-radius: 50px;
+    position: relative;
+    top: -10px;
+    right: 0px;
+}
+/* end mobile session */
 .shopping i{
 font-size: var(--extra-big);
 color: var(--tex);
@@ -61,7 +111,7 @@ background-color: var(--tex);
 height: 50px;
 display: flex;
 flex-direction: row;
-justify-content: flex-start;
+justify-content: space-between;
 align-items: center;
 position: relative;
 top: -14px;
@@ -309,6 +359,7 @@ display: flex;
     display: flex;
     font-size: 24px;
     order: 4;
+    margin-right: 30px;
 }
 .user-icons-desktop i {
     margin-left: 10px;
@@ -316,6 +367,10 @@ display: flex;
 
 .user {
     position: relative;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu-user {
@@ -415,7 +470,7 @@ margin: 0;
     order: 4;
 }
 .caja-foto img {    
-    width: 100%;
+    width: 90%;
 
 }
 .shopping{
@@ -484,11 +539,11 @@ margin: 0 5px;
 
 
 @media(min-width:1200px){
-/* .main-header-top-bar, .main-navbar{
-max-width: 1200px;
-margin: auto;
+.main-header-top-bar, .main-navbar{
+/* max-width: 1200px; */
+/* margin: auto; */
 
-} */
+}
 .main-header-top-bar{
 align-items: center;
 }

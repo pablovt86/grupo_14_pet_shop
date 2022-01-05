@@ -1,7 +1,7 @@
 
 const {users, writeUsersJson} = require('../data/dataBase')
 const { validationResult } = require('express-validator')
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 
 let usersController = {
@@ -35,7 +35,7 @@ let usersController = {
                 name,
                 last_name,
                 email, 
-                pass: pass1,
+                pass: pass1, 
                 avatar: req.file ? req.file.filename : "default-image.png",
                 rol: "ROL_USER",
                 tel: "",
@@ -74,7 +74,8 @@ let usersController = {
                 last_name: user.last_name,
                 email: user.email,
                 avatar: user.avatar,
-                rol: user.rol
+                rol: user.rol,
+                tel:user.tel
             }
 
            if(req.body.remember){
@@ -98,10 +99,20 @@ let usersController = {
             })
         }
     },
-  
+  logout:(req,res)=>{
+    req.session.destroy();
+    if(req.cookies.userPetshop){
+        res.cookie('userPetshop', "", { maxAge: -1 })
+    }
+    res.redirect('/')
+      
+  },
    
     profile:(req, res)=>{
-        res.render('users/profile',{title:"carrito"})
+        res.render('users/profile',{
+        title:"profile",
+         session:req.session,      
+          })
 
     }
 }

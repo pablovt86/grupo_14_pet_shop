@@ -1,20 +1,4 @@
-
-// var myIndex = 0;
-// carousel();
-// function carousel() {
-//     var i;
-//     var x = document.getElementsByClassName("mySlides");
-//     for (i = 0; i < x.length; i++) {
-//       x[i].style.display = "none";  
-//     }
-//     myIndex++;
-//     if (myIndex > x.length) {myIndex = 1}    
-//     x[myIndex-1].style.display = "block";  
-//     setTimeout(carousel, 9000);    
-//   }
-
-
-  let slideIndex = 1; //Establece el slide inicial
+let slideIndex = 1; //Establece el slide inicial
 showSlides(slideIndex)
 
 // Controles de anterior y siguiente
@@ -62,7 +46,7 @@ function showSlides (number) {
 
 /* EXTRAAAA */
 
-setTimeout(() => {
+setInterval(() => {
     currentSlide(slideIndex + 1)
 }, 5000);  
 

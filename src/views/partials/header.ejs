@@ -122,10 +122,28 @@ mascotas
 </nav>
 </div>
 <div class="header-bottom">
-<span>          <i class="far fa-user"></i>
-</span>
-<ul><li><a href="/users/register"> crea una cuenta </a></li>
-<li><a href="/users/login"> inicia sesion </a></li></ul>
+  <div class="user-icons-mobile " >
+
+  <div class="user-mobile">
+    <% if (typeof session.user != "undefined") { %>
+        <i class="fas fa-user"></i><span class="session-mobile"></span>
+        <div class="menu-user-mobile">
+            <a href="/users/profile">Mis datos</a>
+            <a href="/users/logout">Cerrar sesión</a>
+            <% if (session.user.rol === "ROL_ADMIN") { %>
+                <a href="/admin/index">ADMIN</a>
+            <% } %>
+        </div>
+    <% } else {%>
+        <a href="/users/login"><i class="fas fa-user"></i></a>
+    <% } %>
+</div>
+</div>
+<!-- <ul><li><a href="/users/register"> registrate </a></li>
+  <li>
+    <a href="/carrito">
+      <i class="fal fa-shopping-cart"></i>
+    </a> </li> -->
 <li><a href="#" id="end-table" onclick="endTable()"> x </a></li></ul>
 
 

@@ -1,3 +1,9 @@
+
+
+/* .home{
+  background-image: url("/images/fondo-2.png");
+background-color: black;
+} */
 .navbar {
     display: flex;
     align-items: center;
@@ -280,7 +286,7 @@
   }
   
   /*---------------media query ----------------------*/
-  
+ 
   @media only screen and (max-width: 800px) {
     nav ul {
       position: absolute;
