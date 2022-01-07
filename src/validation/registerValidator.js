@@ -10,12 +10,23 @@ module.exports = [
     check('last_name')
     .notEmpty()
     .withMessage('El apellido es requerido'),
+    check('tel')
+    .notEmpty()
+    .withMessage('el campo no puede estar vacio').isLength({
+        min: 10,
+        max: 10
+    })
+    .withMessage('el campo debe tener 10 caracteres'),
 
     check('email')
     .isEmail()
     .withMessage('Debes ingresar un email válido'),
 
-    body('email').custom((value) => {
+    body('email').custom((value, {req}) => {
+      
+
+
+
        let user = users.find(user=>{ 
             return user.email == value 
         })
@@ -25,6 +36,7 @@ module.exports = [
         }else{
             return true
         }
+   
     }).withMessage('Email ya registrado'),
 
     check('pass1')
@@ -42,4 +54,6 @@ module.exports = [
     check('terms')
     .isString('on')
     .withMessage('Debes aceptar las bases y condiciones')
+
+
 ]

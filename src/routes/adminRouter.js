@@ -1,9 +1,10 @@
 let express = require('express');
 let router = express.Router();
 let controller = require('../controller/adminController');
-let upload = require('../middleware/uploadProduct')
+let upload = require('../middleware/uploadProduct');
+// let validadorAdmin = require("../validation/validadorAdmin")
 
-router.get('/', controller.index);
+router.get('/administrador', controller.index);
 router.get('/products', controller.products)
 router.get('/products/create', controller.create);
 router.post('/products/store',upload.single('image'),controller.store);

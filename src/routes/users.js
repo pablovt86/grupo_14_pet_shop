@@ -8,6 +8,7 @@ let loginValidator = require('../validation/loginValidator')
 
 
 
+
 router.get('/register', userController.register)
 router.post('/register',uploadAvatar.single('avatar'), registerValidator,userController.processRegister)
 

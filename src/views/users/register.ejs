@@ -12,7 +12,7 @@
             <div class="input mb-1">
                 <img class="icon-input" src="../images/icons-forms/login.png" width="30px" alt="icono usuario">
 
-                <input type="text" name="name" placeholder="Nombre" value="<%= locals.old && old.name %>">
+                <input type="text" class="input-text" name="name" placeholder="Nombre" value="<%= locals.old && old.name %>">
                 <% if (locals.errors && errors.name) { %>
                     <small class="text-danger"><%= errors.name.msg %> </small>
                 <% } %>
@@ -21,22 +21,28 @@
             <div class="input mb-1">   
                          <img class="icon-input" src="../images/icons-forms/login.png" width="30px" alt="icono usuario">
 
-              <input type="text" name="last_name" placeholder="apellido" value="<%= locals.old && old.last_name %>">
+              <input type="text" class="input-text"  name="last_name" placeholder="apellido" value="<%= locals.old && old.last_name %>">
               <% if (locals.errors && errors.name) { %>
                   <small class="text-danger"><%= errors.last_name.msg %> </small>
               <% } %>
 
           </div>
           <div class="input mb-1">                <img class="icon-input" src="../images/icons-forms/email.png" width="30px" alt="icono email">
-                <input type="text" name="email" placeholder="email" value="<%= locals.old && old.email %>">
+                <input type="text" class="input-text" name="email" placeholder="email" value="<%= locals.old && old.email %>">
                 <% if (locals.errors && errors.email) { %>
                     <small class="text-danger"><%= errors.email.msg %> </small>
                 <% } %>
             </div>
+            <div class="input mb-1">            <img class="icon-input" src="../images/icons-forms/login.png" width="30px" alt="icono usuario">    
+              <input type="number" class="input-text" name="tel" placeholder="telefono" value="<%= locals.old && old.tel %>">
+              <% if (locals.errors && errors.tel) { %>
+                  <small class="text-danger"><%= errors.tel.msg %> </small>
+              <% } %>
+          </div>
 
 
             <div class="input mb-1">                <img class="icon-input" src="../images/icons-forms/lock-open.png" width="30px" alt="icono contraseña">
-                <input type="password" name="pass1" placeholder="Contraseña">
+                <input type="password" class="input-text" name="pass1" placeholder="Contraseña">
                 <% if (locals.errors && errors.pass1) { %>
                     <small class="text-danger"><%= errors.pass1.msg %> </small>
                 <% } %>
@@ -44,7 +50,7 @@
             <div>
                 <img class="icon-input" src="../images/icons-forms/modern-key.png" width="30px" alt="icono confirmar contraseña">
            
-                <input type="password" name="pass2" placeholder="Repetir contraseña">
+                <input type="password" class="input-text" name="pass2" placeholder="Repetir contraseña">
                 <% if (locals.errors && errors.pass2) { %>
                     <small class="text-danger"><%= errors.pass2.msg %> </small>
                 <% } %>
@@ -67,7 +73,7 @@
           </div>
 
             <div><button class="button-form" type="submit">Registrarme</button></div>
-            <div class="link"><a class="link-login" href="/login">Ya tengo cuenta!</a></div>
+            <div class="link"><a class="link-login" href="/users/login">Ya tengo cuenta!</a></div>
         </form>
         <div class="mascotas-img"><img src="../images/images-forms/cachorro-1.png" alt="foto de mascotas"></div>
       </div>  

@@ -1,7 +1,7 @@
 
 const {users, writeUsersJson} = require('../data/dataBase')
 const { validationResult } = require('express-validator')
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 
 let usersController = {
@@ -28,17 +28,17 @@ let usersController = {
                 }
             });
 // desctructoro la propiedades del objecto que viene por el body
-            let { name, last_name, email, pass1 } = req.body
+            let { name, last_name, email, pass1, tel } = req.body
 // creo un nuevo objecto con lo que viene por el body
             let newUser = {
                 id: lastId + 1,
                 name,
                 last_name,
                 email, 
-                pass: pass1, 
+                pass: bcrypt.hashSync(pass1,10), 
                 avatar: req.file ? req.file.filename : "default-image.png",
                 rol: "ROL_USER",
-                tel: "",
+                tel: tel,
                 province: ""
             }
 // al array de usuario le agrego a lo ultimo el objecto creado 
