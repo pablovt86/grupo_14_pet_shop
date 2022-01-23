@@ -3,40 +3,51 @@
   <%- include('../partials/head.ejs') %> 
 <body class="forms-body">
   <%- include('../partials/header.ejs') %> 
-    <main>
-      <div class="forms">
-        <form action="/users/login" method="POST" class="form-ad">
-            <div class="img-card"><img src="../images/images-forms/duo-1.png" width="380px" alt="foto de mascotas"></div>
-            <div class="icon-form"><img src="../images/icons-forms/account-circle.png" alt="icono login"></div>
-            <div>
-                <img class="icon-input" src="../images/icons-forms/login.png" width="35px" alt="icono usuario">
-                <input type="text" class="input-text" name="email" placeholder="email" value="<%= locals.old && old.email %>">
-                <% if (locals.errors && errors.email) { %>
-                    <small class="text-danger"><%= errors.email.msg %> </small>
-                <% } %>            </div>
-            <div>
-                <img class="icon-input" src="../images/icons-forms/lock.png" width="35px" alt="icono contraseña">
-                <input type="password" class="input-text"name="pass" placeholder="Contraseña">
-
-                <% if (locals.errors && errors.pass) { %>
-                  <small class="text-danger"><%= errors.pass.msg %> </small>
-              <% } %>            </div>
-              <br>
-              <div class="form-ad-input_check  " >
-              <input type="checkbox" name="terms" id="check">
-              <label for="check">Acepto los términos y condiciones</label>
-              <% if (locals.errors && errors.terms) { %>
-                  <small class="text-danger"><%= errors.terms.msg %> </small>
+  
+  <main class="main-login">
+      <img class="background-form" src="../images/images-forms/background-2.jpg" alt="Imagen fondo de mascotas">
+    <div class="form">
+      <div class="data-container"><h1 class="login">Login</h1></div>
+      <form action="/users/login" method="POST">
+          <div class="data-container">
+              <div class="input-user-container">
+                  <i class="fas fa-envelope"></i>
+                  <input type="text" class="input-text" name="email" placeholder="EMAIL" value="<%= locals.old && old.email %>">
+              </div>
+              <% if (locals.errors && errors.email) { %>
+              <small class="text-error"><%= errors.email.msg %></small>
               <% } %>
           </div>
-          <br>
-            <div><button class="button-form" type="submit">Iniciar Sesión</button></div>
-            <div class="link"><a class="link-login" href="#">¿Olvidaste tu contraseña?</a></div>
-            <div class="button-register"><a class="button-link-register" href="/users/register">Crear nueva Cuenta</a></div>
-        </form>
-        <div class="mascotas-img"><img src="../images/images-forms/mascotas.png" alt="foto de mascotas"></div>
-      </div>
-    </main>
+          <div class="data-container">
+              <div class="input-user-container">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" class="input-text"name="pass" placeholder="CONTRASEÑA">
+              </div>
+              <% if (locals.errors && errors.pass) { %>
+              <small class="text-error"><%= errors.pass.msg %></small>
+              <% } %>
+          </div>
+          <div class="data-container" >
+              <div class="check-user-container">
+                  <input type="checkbox" name="terms" id="check">
+                  <label for="check">Acepto términos y condiciones</label>
+              </div>
+              <% if (locals.errors && errors.terms) { %>
+              <small class="text-error"><%= errors.terms.msg %></small>
+              <% } %>
+          </div>
+          <div class="btn-submit-container" >
+              <button class="btn-form" type="submit">INICIAR SESIÓN</button>
+          </div>
+          <div class="link-pass-user"><a class="link-login" href="#">¿Olvidaste tu contraseña?</a></div>
+          <div class="link-register-user"><a class="link-login" href="/users/register"><i class="fas fa-reply"></i>Crear cuenta</a></div>
+          <div class="data-container">
+              <a href="/"><i class="fas fa-home"></i></a>
+          </div>
+      </form>
+    </div>
+  </main>
+
     <%- include('../partials/footer.ejs') %> 
 </body>
 </html>

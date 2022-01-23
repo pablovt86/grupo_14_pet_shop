@@ -1,0 +1,158 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+main.main-login {
+    padding: 60px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+main.main-login img.background-form {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+
+main.main-login div.form {
+    width: 90%;
+    max-width: 450px;
+    margin: 0px auto;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 8px 8px 20px #000;
+}
+
+main.main-login div.form h1.login {
+   padding: 10px 0px; 
+}
+
+main.main-login div.form div.data-container {
+    width: 95%;
+    margin: 10px auto 0px;
+}
+
+main.main-login div.form div.data-container div.input-user-container {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border: 2px solid #000;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+main.main-login div.form div.data-container div.check-user-container {
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+main.main-login div.form div.data-container div.input-user-container .fa-envelope, .fa-lock, .fa-unlock, .fa-user, .fa-phone {
+    font-size: 20px;
+    padding: 0px 15px;
+    border-right: 2px solid #000;
+    color: #000;
+}
+
+main.main-login div.form div.data-container .fa-home {
+    font-size: 24px;
+    padding: 0px 15px;
+    color: #fff;
+}
+
+main.main-login div.form div.data-container div.input-user-container input.input-text {
+    border: none;
+    outline: none;
+    background: none;
+    width: 100%;
+    padding-left: 5px;
+}
+
+main.main-login div.form div.data-container small.text-error {
+    color: #fff;
+    font-size: 13px;
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+
+main.main-login div.form div.data-container div.file-user-container {
+    margin: 0px auto;
+    width: 100px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 16px;
+    padding-top: 5px;
+}
+
+main.main-login div.form div.data-container div.file-user-container input.input-file-user {
+    display: none;
+}
+
+main.main-login div.form div.btn-submit-container {
+    width: 95%;
+    margin: 20px auto 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+main.main-login div.form div.btn-submit-container button.btn-form {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+main.main-login div.form div.link-pass-user {
+    display: flex;
+    justify-content: end;
+    margin: 10px 15px 0px 0px;
+}
+
+main.main-login div.form div.link-register-user {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+a.link-login {
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+::placeholder {
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    main.main-login div.form {
+        width: 50%;
+    } 
+
+    main.main-login div.form div.btn-submit-container {
+        cursor: pointer;
+    }
+
+    main.main-login div.form div.btn-submit-container button.btn-form {
+       cursor: pointer;
+    }
+}

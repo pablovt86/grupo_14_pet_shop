@@ -3,81 +3,95 @@
   <%- include('../partials/head.ejs') %> 
 
 <body class="forms-body">
-  <%- include('../partials/header.ejs') %>   
-   <main>
-      <div class="forms">
-        <form action="/users/register" method="POST" enctype="multipart/form-data" class="form-ad" >
-          <div class="img-card"><img src="../images/images-forms/duo-2.png" width="380px" alt="foto de mascotas"></div>
-            <div class="icon-form"><img src="../images/icons-forms/register.png" alt="icono registro"></div>
-            <div class="input mb-1">
-                <img class="icon-input" src="../images/icons-forms/login.png" width="30px" alt="icono usuario">
-
-                <input type="text" class="input-text" name="name" placeholder="Nombre" value="<%= locals.old && old.name %>">
-                <% if (locals.errors && errors.name) { %>
-                    <small class="text-danger"><%= errors.name.msg %> </small>
-                <% } %>
-
-            </div>
-            <div class="input mb-1">   
-                         <img class="icon-input" src="../images/icons-forms/login.png" width="30px" alt="icono usuario">
-
-              <input type="text" class="input-text"  name="last_name" placeholder="apellido" value="<%= locals.old && old.last_name %>">
+  <%- include('../partials/header.ejs') %>
+  
+  <main class="main-login">
+      <img class="background-form" src="../images/images-forms/background-2.jpg" alt="Imagen fondo de mascotas">
+    <div class="form">
+      <div class="data-container"><h1 class="login">Registro</h1></div>
+      <form action="/users/register" method="POST" enctype="multipart/form-data">
+          <div class="data-container">
+              <div class="input-user-container">
+                  <i class="fas fa-user"></i>
+                  <input type="text" class="input-text" name="nombre" placeholder="NOMBRE" value="<%= locals.old && old.name %>">
+              </div>
               <% if (locals.errors && errors.name) { %>
-                  <small class="text-danger"><%= errors.last_name.msg %> </small>
+              <small class="text-error"><%= errors.name.msg %></small>
               <% } %>
-
           </div>
-          <div class="input mb-1">                <img class="icon-input" src="../images/icons-forms/email.png" width="30px" alt="icono email">
-                <input type="text" class="input-text" name="email" placeholder="email" value="<%= locals.old && old.email %>">
-                <% if (locals.errors && errors.email) { %>
-                    <small class="text-danger"><%= errors.email.msg %> </small>
-                <% } %>
-            </div>
-            <div class="input mb-1">            <img class="icon-input" src="../images/icons-forms/login.png" width="30px" alt="icono usuario">    
-              <input type="number" class="input-text" name="tel" placeholder="telefono" value="<%= locals.old && old.tel %>">
+          <div class="data-container">
+              <div class="input-user-container">
+                  <i class="fas fa-user"></i>
+                  <input type="text" class="input-text" name="apellido" placeholder="APELLIDO" value="<%= locals.old && old.last_name %>">
+              </div>
+              <% if (locals.errors && errors.last_name) { %>
+              <small class="text-error"><%= errors.last_name.msg %></small>
+              <% } %>
+          </div>
+          <div class="data-container">
+              <div class="input-user-container">
+                  <i class="fas fa-phone"></i>
+                  <input type="tel" class="input-text" name="tel" placeholder="TELÉFONO" value="<%= locals.old && old.tel %>">
+              </div>
               <% if (locals.errors && errors.tel) { %>
-                  <small class="text-danger"><%= errors.tel.msg %> </small>
+              <small class="text-error"><%= errors.tel.msg %></small>
               <% } %>
           </div>
-
-
-            <div class="input mb-1">                <img class="icon-input" src="../images/icons-forms/lock-open.png" width="30px" alt="icono contraseña">
-                <input type="password" class="input-text" name="pass1" placeholder="Contraseña">
-                <% if (locals.errors && errors.pass1) { %>
-                    <small class="text-danger"><%= errors.pass1.msg %> </small>
-                <% } %>
+          <div class="data-container">
+              <div class="input-user-container">
+                  <i class="fas fa-envelope"></i>
+                  <input type="text" class="input-text" name="email" placeholder="EMAIL" value="<%= locals.old && old.email %>">
               </div>
-            <div>
-                <img class="icon-input" src="../images/icons-forms/modern-key.png" width="30px" alt="icono confirmar contraseña">
-           
-                <input type="password" class="input-text" name="pass2" placeholder="Repetir contraseña">
-                <% if (locals.errors && errors.pass2) { %>
-                    <small class="text-danger"><%= errors.pass2.msg %> </small>
-                <% } %>
-           
-           
+              <% if (locals.errors && errors.email) { %>
+              <small class="text-error"><%= errors.email.msg %></small>
+              <% } %>
+          </div>
+          <div class="data-container">
+              <div class="input-user-container">
+                  <i class="fas fa-unlock"></i>
+                  <input type="password" class="input-text"name="pass1" placeholder="CONTRASEÑA">
               </div>
-              <div class="input-file">
-                <input type="file" name="avatar">
-                <% if (locals.errors && errors.image) { %>
-                    <small class="text-danger"><%= errors.image.msg %> </small>
-                <% } %>
-            </div>
-
-            <div class="form-ad-input_check  " >
-              <input type="checkbox" name="terms" id="check">
-              <label for="check">Acepto los términos y condiciones</label>
+              <% if (locals.errors && errors.pass1) { %>
+              <small class="text-error"><%= errors.pass1.msg %></small>
+              <% } %>
+          </div>
+          <div class="data-container">
+              <div class="input-user-container">
+                  <i class="fas fa-lock"></i>
+                  <input type="text" class="input-text" name="pass2" placeholder="CONFIRME CONTRASEÑA">
+              </div>
+              <% if (locals.errors && errors.pass2) { %>
+              <small class="text-error"><%= errors.pass1.msg %></small>
+              <% } %>
+          </div>
+          <div class="data-container">
+              <div class="file-user-container">
+                  <label for="avatar">SUBIR FOTO</label>
+                  <input class="input-file-user" type="file" name="avatar" id="avatar">
+              </div>
+              <% if (locals.errors && errors.image) { %>
+              <small class="text-error"><%= errors.image.msg %></small>
+              <% } %>
+          </div>
+          <div class="data-container" >
+              <div class="check-user-container">
+                  <input type="checkbox" name="terms" id="check">
+                  <label for="check">Acepto términos y condiciones</label>
+              </div>
               <% if (locals.errors && errors.terms) { %>
-                  <small class="text-danger"><%= errors.terms.msg %> </small>
+              <small class="text-error"><%= errors.terms.msg %></small>
               <% } %>
           </div>
-
-            <div><button class="button-form" type="submit">Registrarme</button></div>
-            <div class="link"><a class="link-login" href="/users/login">Ya tengo cuenta!</a></div>
-        </form>
-        <div class="mascotas-img"><img src="../images/images-forms/cachorro-1.png" alt="foto de mascotas"></div>
-      </div>  
-    </main>
+          <div class="btn-submit-container" >
+              <button class="btn-form" type="submit">REGISTRARSE</button>
+          </div>
+          <div class="link-register-user"><a class="link-login" href="/users/login"><i class="fas fa-reply"></i>Ya tengo cuenta</a></div>
+          <div class="data-container">
+              <a href="/"><i class="fas fa-home"></i></a>
+          </div>
+      </form>
+    </div>
+  </main>
     <%- include('../partials/footer.ejs') %> 
 
 </body>
