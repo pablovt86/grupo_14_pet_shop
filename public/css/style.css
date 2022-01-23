@@ -5,7 +5,6 @@
 @import url("home.css");
 @import url("product-detail.css");
 @import url("carrito.css");
-@import url("forms.css");
 @import url('panel-administrador.css');
 @import url('vista-productos-administrador.css');
 @import url('formulario-editar-administrador.css');
@@ -19,5 +18,5 @@
 @import url('service.css');
 @import url('sliderProducts.css');
 @import url('profile.css');
-
+@import url('form-styles.css');
 
