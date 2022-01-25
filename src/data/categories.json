@@ -1,36 +1,37 @@
 [
- {
-     "id":1,
-      "name":"perro",
-      "animal":"domestico"
-       
+     {
+          "id":1,
+          "name":"Perros",
+          "animal":"domestico"
+          
 
- },
- {
-    "id":2,
-     "name":"Gato",
-     "animal":"domestico"
-      
+     },
 
-}, 
-{
-    "id":3,
-     "name":"aves",
-     "animal":"volador"
-} ,  
-{
-    "id":4,
-     "name":"roedores",
-     "animal":"silvestre"
-      
+     {
+     "id":2,
+          "name":"Gatos",
+          "animal":"domestico"
+          
 
-},
-{
-    "id":5,
-     "name":"pez",
-     "animal":"marino"
-      
+     },
 
-}
+     {
+     "id":3,
+          "name":"Aves",
+          "animal":"volador"
+     },
 
+     {
+     "id":4,
+          "name":"Roedores",
+          "animal":"silvestre"
+          
+
+     },
+
+     {
+     "id":5,
+          "name":"Peces",
+          "animal":"marino"
+     }
 ]

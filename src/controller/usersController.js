@@ -8,8 +8,7 @@ let usersController = {
 
     register: (req, res) => {
         res.render('users/register', {
-            session: req.session,
-            title:"register"
+            session: req.session
         })
     },
     processRegister: (req, res) => {
@@ -57,7 +56,7 @@ let usersController = {
         }
     },
     login:(req, res)=>{
-        res.render('users/login',{title:"login",
+        res.render('users/login',{
         session: req.session
     })
 
@@ -110,7 +109,6 @@ let usersController = {
    
     profile:(req, res)=>{
         res.render('users/profile',{
-        title:"profile",
          session:req.session,      
           })
 

@@ -1,0 +1,31 @@
+[
+    {
+        "id" : 1,
+        "name" : "accesorios"
+    },
+
+    {
+        "id" : 2,
+        "name" : "alimentos"
+    },
+
+    {
+        "id" : 3,
+        "name" : "higiene"
+    },
+
+    {
+        "id" : 4,
+        "name" : "indumentaria"
+    },
+
+    {
+        "id" : 5,
+        "name" : "juguetes"
+    },
+
+    {
+        "id" : 6,
+        "name" : "salud"
+    }
+]

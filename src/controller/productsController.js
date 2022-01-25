@@ -23,7 +23,7 @@ let productController = {
 
     },
     carrito:(req, res)=>{
-        res.render('admin/products/carrito',{title:"carrito"})
+        res.render('users/carrito',{title:"carrito"})
 
     },
     listProduct:(req, res)=>{
