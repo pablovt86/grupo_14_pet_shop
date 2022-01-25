@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head.ejs') %> 
+  <%- include('../partials/head', {title: 'Carrito de compras'}) %> 
 <body class="carrito-body">
   <%- include('../partials/header.ejs') %> 
   <main>
@@ -23,7 +23,7 @@
                     </div>
                     <div class="reseña">
                         <p>Cucha para gatos.</p>
-                        <button class="delete"><img src="../images/icons-forms/delete.png" width="30px" alt="icono eliminar producto"></button>
+                        <button class="delete"><i class="fas fa-trash-alt"></i></button>
                     </div>
                     <div class="price-item"><p class="prices">$0.00</p></div>
                     <div class="sub-item"><p class="totals">$0.00</p></div>

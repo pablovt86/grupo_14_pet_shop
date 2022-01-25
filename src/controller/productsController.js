@@ -1,33 +1,30 @@
-let {products} = require('../data/dataBase')
-
+let {products} = require('../data/dataBase');
 
 let productController = {
 
     home:(req, res)=>{
 
-        let productsInSale = products.filter(product => product.discount >= 10)
+        let productsInSale = products.filter(product => product.discount >= 10);
         
         res.render('admin/products/home', {
             sliderTitle: "Novedades",
             sliderProducts: productsInSale,
             title:"home",
             session: req.session
-        })
+        });
     },
-    
-      
-
     
     detail:(req, res)=>{
-        res.render('admin/products/productDetail',{title:"productDetail"})
+        res.render('admin/products/productDetail',{session: req.session});
 
     },
+
     carrito:(req, res)=>{
-        res.render('users/carrito',{title:"carrito"})
+        res.render('users/carrito',{session: req.session});
 
     },
     listProduct:(req, res)=>{
-        res.render('admin/products/listadoProductos',{title:"carrito"})
+        res.render('admin/products/listadoProductos',{session: req.session});
 
     },
     search:function(req,res){

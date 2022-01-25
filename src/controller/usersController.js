@@ -11,6 +11,7 @@ let usersController = {
             session: req.session
         })
     },
+    
     processRegister: (req, res) => {
         // guarda los errores en una variable
         let errors = validationResult(req);
