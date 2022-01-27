@@ -3,50 +3,54 @@ const { users } = require('../data/dataBase')
 
 
 module.exports = [
-    check('name')
+    check('first_name')
     .notEmpty()
-    .withMessage('El nombre es requerido.'),
+    .withMessage('El nombre no puede estar vacío.')
+    .isLength({min: 3, max: 10})
+    .withMessage('Escriba entre 3 y 10 caracteres.'),
 
     check('last_name')
     .notEmpty()
-    .withMessage('El apellido es requerido.'),
+    .withMessage('El apellido no puede estar vacío.').bail()
+    .isLength({min: 3, max: 20})
+    .withMessage('Escriba entre 3 y 20 caracteres.'),
+
     check('tel')
     .notEmpty()
-    .withMessage('el campo no puede estar vacio.').isLength({
-        min: 10,
-        max: 10
-    })
-    .withMessage('el campo debe tener 10 caracteres.'),
+    .withMessage('Necesario para envíos.').bail()
+    .isNumeric()
+    .withMessage('Solo escriba datos numéricos.')
+    .isLength({min: 8, max: 15})
+    .withMessage('Solo válido entre 8 y 15 dígitos.'),
 
     check('email')
+    .notEmpty()
+    .withMessage('El email es obligatorio.').bail()
     .isEmail()
     .withMessage('Debes ingresar un email válido.'),
 
-    body('email').custom((value, {req}) => {
-      
-
-
-
-       let user = users.find(user=>{ 
+    body('email')
+    .custom((value) => {
+        let user = users.find(user=>{ 
             return user.email == value 
-        })
-
+        });
+ 
         if(user){
-            return false
+            return false;
         }else{
-            return true
+            return true;
         }
-   
-    }).withMessage('Email ya registrado.'),
+    }).withMessage('Este email ya está registrado'),
 
     check('pass1')
     .notEmpty()
-    .withMessage('Debes escribir tu contraseña.')
-    .isLength({
-        min: 6,
-        max: 12
-    })
-    .withMessage('La contraseña debe tener entre 6 y 12 caracteres.'),
+    .withMessage('El password es obligatorio.').bail()
+    .isLength({min: 6, max: 6})
+    .withMessage('Contraseña de 6 caracteres.'),
+
+    check('pass2')
+    .notEmpty()
+    .withMessage('Repita la contraseña.').bail(),
 
     body('pass2').custom((value, {req}) => value !== req.body.pass1 ? false : true)
     .withMessage('Las contraseñas no coinciden.'),

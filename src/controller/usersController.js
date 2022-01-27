@@ -52,7 +52,7 @@ let usersController = {
             res.render('users/register', {
                 errors: errors.mapped(),
                 session: req.session,
-                title:"register"
+                old: req.body
             })
         }
     },
@@ -95,7 +95,7 @@ let usersController = {
             res.render('users/login', {
                 errors: errors.mapped(),
                 session: req.session,
-                title:"login"
+                old: req.body
             })
         }
     },
