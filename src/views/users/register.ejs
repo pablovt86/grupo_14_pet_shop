@@ -13,10 +13,10 @@
           <div class="data-container">
               <div class="input-user-container">
                   <i class="fas fa-user"></i>
-                  <input type="text" class="input-text" name="first_name" placeholder="NOMBRE" value="<%= locals.old && old.first_name %>">
+                  <input type="text" class="input-text" name="name" placeholder="NOMBRE" value="<%= locals.old && old.name %>">
               </div>
-              <% if (locals.errors && errors.first_name) { %>
-              <small class="text-error"><%= errors.first_name.msg %></small>
+              <% if (locals.errors && errors.name) { %>
+              <small class="text-error"><%= errors.name.msg %></small>
               <% } %>
           </div>
           <div class="data-container">
@@ -28,15 +28,15 @@
               <small class="text-error"><%= errors.last_name.msg %></small>
               <% } %>
           </div>
-          <div class="data-container">
+          <!--<div class="data-container">
               <div class="input-user-container">
                   <i class="fas fa-phone"></i>
                   <input type="tel" class="input-text" name="tel" placeholder="TELÉFONO" value="<%= locals.old && old.tel %>">
               </div>
-              <% if (locals.errors && errors.tel) { %>
+              /*<% if (locals.errors && errors.tel) { %>
               <small class="text-error"><%= errors.tel.msg %></small>
-              <% } %>
-          </div>
+              <% } %>*/
+          </div>-->
           <div class="data-container">
               <div class="input-user-container">
                   <i class="fas fa-envelope"></i>
@@ -49,16 +49,16 @@
           <div class="data-container">
               <div class="input-user-container">
                   <i class="fas fa-unlock"></i>
-                  <input type="password" class="input-text"name="pass1" placeholder="CONTRASEÑA">
+                  <input type="password" class="input-text"name="password" placeholder="CONTRASEÑA">
               </div>
-              <% if (locals.errors && errors.pass1) { %>
-              <small class="text-error"><%= errors.pass1.msg %></small>
+              <% if (locals.errors && errors.password) { %>
+              <small class="text-error"><%= errors.password.msg %></small>
               <% } %>
           </div>
           <div class="data-container">
               <div class="input-user-container">
                   <i class="fas fa-lock"></i>
-                  <input type="text" class="input-text" name="pass2" placeholder="CONFIRME CONTRASEÑA">
+                  <input type="password" class="input-text" name="pass2" placeholder="CONFIRME CONTRASEÑA">
               </div>
               <% if (locals.errors && errors.pass2) { %>
               <small class="text-error"><%= errors.pass2.msg %></small>

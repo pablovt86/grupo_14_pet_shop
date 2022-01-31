@@ -1,4 +1,4 @@
-let {products} = require('../data/dataBase');
+let {products} = require('../database/dataBase');
 
 let productController = {
 

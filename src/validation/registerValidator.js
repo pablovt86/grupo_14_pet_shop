@@ -1,9 +1,10 @@
 const { check, body } = require('express-validator');
-const { users } = require('../data/dataBase')
+const { users } = require('../database/dataBase');
+const db = require('../database/models');
 
 
 module.exports = [
-    check('first_name')
+    check('name')
     .notEmpty()
     .withMessage('El nombre no puede estar vacío.')
     .isLength({min: 3, max: 10})
@@ -15,13 +16,13 @@ module.exports = [
     .isLength({min: 3, max: 20})
     .withMessage('Escriba entre 3 y 20 caracteres.'),
 
-    check('tel')
+    /*check('tel')
     .notEmpty()
     .withMessage('Necesario para envíos.').bail()
     .isNumeric()
     .withMessage('Solo escriba datos numéricos.')
     .isLength({min: 8, max: 15})
-    .withMessage('Solo válido entre 8 y 15 dígitos.'),
+    .withMessage('Solo válido entre 8 y 15 dígitos.'),*/
 
     check('email')
     .notEmpty()
@@ -31,18 +32,21 @@ module.exports = [
 
     body('email')
     .custom((value) => {
-        let user = users.find(user=>{ 
-            return user.email == value 
-        });
- 
-        if(user){
-            return false;
-        }else{
-            return true;
-        }
-    }).withMessage('Este email ya está registrado'),
+        return db.User.findOne({
+            where: {
+                email: value
+            }
+        })
+        .then((user)=>{
+            if (user) {
+                return Promise.reject('Este email ya está registrado.')
+            } else {
+                return true; 
+            }
+        })
+    }),
 
-    check('pass1')
+    check('password')
     .notEmpty()
     .withMessage('El password es obligatorio.').bail()
     .isLength({min: 6, max: 6})
@@ -52,7 +56,7 @@ module.exports = [
     .notEmpty()
     .withMessage('Repita la contraseña.').bail(),
 
-    body('pass2').custom((value, {req}) => value !== req.body.pass1 ? false : true)
+    body('pass2').custom((value, {req}) => value !== req.body.password ? false : true)
     .withMessage('Las contraseñas no coinciden.'),
 
     check('terms')

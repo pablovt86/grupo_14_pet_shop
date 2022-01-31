@@ -1,4 +1,4 @@
-const {products,categories, subcategories, writeProductsJson} = require('../data/dataBase');
+const {products,categories, subcategories, writeProductsJson} = require('../database/dataBase');
 const fs = require('fs');
 
 let controller = {
@@ -58,6 +58,8 @@ let controller = {
 
         writeProductsJson(products);
         res.redirect('/admin/products');
+
+
     },
 
     edit:function(req,res){
