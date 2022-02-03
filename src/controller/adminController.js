@@ -1,134 +1,184 @@
-const {products,categories, subcategories, writeProductsJson} = require('../database/dataBase');
+const path = require('path');
+const { validationResult } = require('express-validator');
 const fs = require('fs');
+const db = require('../database/models');
 
 let controller = {
 
-    index: function(req, res){
-        res.render('admin/administrador.ejs', {title:"panel de administracion",
-            products
-        });
+    products: (req, res) => {
+        let products = db.Product.findAll();
+        let images = db.ProductImage.findAll();
+        Promise.all([products, images])
+        .then(([products, images]) => {
+            res.render('admin/products/adminProducts', {
+                products,
+                images,
+                session: req.session
+            });
+        }) 
     },
 
-    products:function(req,res){
-        res.render('admin/products/adminProducts',{title:"panel de products",
-        products
-        });
+
+    create: (req, res) => {
+        let categories = db.Category.findAll();
+        let subcategories = db.Subcategory.findAll();
+        Promise.all([categories, subcategories])
+        .then(([categories, subcategories]) => {
+            res.render('admin/products/product-create-form', {
+                categories,
+                subcategories,
+                session: req.session
+            });  
+        })
+        .catch((error) => {console.log(error)});
     },
 
-    create:function(req,res){
-    //let subcategories = products.map(product=>product.subcategory)
+    store: (req, res) => {
+        let errors = validationResult(req);
 
-    //let uniqueSubcategory = subcategories.filter((x, i , a)  => a.indexOf(x) === i)
-        res.render('admin/products/product-create-form.ejs',{
-            title:"crear productos",
-            categories,
-            subcategories //:uniqueSubcategory
-        });
+        if (errors.isEmpty()) {
+            const { nombre, price, discount, description, subcategory, stock } = req.body;
+            db.Product.create({
+                nombre,
+                price,
+                discount: discount ? discount : 0,
+                description,
+                idsubcategory: subcategory,
+                stock,
+                estado: 'activo'
+            })
+            .then((product) => {
+                db.ProductImage.create({
+                    images: req.file ? req.file.filename : 'default-image.png',
+                    idproducts: product.idproducts
+                })
+                .then(() => {
+                    res.redirect('/admin/products');
+                });
+            })
+            .catch(error => console.log(error));
+        } else {
+            let categories = db.Category.findAll();
+            let subcategories = db.Subcategory.findAll();
+            Promise.all([categories, subcategories])
+            .then(([categories, subcategories]) => {
+                res.render('admin/products/product-create-form', {
+                    categories,
+                    subcategories,
+                    errors: errors.mapped(),
+                    old: req.body,
+                    session: req.session
+                });
+            })
+            .catch(error => console.log(error));
+        }
     },
 
-    store:function(req,res){
-        let lastId = 1;
-        products.forEach(product => {
-            if(product.id > lastId){
-                lastId = product.id
-            }      
-        });
-
-        const { name, description, category, subcategory, discount, price, marca } = req.body;
-    
-        let newProduct = {
-            id: lastId +1,
-            name:name.trim(),
-            description:description.trim(),
-            category:+category,
-            subcategory:+subcategory,
-            discount:+discount,
-            price:+price.trim(),
-            image:req.file?[req.file.filename]:["defaut-image.png"],
-            marca:marca.trim()
-
-        };
-
-        // let newProduct ={
-        // ...req.body,
-        // id:lastId+1,
-        // image:req.file?req.file.filename:"default-image.png"
-        // }
-        products.push(newProduct);
-
-        writeProductsJson(products);
-        res.redirect('/admin/products');
-
-
+    edit: (req, res) => {
+        const product = db.Product.findByPk(req.params.id);
+        const categories = db.Category.findAll();
+        const subcategories = db.Subcategory.findAll();
+        const image = db.ProductImage.findByPk(req.params.id);
+        Promise.all([product, categories, subcategories, image])
+        .then(([product, categories, subcategories, image]) => {
+            console.log(image.images);
+            res.render('admin/products/product-edit-form', {
+                product,
+                categories,      
+                subcategories,
+                image,
+                session: req.session
+            });
+        })
+        .catch(error => console.log(error));
     },
 
-    edit:function(req,res){
-        /*let subcategories = products.map(product=>product.subcategory)
-        let uniqueSubcategory = subcategories.filter((x, i , a)  => a.indexOf(x) === i)*/
-        let productId = +req.params.id;
-        let productEdit = products.find(product => product.id === productId);
-        
-        res.render('admin/products/product-edit-form.ejs', {
-            title:"producto a editar",
-            products:productEdit,
-            categories,
-            //subcategory:uniqueSubcategory        
-            subcategories
-        });
+    update: (req, res) => {
+
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            const { nombre, price, discount, description, subcategory, stock } = req.body;
+            db.Product.update({
+                nombre,
+                price,
+                discount,
+                description,
+                idsubcategory: subcategory,
+                stock,
+                estado: 'activo'
+            }, {where: {id: req.params.id}})
+            .then((result) => {
+                db.ProductImage.findByPk(req.params.id)
+                .then((image) => {
+                    if (fs.existsSync(path.join(__dirname, '../../public/images/products/'), image.images)) {
+                        if (image.images !== 'default-image.png') {
+                            fs.unlinkSync(`${path.join(__dirname, '../../public/images/products/')}${image.images}`);    
+                        }   
+                    } else {
+                        console.log('La imagen no existe.');
+                    }     
+                });
+                db.ProductImage.destroy({where: { idproduct_images: req.params.id}})
+                .then(() => {
+                    db.ProductImage.create({
+                        images: req.file ? req.file.filename : 'default-image.png',
+                        idproducts: req.params.id
+                    })
+                    .then(() => {
+                        res.redirect('/admin/products')
+                    });
+                })
+            })
+            .catch((error) => {console.log(error)});
+        } else {
+            const product = db.Product.findByPk(req.params.id);
+            const categories = db.Category.findAll();
+            const subcategories = db.Subcategory.findAll();
+            const image = db.ProductImage.findByPk(req.params.id);
+            Promise.all([product, categories, subcategories, image])
+            .then(([product, categories, subcategories, image]) => {
+                console.log(image.images);
+                res.render('admin/products/product-edit-form', {
+                    product,
+                    categories,      
+                    subcategories,
+                    image,
+                    errors: errors.mapped(),
+                    old: req.body,
+                    session: req.session
+                });
+            })
+            .catch((error) => {console.log(error)});
+        }
     },
 
-    update:function(req,res){
-        const {name,description,category,subcategory,discount,price,marca} = req.body
-        
-        let productId = +req.params.id;
-
-        products.forEach(product => {
-            if(product.id === productId){
-            product.id = product.id,
-            product.name = name.trim(),
-            product.description = description.trim(),
-            product.category = category,
-            product.subcategory = +subcategory,
-            product.discount = discount,
-            product.price = price.trim(),
-            product.image = req.file?req.file.filename:product.image,
-            product.marca = marca.trim()
-            }
-    
-        });
-    
-        writeProductsJson(products);
-
-        res.redirect('/admin/products');
-    },
-
-    delete:function(req,res){
-        let productId = +req.params.id;
-
-        products.forEach(product=> {
-            if (product.id === productId) {
-                if(fs.existsSync('./public/images/products/', product.image[0])){
-                    fs.unlinkSync(`./public/images/products/${product.image[0]}`);
-                }else{
-                    console.log("no encontre el archivo");
-                }
-        
-                let productADestroy = products.indexOf(product)
-                if(productADestroy !== -1)  {
-                    products.splice(productADestroy, 1)
-                }else{
-                    console.log("no encontre el producto a eliminar");
+    delete: (req, res) => {
+        db.ProductImage.findByPk(req.params.id)
+        .then((image) => {
+            if (fs.existsSync(path.join(__dirname, '../../public/images/products/'), image.images)) {
+                if (image.images !== 'default-image.png') {
+                    fs.unlinkSync(`${path.join(__dirname, '../../public/images/products/')}${image.images}`);    
                 }   
+            } else {
+                console.log('La imagen no existe.');
             }
-        });
-
-        writeProductsJson(products)
-
-        res.redirect('/admin/products')
-
+            db.ProductImage.destroy({
+            where: {idproduct_images: req.params.id}})
+            .then((result) => {
+                db.Product.destroy({
+                    where: {
+                        idproducts: req.params.id
+                    }
+                })
+                .then((result) => {res.redirect('/admin/products')})
+                .catch((error) => {console.log(error)});
+            })
+            .catch((error) => {console.log(error)});
+        })
+        .catch((error) => {console.log(error)});
     },
 
-    search:function(req,res){
+    search: (req, res) => {
         let search = req.query.searchAdmin.toLowerCase().trim();
         let resultados = products.filter(product=> product.name.toLowerCase().trim().includes(search));
         res.render('admin/products/searchAdmin.ejs',{
