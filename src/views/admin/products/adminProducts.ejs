@@ -5,7 +5,7 @@
     <%- include('../../partials/header-administracion')%>
     <div class="row">
         <div class="col-lg-8 col-md-8 col-xs-12">
-          <h2>crear Productos<a href="/admin/products/create"><button style="margin-left:10px" class="btn btn-success ">Nuevo</button></a></h2>
+          <h2>Crear productos<a href="/admin/products/create"><button style="margin-left:10px" class="btn btn-success ">Nuevo</button></a></h2>
         </div>
       </div>
         <main class="main-administrador">
@@ -25,26 +25,26 @@
                         <th>Opciones</th>
                      </thead>
 
-                     <% products.forEach(product => { %>
+                     <% for (let i = 0; i < products.length; i++) { %>
 
                       <tr>
-                        <td><%= product.id %></td>
-                        <td><%= product.nombre %></td>
-                        <td><%= product.description %></td>
-                        <td><%= product.price %></td>
-                        <td><%= product.discount %></td>
-                        <td><%= product.stock %></td>
+                        <td><%= products[i].idproducts %></td>
+                        <td><%= products[i].nombre %></td>
+                        <td><%= products[i].description %></td>
+                        <td><%= products[i].price %></td>
+                        <td><%= products[i].discount %></td>
+                        <td><%= products[i].stock %></td>
                         <td>
-                          <img src="/images/products/<%= product.image %> " height="100px" width="100px" class="img-thumbnail">
+                          <img src="/images/products/<%= images[i].images %> " height="100px" width="100px" class="img-thumbnail">
                         </td>
                         <td>
-                          <a href="/admin/product/edit/<%=product.id %>" method="get" ><button class="btn btn-info">Editar</button></a>
-                          <form method="POST" action="/admin/product/delete/<%= product.id %>?_method=DELETE">
+                          <a href="/admin/product/edit/<%=products[i].idproducts %>" method="get" ><button class="btn btn-info">Editar</button></a>
+                          <form method="POST" action="/admin/product/delete/<%= products[i].idproducts %>?_method=DELETE">
                             <button class="btn btn-danger"type="submit">Eliminar</button> 
                           </form>
                         </td>
                       </tr>
-                       <% }) %>  
+                       <% } %>  
 
                    </table>
                    </div>
