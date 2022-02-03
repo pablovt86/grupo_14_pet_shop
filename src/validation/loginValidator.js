@@ -41,12 +41,13 @@ module.exports = [
         .then((user)=>{
             
             if(user){
+                console.log(value)
                 const clave = bcrypt.compareSync(value, user.dataValues.password);
-                    console.log(clave);
+                   
                 if(clave){
                     return true;
                 }else{
-                    return Promise.reject('Contraseña inválida.');
+                    return Promise.reject('credeciales inválida.');
                 }
             }else{
                 return Promise.reject('Usuario no encontrado.')
