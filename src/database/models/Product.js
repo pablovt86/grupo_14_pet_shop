@@ -15,7 +15,7 @@ module.exports = (Sequelize, dataTypes)=>{
         },
 
         description: {
-            type: dataTypes.STRING(256),
+            type: dataTypes.TEXT,
             allowNull: false
         },
 
@@ -30,7 +30,7 @@ module.exports = (Sequelize, dataTypes)=>{
         },
 
         price: {
-            type: dataTypes.DECIMAL(4.2),
+            type: dataTypes.INTEGER,
             allowNull: false
         },
 
@@ -59,7 +59,7 @@ module.exports = (Sequelize, dataTypes)=>{
         });
 
         Product.hasMany(models.ProductImage, {
-            as: 'products_images',
+            as: 'product_images',
             foreignKey: 'idproducts'
         });
 

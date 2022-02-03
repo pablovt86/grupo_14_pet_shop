@@ -1,10 +1,8 @@
 let { check, body } = require('express-validator');
 //const { users } = require('../database/dataBase');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const db = require('../database/models');
-const res = require('express/lib/response');
-
 
 module.exports = [
     check('email')
@@ -24,7 +22,7 @@ module.exports = [
             if(!user){
                 return Promise.reject('Este email no está registrado.');
             }
-        })
+        });
     }),
     
     check('password')

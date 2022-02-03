@@ -2,17 +2,16 @@ let express = require('express');
 let router = express.Router();
 let controller = require('../controller/adminController');
 let upload = require('../middleware/uploadProduct');
-// let validadorAdmin = require("../validation/validadorAdmin")
+let productsValidator = require("../validation/productsValidator");
 
-router.get('/', controller.index);
 router.get('/products', controller.products)
 router.get('/products/create', controller.create);
-router.post('/products/store',upload.single('image'),controller.store);
-router.get('/product/search', controller.search)
+router.post('/products/store',upload.single('image'), productsValidator, controller.store);
+router.get('/products/search', controller.search)
 
-router.get('/product/edit/:id', controller.edit);
-router.put('/product/update/:id',upload.single('image') ,controller.update);
-router.delete('/product/delete/:id', controller.delete);
+router.get('/products/edit/:id', controller.edit);
+router.put('/products/update/:id', upload.single('image'), productsValidator, controller.update);
+router.delete('/products/delete/:id', controller.delete);
 
 
 module.exports = router;

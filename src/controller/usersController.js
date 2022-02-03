@@ -12,7 +12,7 @@ let usersController = {
     
     processRegister: (req, res) => {
         let errors = validationResult(req);
-        if(errors.isEmpty()){
+        if (errors.isEmpty()) {
             let { name, last_name, email, password } = req.body;
             db.User.create({
                 name,
@@ -22,13 +22,11 @@ let usersController = {
                 rol: 'ROL_USER',
                 avatar: req.file ? req.file.filename : "default-image.png"
             })
-            .then((user)=>{
+            .then((user) => {
                 res.redirect('/users/login');
             })
-            .catch((error)=>{
-                res.send(error)
-            });
-        }else{
+            .catch((error) => {console.log(error)});
+        } else {
             res.render('users/register', {
                 errors: errors.mapped(),
                 session: req.session,
@@ -37,48 +35,13 @@ let usersController = {
         }
     },
 
-    login:(req, res)=>{
+    login: (req, res) => {
         res.render('users/login',{
         session: req.session
         });
     },
 
     processLogin: (req, res) => {
-        /*let errors = validationResult(req);
-        if(errors.isEmpty()){
-            let user = users.find(user => user.email === req.body.email);
-           
-            req.session.user = {
-                id: user.id,
-                name: user.name,
-                last_name: user.last_name,
-                email: user.email,
-                avatar: user.avatar,
-                rol: user.rol,
-                tel:user.tel
-            }
-
-           if(req.body.remember){
-               const TIME_IN_MILISECONDS = 60000
-               res.cookie("userPetshop", req.session.user, {
-                   expires: new Date(Date.now() + TIME_IN_MILISECONDS),
-                   httpOnly: true,
-                   secure: true
-               })
-           }
-
-            res.locals.user = req.session.user;
-
-            res.redirect('/')
-
-        }else{
-            res.render('users/login', {
-                errors: errors.mapped(),
-                session: req.session,
-                old: req.body
-            })
-        }*/
-
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             db.User.findOne({
@@ -86,7 +49,7 @@ let usersController = {
                     email: req.body.email
                 }
             })
-            .then((user)=>{
+            .then((user) => {
                 req.session.user = {
                     id: user.id,
                     name: user.name,
@@ -96,19 +59,20 @@ let usersController = {
                     rol: user.rol
                 }
 
-                if(req.body.remember){
+                if (req.body.remember) {
                     const TIME_IN_MILISECONDS = 60000
                     res.cookie("userPetshop", req.session.user, {
                         expires: new Date(Date.now() + TIME_IN_MILISECONDS),
                         httpOnly: true,
                         secure: true
-                    })
+                    });
                 }
      
                 res.locals.user = req.session.user;
      
-                res.redirect('/')
+                res.redirect('/');
             })
+            .catch((error) => {console.log(error)});
         } else {
             res.render('users/login', {
                 errors: errors.mapped(),
@@ -118,19 +82,19 @@ let usersController = {
         }
     },
 
-    logout:(req,res)=>{
+    logout: (req,res) => {
         req.session.destroy();
-        if(req.cookies.userPetshop){
+        if (req.cookies.userPetshop) {
             res.cookie('userPetshop', "", { maxAge: -1 });
         }
         res.redirect('/');    
     },
    
-    profile:(req, res)=>{
+    profile: (req, res) => {
         res.render('users/profile',{
             session: req.session,      
         });
     }
 }
 
-module.exports = usersController
+module.exports = usersController;
