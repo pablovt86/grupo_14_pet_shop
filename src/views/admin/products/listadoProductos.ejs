@@ -3,12 +3,53 @@
 <%- include('../../partials/head', {title: 'Listado de productos'}) %> 
 <body>
     <%- include('../../partials/header.ejs') %> 
-    <section class="card-viseted">
+    <section class="card-filter-container">
         <h3 class="section-title">listado de Productos</h3>
     <div class="container-listProduct">
-      <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3"></div>
-          <article class="card">
+    <div class="filter-list">
+       <h3 class="title-filter">Filtrar Por Precio</h3>
+
+      <div class="input-filter">
+      <label for="filtro">$1000 a $2500</label>
+      <input type="radio" name="price" id="">
+    </div>
+
+    <div class="input-filter">
+      <label for="filtro">$2500 a $4000</label>
+      <input type="radio" name="price" id="">
+    </div>
+
+    <div class="input-filter">
+      <label for="filtro">$4000 a $6000</label>
+
+      <input type="radio" name="price" id="">
+
+    </div>
+
+    <div class="input-filter">
+      <label for="filtro">$6000 a $1000</label>
+      <input type="radio" name="price" id="">
+    </div>
+
+    </div>
+    <div class="filter-list">
+      <h3 class="title-filter">Filtrar Por subcategoria</h3>
+
+      <aside class="subcategories_menu-desktop">
+        <% subcategories.forEach(subcategory => { %>
+            <a href="/products/subcategory/<%- subcategory.id %>/<%- category.id %>"><%- subcategory.name %></a>
+        <% }) %>    
+       
+    </aside>
+   </div>
+
+
+
+
+
+
+   <div class="list-products">
+          <article class="card-filter">
             <img
               src="images/cajita-gato.png"
               width="100%"
@@ -17,26 +58,25 @@
             <div class="card-content">
               
               <hr>
-              <div class="product-info">
-                <h5 class="product-name">Contenedora elegante</h5>
-                <p class="product-price">$6.770</p>
+              <div class="product-info-filter">
+                <div class="product-discount">%15 OFF</div>
+                <h5 class="product-name-filter">Contenedora elegante</h5>
+                <p class="product-price-filter">$6.770</p>
                     </p>
               </div>
-              <div class="button-container">
+              <div class="button-container-filter">
             <form action="/carrito" method="get">
-                <button type="submit" class="button-card">comprar</button>
+                <button type="submit" class="button-card-filter">comprar</button>
               </form>
     
               <form action="/productDetail" method="get">
-                <button type="submit" class="button-card-ver"><i class="far fa-eye"></i>ver</button>
+                <button type="submit" class="button-ver-filter"><i class="far fa-eye"></i>ver</button>
               </form>
             </div>
             </div>
           </article>
     
-   
-        </div>
-
+      
     </div>
     </section>
 <%- include('../../partials/footer.ejs') %> 
