@@ -176,13 +176,22 @@ let controller = {
     },
 
     search: (req, res) => {
-        let search = req.query.searchAdmin;
-        let resultados = products.filter(product=> product.name.toLowerCase().trim().includes(search));
-        res.render('admin/products/searchAdmin.ejs',{
-            resultados,
-            title:"resultado de busqueda",
-            search
+        let busqueda = req.query.toLowerCase();
+        let products = db.Product.findAll({
+            where: {nombre: busqueda}
         });
+        let images= db.ProductImage.findAll();
+        Promise.all([products, images])
+        .then(([products, images]) => {
+            console.log(products);
+            res.render('admin/products/searchAdmin.ejs',{
+                products,
+                images,
+                title:"resultado de busqueda",
+                search: req.query.searchAdmin
+            });
+        })
+        .catch((error) => {console.log(error);})  
     }
 
 }

@@ -11,23 +11,22 @@
     <h3>resultado producto: <%=search%> </h3>
 </div>
       
-
-<% resultados.forEach(resultado => { %>
-
+  <% for( let i = 0; i < products.length; i++ ) { %>
     <article class="card-search">
-        <img
-          src="/images/products/<%= resultado.image[0] %> "
-          width="100%"
-          alt="Foto de cafetera Moulinex"
-        />
+    
+      <% for( let j = 0; j < images.length; j++ ) { %>
+        <% if (products[i].idproducts == images[j].idproducts) { %>
+          <img src="../../images/products/<%= images[j].images %> " width="100%" alt="Foto de cafetera Moulinex"/>
+        <% } %>
+
         <div class="card-content">
           <!-- <div class="icon-truck">
             <i class="fas fa-truck"></i>
           </div> -->
           <hr>
           <div class="product-info">
-            <h5 class="product-name"><%= resultado.name %> </h5>
-            <p class="product-price"><%= resultado.price %> </p>
+            <h5 class="product-name"><%= products[i].nombre %> </h5>
+            <p class="product-price"><%= products[i].price %> </p>
                 </p>
           </div>
           <div class="button-container">
@@ -41,7 +40,8 @@
         </div>
         </div>
       </article>
-      <% }) %>
+        <% } %>
+      <% } %>
     </div>
     <div class="filtrador">
         <h3>products a filtrar</h3>
