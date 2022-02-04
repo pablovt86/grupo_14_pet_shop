@@ -38,8 +38,8 @@
                           <img src="/images/products/<%= images[i].images %> " height="100px" width="100px" class="img-thumbnail">
                         </td>
                         <td>
-                          <a href="/admin/product/edit/<%=products[i].idproducts %>" method="get" ><button class="btn btn-info">Editar</button></a>
-                          <form method="POST" action="/admin/product/delete/<%= products[i].idproducts %>?_method=DELETE">
+                          <a href="/admin/products/<%=products[i].idproducts %>/edit" method="get" ><button class="btn btn-info">Editar</button></a>
+                          <form method="POST" action="/admin/products/delete/<%= products[i].idproducts %>?_method=DELETE">
                             <button class="btn btn-danger"type="submit">Eliminar</button> 
                           </form>
                         </td>

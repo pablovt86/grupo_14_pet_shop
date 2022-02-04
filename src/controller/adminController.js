@@ -2,6 +2,7 @@ const path = require('path');
 const { validationResult } = require('express-validator');
 const fs = require('fs');
 const db = require('../database/models');
+const { products } = require('../database/dataBase');
 
 let controller = {
 
@@ -81,7 +82,6 @@ let controller = {
         const image = db.ProductImage.findByPk(req.params.id);
         Promise.all([product, categories, subcategories, image])
         .then(([product, categories, subcategories, image]) => {
-            console.log(image.images);
             res.render('admin/products/product-edit-form', {
                 product,
                 categories,      
@@ -179,7 +179,7 @@ let controller = {
     },
 
     search: (req, res) => {
-        let search = req.query.searchAdmin.toLowerCase().trim();
+        let search = req.query.searchAdmin;
         let resultados = products.filter(product=> product.name.toLowerCase().trim().includes(search));
         res.render('admin/products/searchAdmin.ejs',{
             resultados,

@@ -10,7 +10,7 @@
     <main class="tablero-admin-producto">
         <div class="contenedor-admin-producto">
             <p class="titulo-formulario-admin">Editando el producto: <%= product.nombre %></p>
-            <form class="formulario-admin-producto"action="/admin/products/update/<%=product.idproducts %>?_method=PUT" method="POST" enctype="multipart/form-data" >
+            <form class="formulario-admin-producto"action="/admin/products/<%=product.idproducts %>/update?_method=PUT" method="POST" enctype="multipart/form-data" >
                 <div class="contenedor-datos-1">
                     <div class="datos-productos-admin">
                         <label for="agregar-nombre">Nombre de producto:</label>
@@ -94,7 +94,7 @@
                             <input class="imagen-admin" type="file" name="image" id="image-create-product">
                         </div>
                         <div class="imagen-producto-admin" id="image-preview">
-                            <img src="images/products/<%= image.images %>" 
+                            <img src="/images/products/<%= image.images %>" 
                             alt="imagen previa del producto" id="imagen-previa">
                             <i class="fas fa-camera"></i>
                         </div>
@@ -112,7 +112,7 @@
                     <div class="contenedor-botones-admin">
                         <button class="contenedor-boton-admin" type="reset">
                             <i class="fas fa-times-circle"></i>
-                            <a href="/admin" class="titulo-boton-admin">Cancelar</a>
+                            <a href="/admin/products" class="titulo-boton-admin">Cancelar</a>
                         </button>
                         <button class="contenedor-boton-admin" type="submit">
                             <i class="fas fa-check-circle"></i>
