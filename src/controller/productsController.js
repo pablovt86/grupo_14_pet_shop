@@ -1,21 +1,21 @@
 let {products, subcategories} = require('../database/dataBase');
 const db = require('../database/models');
 const sequelize = db.sequelize;
+const { Op } = require('sequelize');
 
 let productController = {
 
     home:(req, res)=>{
-        let images = db.ProductImage.findAll({})
+        let images = db.ProductImage.findAll()
 
         let productsInSale = db.Product.findAll({
             where:{
-                discount:{[db.Sequelize.Op.gte] : 10}
+                discount:{[Op.gte] : 15}
             }
         })
-       
         Promise.all([productsInSale,images])
         .then(([productsInSale,images]) => { 
-                 
+             console.log(images);    
         res.render('admin/products/home', {
             sliderTitle: "Novedades",
             sliderProducts: productsInSale,
