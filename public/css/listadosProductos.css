@@ -8,14 +8,11 @@
     ;
   }
 .filter-list{
-    width: 20%;
-    height: 760px;
+    width: 35%;
+    height: 768px;
     border: 1px solid gray;
-    margin: 20px 10px;
-    display: block;
-    /* justify-content: left; */
-    
-
+    border-radius: 20px;
+    margin: 20px 20px;
 }
 
 .content-filter{
@@ -26,21 +23,38 @@ justify-content: center;
 .title-filter{
 display: flex;
 justify-content: center;
+color: var(--tex);
 
 }
 .input-filter{
     margin: 20px 30px;
     border-bottom: 1px solid var(--tex);
+  
 }
+.input-filter-subcategory{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.input-filter-subcategory a {
+    font-size: var(--subtitle);
+    margin: 8px 30px;
+    text-decoration: none;
+    border-bottom: 1px solid var(--tex);
+    color:var(--tex);
+
+}
+
 .input-filter label{
     font-size: var(--subtitle);
     margin-left: 5px;
 }
 
 .list-products{
-    width: 70%;
     display: flex;
     justify-content: right;
+    flex-wrap: wrap;
 }
 .container-listProduct{
     display: flex;
@@ -162,13 +176,12 @@ justify-content: center;
 @media(min-width:768px){
 
 .card-filter{
-    max-width: 22%;  
-    height: 40%; 
+    max-width: 40%;  
     box-shadow: 15px 15px 15px rgba(0, 0, 0, .4);
-         display: inline-block; 
-        padding: 15px;
-        margin-left: 15px; 
-        margin-bottom: 15px; 
+    display: inline-block; 
+    padding: 15px;
+    margin-left: 15px; 
+    margin-bottom: 15px; 
     }
     
  .card-filter:hover{
@@ -179,7 +192,7 @@ justify-content: center;
  @media(min-width:1024px){
     .card-filter{
         max-width: 22%;  
-        height: 50%; 
+        height: 40%; 
         box-shadow: 15px 15px 15px rgba(0, 0, 0, .4);
              display: inline-block; 
             padding: 15px;

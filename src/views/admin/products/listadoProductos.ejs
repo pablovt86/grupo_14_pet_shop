@@ -30,38 +30,34 @@
       <label for="filtro">$6000 a $1000</label>
       <input type="radio" name="price" id="">
     </div>
+    <h3 class="title-filter"> subcategoria</h3>
+
+    <div class="input-filter-subcategory">
+      
+      <% subcategories.forEach(subcategory => { %>
+          <a href="/products/subcategory/<%- subcategory.id %>/<%- category.id %>"><%- subcategory.name %></a>
+      <% }) %>   
 
     </div>
-    <div class="filter-list">
-      <h3 class="title-filter">Filtrar Por subcategoria</h3>
-
-      <aside class="subcategories_menu-desktop">
-        <% subcategories.forEach(subcategory => { %>
-            <a href="/products/subcategory/<%- subcategory.id %>/<%- category.id %>"><%- subcategory.name %></a>
-        <% }) %>    
-       
-    </aside>
-   </div>
-
-
-
-
-
+    </div>
+      
 
    <div class="list-products">
+     <% for(let i = 0; i < listProduct.length; i++) { %>
+    
           <article class="card-filter">
             <img
-              src="images/cajita-gato.png"
+              src="../images/<%= images[i].images %> "
               width="100%"
-              alt="Foto de cafetera Moulinex"
+              alt="Foto "
             />
             <div class="card-content">
               
               <hr>
               <div class="product-info-filter">
-                <div class="product-discount">%15 OFF</div>
-                <h5 class="product-name-filter">Contenedora elegante</h5>
-                <p class="product-price-filter">$6.770</p>
+                <div class="product-discount"><%= listProduct[i].discount %> % OFF</div>
+                <h5 class="product-name-filter"><%= listProduct[i].name %> </h5>
+                <p class="product-price-filter"><%= listProduct[i].price %> </p>
                     </p>
               </div>
               <div class="button-container-filter">
@@ -75,7 +71,7 @@
             </div>
             </div>
           </article>
-    
+          <% } %>
       
     </div>
     </section>
