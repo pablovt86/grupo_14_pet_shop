@@ -79,7 +79,7 @@ let controller = {
         const product = db.Product.findByPk(req.params.id);
         const categories = db.Category.findAll();
         const subcategories = db.Subcategory.findAll();
-        const image = db.ProductImage.findByPk(req.params.id);
+        const image = db.ProductImage.findOne({where: {idproducts: req.params.id}});
         Promise.all([product, categories, subcategories, image])
         .then(([product, categories, subcategories, image]) => {
             res.render('admin/products/product-edit-form', {
@@ -102,11 +102,11 @@ let controller = {
                 nombre,
                 price,
                 discount,
-                description,
+                description: description.trim(),
                 idsubcategory: subcategory,
                 stock,
                 estado: 'activo'
-            }, {where: {id: req.params.id}})
+            }, {where: {idproducts: req.params.id}})
             .then((result) => {
                 db.ProductImage.findByPk(req.params.id)
                 .then((image) => {
@@ -118,16 +118,14 @@ let controller = {
                         console.log('La imagen no existe.');
                     }     
                 });
-                db.ProductImage.destroy({where: { idproduct_images: req.params.id}})
-                .then(() => {
-                    db.ProductImage.create({
-                        images: req.file ? req.file.filename : 'default-image.png',
-                        idproducts: req.params.id
-                    })
-                    .then(() => {
-                        res.redirect('/admin/products')
-                    });
+                db.ProductImage.update({
+                    images: req.file ? req.file.filename : 'default-image.png',
+                    idproducts: req.params.id
+                }, {where: { idproducts: req.params.id}
                 })
+                .then(() => {
+                    res.redirect('/admin/products')
+                });
             })
             .catch((error) => {console.log(error)});
         } else {
@@ -137,7 +135,6 @@ let controller = {
             const image = db.ProductImage.findByPk(req.params.id);
             Promise.all([product, categories, subcategories, image])
             .then(([product, categories, subcategories, image]) => {
-                console.log(image.images);
                 res.render('admin/products/product-edit-form', {
                     product,
                     categories,      
@@ -163,7 +160,7 @@ let controller = {
                 console.log('La imagen no existe.');
             }
             db.ProductImage.destroy({
-            where: {idproduct_images: req.params.id}})
+            where: {idproducts: req.params.id}})
             .then((result) => {
                 db.Product.destroy({
                     where: {

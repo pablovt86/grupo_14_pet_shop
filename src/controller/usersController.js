@@ -51,7 +51,7 @@ let usersController = {
             })
             .then((user) => {
                 req.session.user = {
-                    id: user.id,
+                    id: user.idusers,
                     name: user.name,
                     last_name: user.last_name,
                     email: user.email,
@@ -91,9 +91,44 @@ let usersController = {
     },
    
     profile: (req, res) => {
-        res.render('users/profile',{
-            session: req.session,      
+        db.User.findOne({
+            where: {idusers: req.session.user.id}
+        })
+        .then((user) => {
+            
+            res.render('users/profile',{
+                user,
+                session: req.session    
+            });
         });
+    },
+
+    edit: (req, res) => {
+        const errors = validationResult(req);
+        if (errors.isEmpty()) {
+            let { name, last_name, email, password } = req.body;
+            db.User.update({
+                name,
+                last_name,
+                email,
+                password: bcrypt.hashSync(password, 10)
+            },
+            {
+                where: {idusers: req.params.id}
+            })
+            .then((result) => {
+                req.session.destroy();
+                if (req.cookies.userPetshop) {
+                    res.cookie('userPetshop', "", { maxAge: -1 });
+                }
+                res.redirect('/users/login');
+            })
+        } else {
+            res.render('users/profile', {
+                errors: errors.mapped(),
+                old: req.body
+            });
+        }
     }
 }
 

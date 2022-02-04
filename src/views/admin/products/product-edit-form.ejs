@@ -45,7 +45,7 @@
                     <div class="descripcion-productos-admin">
                         <label for="descripcion">Descripción del producto</label>
                         <div>
-                            <textarea class="textarea-admin" name="description" id="descripcion"   rows="10" >
+                            <textarea class="textarea-admin" name="description" id="descripcion"  rows="5" >
                                 <%= locals.old? old.description: product.description %>
                             </textarea>
                         </div>
@@ -61,7 +61,7 @@
                             <select class="seleccion-admin" name="category">
                                 <option selected hidden value="">categorias</option>
                                 <% categories.forEach(category => { %>  
-                                <option class="opcion-admin" value="<%= category.idcategory %>" <%- locals.old && old.category == category.idcategory? "selected" : category.idcategory == product.categoty ? "selected" : "" %>>
+                                <option class="opcion-admin" value="<%= category.idcategory %>" <%- locals.old && old.category == category.idcategory? "selected" : category.idcategory == product.category ? "selected" : "" %>>
                                     <%= category.name %>
                                 </option>
                                 <% }) %> 
@@ -77,7 +77,7 @@
                             <select class="seleccion-admin" name="subcategory">
                                 <option selected hidden value="">sub-categorias</option>
                                 <% subcategories.forEach(subcategory => { %>
-                                <option class="opcion-admin" value="<%- subcategory.id %> " <%- locals.old && old.subcategory == subcategory.idsubcategory? "selected": subcategory.idsubcategory == product.idsubcategory? "selected": "" %>>
+                                <option class="opcion-admin" value="<%- subcategory.idsubcategory %> " <%- locals.old && old.subcategory == subcategory.idsubcategory? "selected": subcategory.idsubcategory == product.idsubcategory? "selected": "" %>>
                                      <%=subcategory.name  %>  
                                 </option>
                                 <% }) %> 

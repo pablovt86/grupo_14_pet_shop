@@ -29,7 +29,7 @@ module.exports = [
             }
         })
         .then((user)=>{
-            if (user) {
+            if (value !== req.session.user.email && value === user.email) {
                 return Promise.reject('Este email ya está registrado.')
             } else {
                 return true; 
@@ -41,18 +41,5 @@ module.exports = [
     .notEmpty()
     .withMessage('El password es obligatorio.').bail()
     .isLength({min: 6, max: 6})
-    .withMessage('Contraseña de 6 caracteres.'),
-
-    check('pass2')
-    .notEmpty()
-    .withMessage('Repita la contraseña.').bail(),
-
-    body('pass2').custom((value, {req}) => value !== req.body.password ? false : true)
-    .withMessage('Las contraseñas no coinciden.'),
-
-    check('terms')
-    .isString('on')
-    .withMessage('Debes aceptar los términos.')
-
-
+    .withMessage('Contraseña de 6 caracteres.')
 ]

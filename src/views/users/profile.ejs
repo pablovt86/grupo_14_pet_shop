@@ -8,18 +8,24 @@
 
         <div class="image-profile">
 
-          <img src="/images/users/<%= session.user.avatar %> " alt="">
+          <img src="/images/users/<%= user.avatar %> " alt="">
         </div>
          
-        <form class="container-form" action="/users/profile" >
+        <form class="container-form" action="/users/profile/<%= user.idusers %>/edit?_method=PUT" method="POST">
           <div class="form-row">
             <div class="col-md-4 mb-3 ">
               <label for="validationDefault01">Nombre</label>
-              <input type="text" class="form-control" id="validationDefault01" placeholder="nombre" value="<%= session.user.name %> " >
+              <input type="text" class="form-control" id="validationDefault01" name="name" placeholder="Escriba su nombre" value="<%= locals.old? old.name: user.name %>">
+              <% if (locals.errors && errors.name) { %>
+                <small><%= errors.name %></small>
+              <% } %>
             </div>
             <div class="col-md-4 mb-3">
               <label for="validationDefault02">Apellido</label>
-              <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="<%= session.user.last_name %> " >
+              <input type="text" class="form-control" id="validationDefault02" name="last_name" placeholder="Escriba su apellido" value="<%= locals.old? old.last_name: user.last_name %>">
+              <% if (locals.errors && errors.last_name) { %>
+                <small><%= errors.last_name %></small>
+              <% } %>
             </div>
             <div class="col-md-4 mb-3">
               <label for="validationDefaultUsername">Email</label>
@@ -27,32 +33,33 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend2">@</span>
                 </div>
-                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" value="<%= session.user.email %> " aria-describedby="inputGroupPrepend2" >
+                <input type="text" class="form-control" id="validationDefaultUsername" name="email" placeholder="Aquí su email" value="<%= locals.old? old.email: user.email %>" aria-describedby="inputGroupPrepend2">
+                <% if (locals.errors && errors.email) { %>
+                  <small><%= errors.email %></small>
+                <% } %>
               </div>
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-6 mb-3">
-              <label for="validationDefault03">tel</label><% if(session.user.tel == "" ) {%> 
-                <input type="text" class="form-control" id="validationDefault03"  value="1134567676" placeholder="tel" >
-              <% }else{ %> 
-              <input type="text" class="form-control" id="validationDefault03"  value="<%= session.user.tel %> " placeholder="City" >
-              <% } %> 
+              <label for="validationDefault03">Password</label> 
+              <input type="text" class="form-control" id="validationDefault03" name="password"  placeholder="Escriba nueva contraseña" value="">
+              <% if (locals.errors && errors.password) { %>
+                <small><%= errors.password %></small>
+              <% } %>
             </div>
-            <div class="col-md-6 mb-3">
-              <label for="validationDefault04">rol de user</label>
-              <input type="text" class="form-control" id="validationDefault04" value ="<%= session.user.rol %> " placeholder="State" >
-            </div>
-           
+            <% if (user.rol === 'ROL_ADMIN') { %>
+              <div class="col-md-6 mb-3">
+                <label for="validationDefault04">Rol</label>
+                <input type="text" class="form-control" id="validationDefault04" name="rol" value ="<%= user.rol %>" placeholder="Rol de usuario">
+              </div>
+            <% } %>
           </div>
-         
-          <button class="btn btn-primary" type="submit">Submit form</button>
+          <button class="btn btn-primary" type="submit">Editar perfil</button>
         </form>
         </div>
 
       </section>
-|
-
     <%- include('../partials/footer.ejs') %> 
 </body>
 </html>

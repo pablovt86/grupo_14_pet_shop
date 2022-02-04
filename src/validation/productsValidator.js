@@ -20,7 +20,7 @@ module.exports = [
     check('description')
     .notEmpty()
     .withMessage('Incluya una breve descripción.')
-    .isLength({ max: 255 })
+    .isLength({ max: 1200 })
     .withMessage('Máximo permitido 255 caracteres.'),
 
     check('category')

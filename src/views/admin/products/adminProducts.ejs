@@ -35,7 +35,9 @@
                         <td><%= products[i].discount %></td>
                         <td><%= products[i].stock %></td>
                         <td>
-                          <img src="/images/products/<%= images[i].images %> " height="100px" width="100px" class="img-thumbnail">
+                          <% if (products[i].idproducts == images[i].idproducts) { %>
+                            <img src="/images/products/<%= images[i].images %> " height="100px" width="100px" class="img-thumbnail">
+                          <% } %>
                         </td>
                         <td>
                           <a href="/admin/products/<%=products[i].idproducts %>/edit" method="get" ><button class="btn btn-info">Editar</button></a>
