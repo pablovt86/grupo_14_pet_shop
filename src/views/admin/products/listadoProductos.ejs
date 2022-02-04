@@ -39,6 +39,16 @@
       <% }) %>   
 
     </div>
+
+    <div class="content-oculto">
+      <h3 class="title-filter">contenido</h3>
+      <img src="/images/ong-animales.png" width="100%" alt="">
+      <p>con tu compra ayudas a contribuir a la ONG "salvemos a los animales"</p>
+      <p>es una ONG si fines de lucro que solamente es contribuir y fomentar una ayuda idonia a los animales desamparados</p>
+      <p>magirnados por los estados es por eso que se decidio crear esta ONG para brindarle los alimentos necesarios, refugio, y contencion</p>
+      <p>por eso te alentamos a que nos ayudes a ayudar</p>
+      <img src="/images/gracias-animales.jfif"width="100%" alt="">
+    </div>
     </div>
       
 
@@ -47,7 +57,7 @@
     
           <article class="card-filter">
             <img
-              src="../images/<%= images[i].images %> "
+              src="/images/products/<%- images[i].images %> "
               width="100%"
               alt="Foto "
             />
@@ -55,9 +65,13 @@
               
               <hr>
               <div class="product-info-filter">
-                <div class="product-discount"><%= listProduct[i].discount %> % OFF</div>
-                <h5 class="product-name-filter"><%= listProduct[i].name %> </h5>
-                <p class="product-price-filter"><%= listProduct[i].price %> </p>
+                <div class="product-discount"><%- listProduct[i].discount %> % OFF</div>
+                <h5 class="product-name-filter">  <% if (listProduct[i].nombre.length >= 15) { %>
+                  <%- `${listProduct[i].nombre.slice(0,15)}...` %>
+              <% } else { %>
+                  <%= listProduct[i].nombre %>
+              <% } %> </h5>
+                <p class="product-price-filter">$<%- listProduct[i].price %> </p>
                     </p>
               </div>
               <div class="button-container-filter">
