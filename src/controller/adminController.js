@@ -3,6 +3,7 @@ const { validationResult } = require('express-validator');
 const fs = require('fs');
 const db = require('../database/models');
 const { products } = require('../database/dataBase');
+const { Op } = require('sequelize');
 
 let controller = {
 
@@ -176,22 +177,22 @@ let controller = {
     },
 
     search: (req, res) => {
-        let busqueda = req.query.toLowerCase();
-        let products = db.Product.findAll({
-            where: {nombre: busqueda}
-        });
-        let images= db.ProductImage.findAll();
-        Promise.all([products, images])
-        .then(([products, images]) => {
-            console.log(products);
-            res.render('admin/products/searchAdmin.ejs',{
-                products,
-                images,
-                title:"resultado de busqueda",
-                search: req.query.searchAdmin
-            });
+        db.Product.findAll({
+            where: {
+                nombre: {
+                    [Op.substring]: req.query.searchAdmin
+                }
+            },
+            include: [{association: 'product_images'}]
         })
-        .catch((error) => {console.log(error);})  
+        .then((resultados) => {
+            res.render('admin/products/searchAdmin', {
+                resultados,
+                search: req.query.searchAdmin,
+                session: req.session
+            })
+        })
+        .catch((error) => {console.log(error)});
     }
 
 }

@@ -15,22 +15,22 @@
         <div class="contenedor">
           
   <!-- <div class="images-container"> -->
-          <div class="container-foto-left">
+          <!--<div class="container-foto-left">
             <div class="thumbnailImages">
               <div class="foto1">  <img src="/images/cucha-gato1.png" alt="Imagen de producto" onclick="myFunction(this);"></div>
                 <div class="foto2"> <img src="/images/cucha-gato2.png" alt="Imagen de producto" onclick="myFunction(this);"></div>
                   <div class="foto3">  <img src="/images/cucha-gato3.png" alt="Imagen de producto" onclick="myFunction(this);"></div>
-          </div>
+          </div>-->
           
           </div>
           <div class="container-foto-rigth">
-            <img src="../images/cucha-gato.png" alt="Imagen de producto" id="expandedImg">
+            <img src="../images/products/<%= image.images %> " alt="Imagen de producto" id="expandedImg">
 
          
     </div>
     
       <div class="product-price">
-        <p>categorias ->subcategoria ->nombreProducto</p>
+        <p><%= category.name %>  -><%= subcategory.name %>  -><%= product.nombre %> </p>
          
         <h2>Cucha Cama Media Esfera Puro Diseño</h2>
 

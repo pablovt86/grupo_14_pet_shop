@@ -57,7 +57,25 @@ let productController = {
 
 
     detail:(req, res)=>{
-        res.render('admin/products/productDetail',{session: req.session});
+        /*console.log(req);
+        res.render('admin/products/productDetail',{session: req.session});*/
+   
+            let product = db.Product.findOne({where: {idproducts: req.params.id}});
+            let image = db.ProductImage.findOne({where: {idproducts: req.params.id}});
+            let subcategory = db.Subcategory.findOne({where: {idsubcategory: req.params.id}});
+            let category = db.Category.findOne({where: {idcategory: req.params.id}});
+            Promise.all([product, image, subcategory, category])
+            .then(([product, image, subcategory]) => {
+                res.render('admin/products/productDetail', {
+                    product,
+                    image,
+                    subcategory,
+                    category,
+                    session: req.session
+                })
+            })
+            .catch((error) => {console.log(error)});
+   
 
     },
 
@@ -66,18 +84,24 @@ let productController = {
 
     },
   
-    search:function(req,res){
-        let search = req.query.searchHome.toLowerCase().trim();
-        let resultados = products.filter(product=> product.name.toLowerCase().trim().includes(search))
-        // res.send(resultados)
-        res.render('admin/products/searchAdmin',{
-            resultados,
-            title:"resultado de busqueda",
-            search
-           
+    search: (req, res) => {
+        db.Product.findAll({
+            where: {
+                nombre: {
+                    [Op.substring]: req.query.searchAdmin
+                }
+            },
+            include: [{association: 'product_images'}]
         })
-        
-        }
+        .then((resultados) => {
+            res.render('admin/products/searchAdmin', {
+                resultados,
+                search: req.query.searchAdmin,
+                session: req.session
+            })
+        })
+        .catch((error) => {console.log(error)});
+    }
 }
 
 module.exports = productController

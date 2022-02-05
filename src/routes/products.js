@@ -8,7 +8,7 @@ let app = express();
 
 
 router.get('/', productController.home)
-router.get('/productDetail', productController.detail)
+router.get('/productDetail/:id', productController.detail)
 router.get('/carrito', productController.carrito)
 router.get('/listado', productController.list)
 router.get('/product/search', productController.search)
