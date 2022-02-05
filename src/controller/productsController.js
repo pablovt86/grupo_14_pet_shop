@@ -3,6 +3,7 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require('sequelize');
 
+
 let productController = {
 
     home:(req, res)=>{
@@ -15,7 +16,6 @@ let productController = {
         })
         Promise.all([productsInSale,images])
         .then(([productsInSale,images]) => { 
-             console.log(images);    
         res.render('admin/products/home', {
             sliderTitle: "Novedades",
             sliderProducts: productsInSale,
@@ -56,28 +56,38 @@ let productController = {
 
 
 
-    detail:(req, res)=>{
-        /*console.log(req);
-        res.render('admin/products/productDetail',{session: req.session});*/
-   
-            let product = db.Product.findOne({where: {idproducts: req.params.id}});
-            let image = db.ProductImage.findOne({where: {idproducts: req.params.id}});
-            let subcategory = db.Subcategory.findOne({where: {idsubcategory: req.params.id}});
-            let category = db.Category.findOne({where: {idcategory: req.params.id}});
-            Promise.all([product, image, subcategory, category])
-            .then(([product, image, subcategory]) => {
+    detail: (req, res) => {
+       db.Product.findOne({
+            where: {
+                idproducts: req.params.id,
+            },
+            include: [{association: 'product_images'}]
+        })
+        .then(((product) => {
+        
+           db.Product.findAll({
+                include: [{association: 'product_images'}],
+                where: {
+                    idsubcategory: product.idsubcategory
+                }
+            })
+            .then((relatedProducts) => {
                 res.render('admin/products/productDetail', {
                     product,
-                    image,
-                    subcategory,
-                    category,
+                    title: "Productos relacionados",
+                    sliderProducts: relatedProducts,
                     session: req.session
                 })
-            })
-            .catch((error) => {console.log(error)});
+            }).catch((error) => {console.log(error)});
    
-
+        }))
     },
+            
+
+              
+            
+
+    
 
     carrito:(req, res)=>{
         res.render('users/carrito',{session: req.session});

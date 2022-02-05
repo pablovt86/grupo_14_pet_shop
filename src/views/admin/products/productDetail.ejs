@@ -14,27 +14,28 @@
     <main class="productDetail-container">
         <div class="contenedor">
           
-  <!-- <div class="images-container"> -->
-          <!--<div class="container-foto-left">
+   <div class="images-container"> 
+          <div class="container-foto-left">
             <div class="thumbnailImages">
               <div class="foto1">  <img src="/images/cucha-gato1.png" alt="Imagen de producto" onclick="myFunction(this);"></div>
                 <div class="foto2"> <img src="/images/cucha-gato2.png" alt="Imagen de producto" onclick="myFunction(this);"></div>
                   <div class="foto3">  <img src="/images/cucha-gato3.png" alt="Imagen de producto" onclick="myFunction(this);"></div>
-          </div>-->
+          </div>
           
           </div>
           <div class="container-foto-rigth">
-            <img src="../images/products/<%= image.images %> " alt="Imagen de producto" id="expandedImg">
+            <img src="../images/products/<%= product.product_images[0].images%> " alt="Imagen de producto" id="expandedImg">
 
          
     </div>
-    
+   </div>
+  
+   <!-- div  informacion del productos -->
       <div class="product-price">
-        <p><%= category.name %>  -><%= subcategory.name %>  -><%= product.nombre %> </p>
          
-        <h2>Cucha Cama Media Esfera Puro Diseño</h2>
+        <h2><%= product.nombre %> </h2>
 
-          <h1>$ 37.000</h1>
+          <h1><%= product.price %></h1>
       
       <p><i class="fa fa-credit-card" aria-hidden="true"></i>30 cuotas de <span>$1.353</span></p>
      <div class="esp-a"> <a href="#"> ver mas detalle</a></div>
@@ -112,28 +113,15 @@
 <div class="relleno-1200px">
   <img src="../images/images-forms/duo-2.png" alt="relleno">
 
-</div>
+         </div>
 
+     </div>
 </div>
-<!-- final de la section -->
-      </div>
+<!-- final de la informacion del producto -->
+      
       <div class="product-description">
           
-        <p>
-          La Cucha le brinda a tu gato un excelente ambiente para relajarse y descansar, su forma semisesférica le encantará, junto con lo mullido del amohadón interno hará que rapidamente lo adopte como su lugar de descanso.&nbsp; Además de esto viene con un juego didactico de pelotas para que tu gato se entretenga mientras no desacansa.
-        </p>
-        <p>CARATERSTICAS
-          <br>
-        - Tamaño : Tamaño perfecto para gatos pequeños de 40cm de diámetro X 22cm de Alto.
-        <br>
-        
-        
-        - Incluye juego de pelotas para entretenimiento de los felinos
-        <br>
-        
-        - Fácil de limpiar: La esfera plastica se puede limpiar fácilmente con agua y el amohadon en el lavarropas
-        
-        </p>
+        <p><%= product.description %></p>
                     
                 </div>
 

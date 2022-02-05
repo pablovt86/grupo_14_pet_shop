@@ -325,6 +325,9 @@ display: flex;
 }
 
 @media(min-width:768px){
+    .images-container{
+        display: flex;
+    }
     .product-description p{
         font-size: var(--etique-p);
           }
@@ -437,7 +440,9 @@ px
 
 }
 @media(min-width:1200px){
-
+    .images-container{
+        display: flex;
+    }
     .relleno-1200px{
         display: block;
     }
