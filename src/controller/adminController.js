@@ -91,7 +91,7 @@ let controller = {
                 session: req.session
             });
         })
-        .catch(error => console.log(error));
+        .catch((error) => {console.log(error)});
     },
 
     update: (req, res) => {

@@ -12,7 +12,6 @@
                     <div class="productDiscount"><%- sliderProducts[i].discount %>% OFF</div>
                     <% for( let j = 0; j < images.length; j++ ) { %>
                         <% if (sliderProducts[i].idproducts == images[j].idproducts) { %>
-                            <p><%= sliderProducts[i].idproducts %></p>
                             <img src="/images/products/<%- images[j].images%>" alt="<%- sliderProducts[i].nombre %> ">
                         <% } %>
                     <% } %>

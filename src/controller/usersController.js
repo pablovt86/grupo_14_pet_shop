@@ -98,13 +98,12 @@ let usersController = {
             
             res.render('users/profile',{
                 user,
-                session: req.session.user    
+                session: req.session    
             });
         });
     },
 
     edit: (req, res) => {
-        console.log(req.params.idÑ);
         const errors = validationResult(req);
         if (errors.isEmpty()) {
             let { name, last_name, email, password } = req.body;
@@ -128,7 +127,7 @@ let usersController = {
             res.render('users/profile', {
                 errors: errors.mapped(),
                 old: req.body,
-                session: req.session
+                session: req.session.user
             });
         }
     }
