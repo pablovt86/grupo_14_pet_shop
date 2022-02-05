@@ -104,7 +104,7 @@ let usersController = {
     },
 
     edit: (req, res) => {
-        console.log(req.params.id);
+        console.log(req.params.idÑ);
         const errors = validationResult(req);
         if (errors.isEmpty()) {
             let { name, last_name, email, password } = req.body;
