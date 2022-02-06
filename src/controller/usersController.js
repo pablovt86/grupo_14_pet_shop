@@ -100,7 +100,7 @@ let usersController = {
                 user,
                 session: req.session    
             });
-        });
+        }); 
     },
 
     edit: (req, res) => {
