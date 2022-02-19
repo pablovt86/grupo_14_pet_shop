@@ -104,11 +104,21 @@ let productController = {
             include: [{association: 'product_images'}]
         })
         .then((resultados) => {
-            res.render('admin/products/searchAdmin', {
-                resultados,
-                search: req.query.searchAdmin,
-                session: req.session
+
+            db.Subcategory.findAll({
+                include: [{association: 'category'}],
+               
+            }).then((subcategories)=>{
+                res.render('admin/products/searchAdmin', {
+                    resultados,
+                    search: req.query.searchAdmin,
+                    subcategories,
+                    session: req.session
+                })
+
             })
+            
+        
         })
         .catch((error) => {console.log(error)});
     }

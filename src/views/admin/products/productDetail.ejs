@@ -35,9 +35,9 @@
          
         <h2><%= product.nombre %> </h2>
 
-          <h1><%= product.price %></h1>
+          <h1>$<%= product.price %></h1>
       
-      <p><i class="fa fa-credit-card" aria-hidden="true"></i>30 cuotas de <span>$1.353</span></p>
+      <p><i class="fa fa-credit-card" aria-hidden="true"></i>12 cuotas de <span><% let interes = product.price * 10 /100 %>$<%= interes %>  </span></p>
      <div class="esp-a"> <a href="#"> ver mas detalle</a></div>
       <div class="button-signos">
       <div class="signos">

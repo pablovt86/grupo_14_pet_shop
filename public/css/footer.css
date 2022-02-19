@@ -5,14 +5,14 @@
     padding: 60px 0 20px;
   }
 
-  .container {
+  .container-footer {
     max-width: 1300px;
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
   }
 
-  .row {
+  .row-footer {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -126,5 +126,9 @@
     .col-3,
     .col-4 {
       flex-basis: 100%;
+    }
+    .footer{
+      display: flex;
+      flex-direction: column;
     }
   }

@@ -12,68 +12,106 @@
   <% } else { %>
     <%- include('../../partials/header.ejs') %>
   <% } %>
-   
- <div class="container ">
-    <div class="result">
-<div class="title">
-    <h3>resultado producto: <%=search%> </h3>
-</div>
+
+    
+
       
-<% if (resultados.length > 0) { %>
-  <% resultados.forEach(resultado => { %>
+<section class="card-filter-container">
+  <h3 class="section-title"><h3>resultado producto: <%=search%></h3>
+<div class="container-listProduct">
+<div class="filter-list">
+ <h3 class="title-filter">Filtrar Por Precio</h3>
 
-    <article class="card-search">
-        <img
-          src="/images/products/<%= resultado.product_images[0].images %> "
-          width="100%"
-          alt="Foto de cafetera Moulinex"
-        />
-        <div class="card-content">
-          <!-- <div class="icon-truck">
-            <i class="fas fa-truck"></i>
-          </div> -->
-          <hr>
-          <div class="product-info">
-            <h5 class="product-name"><%= resultado.nombre %> </h5>
-            <p class="product-price"><%= resultado.price %> </p>
-                </p>
-          </div>
-          <div class="button-container">
-        <form action="/carrito" method="get">
-            <button type="submit" class="button-card">comprar</button>
-          </form>
+<div class="input-filter">
+<label for="filtro">$1000 a $2500</label>
+<input type="radio" name="price" id="">
+</div>
 
-          <form action="/productDetail" method="get">
-            <button type="submit" class="button-card-ver"><i class="far fa-eye"></i>ver</button>
-          </form>
+<div class="input-filter">
+<label for="filtro">$2500 a $4000</label>
+<input type="radio" name="price" id="">
+</div>
+
+<div class="input-filter">
+<label for="filtro">$4000 a $6000</label>
+
+<input type="radio" name="price" id="">
+
+</div>
+
+<div class="input-filter">
+<label for="filtro">$6000 a $1000</label>
+<input type="radio" name="price" id="">
+</div>
+<h3 class="title-filter"> subcategoria</h3>
+
+<div class="input-filter-subcategory">
+
+<% subcategories.forEach(subcategory => { %>
+    <a href="/products/subcategory/<%- subcategory.id %> "><%- subcategory.name %></a>
+<% }) %>   
+
+</div>
+
+<div class="content-oculto">
+<h3 class="title-filter">contenido</h3>
+<img src="/images/ong-animales.png" width="100%" alt="">
+<p>con tu compra ayudas a contribuir a la ONG "salvemos a los animales"</p>
+<p>es una ONG si fines de lucro que solamente es contribuir y fomentar una ayuda idonia a los animales desamparados</p>
+<p>magirnados por los estados es por eso que se decidio crear esta ONG para brindarle los alimentos necesarios, refugio, y contencion</p>
+<p>por eso te alentamos a que nos ayudes a ayudar</p>
+<img src="/images/gracias-animales.jfif"width="100%" alt="">
+</div>
+</div>
+<style>
+.card-filter{
+  height: 25%;
+}
+
+</style>
+
+<div class="list-products">
+  <% if (resultados.length > 0) { %>
+    <% resultados.forEach(resultado => { %> 
+       <article class="card-filter" >
+         <img
+         src="/images/products/<%= resultado.product_images[0].images %> "     
+           width="100%"
+           alt="Foto "
+         />
+      <div class="card-content">
+        
+        <hr>
+        <div class="product-info-filter">
+          <div class="product-discount"><%- resultado.discount %> % OFF</div>
+          <h5 class="product-name-filter">  <% if (resultado.nombre.length >= 15) { %>
+            <%- `${resultado.nombre.slice(0,15)}...` %>
+        <% } else { %>
+            <%= resultado.nombre %>
+        <% } %> </h5>
+          <p class="product-price-filter">$<%- resultado.price %> </p>
+              </p>
         </div>
-        </div>
-      </article>
-      <% }) %>
-    </div>
+        <div class="button-container-filter">
+      <form action="/carrito" method="get">
+          <button type="submit" class="button-card-filter">comprar</button>
+        </form>
+
+        <form action="/productDetail" method="get">
+          <button type="submit" class="button-ver-filter"><i class="far fa-eye"></i>ver</button>
+        </form>
+      </div>
+      </div>
+    </article>
+    <% }) %>
+
+</div>
 <% } else { %>
 
     <p>No se encontraron coincidencias con: <%= search %></p>
 <% } %>
-
-    <div class="filtrador">
-        <h3>products a filtrar</h3>
-        <ul>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-        </ul>
-    </div>
-    </div>
-
-
-
+</section>
 <%- include('../../partials/footer.ejs') %> 
-
-
 
   </body>
 </html>
