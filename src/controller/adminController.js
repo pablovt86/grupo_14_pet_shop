@@ -77,17 +77,15 @@ let controller = {
     },
 
     edit: (req, res) => {
-        const product = db.Product.findByPk(req.params.id);
+        const product = db.Product.findByPk(req.params.id, {include: [{association: 'subcategory'}]});
         const categories = db.Category.findAll();
         const subcategories = db.Subcategory.findAll();
-        const image = db.ProductImage.findOne({where: {idproducts: req.params.id}});
-        Promise.all([product, categories, subcategories, image])
-        .then(([product, categories, subcategories, image]) => {
+        Promise.all([product, categories, subcategories])
+        .then(([product, categories, subcategories]) => {
             res.render('admin/products/product-edit-form', {
                 product,
                 categories,      
                 subcategories,
-                image,
                 session: req.session
             });
         })
@@ -130,17 +128,15 @@ let controller = {
             })
             .catch((error) => {console.log(error)});
         } else {
-            const product = db.Product.findByPk(req.params.id);
+            const product = db.Product.findByPk(req.params.id, {include: [{association: 'subcategory'}]});
             const categories = db.Category.findAll();
             const subcategories = db.Subcategory.findAll();
-            const image = db.ProductImage.findByPk(req.params.id);
-            Promise.all([product, categories, subcategories, image])
-            .then(([product, categories, subcategories, image]) => {
+            Promise.all([product, categories, subcategories])
+            .then(([product, categories, subcategories]) => {
                 res.render('admin/products/product-edit-form', {
                     product,
                     categories,      
                     subcategories,
-                    image,
                     errors: errors.mapped(),
                     old: req.body,
                     session: req.session

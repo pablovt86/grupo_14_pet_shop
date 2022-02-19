@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-let port = 3000;
-const methodOverride = require('method-override')
+const port = 3000;
+const methodOverride = require('method-override');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const cookieSession = require('./middleware/cokkieSession')
+const cookieSession = require('./middleware/cokkieSession');
 
 
 app.use(express.static(path.join(__dirname, '../public')));

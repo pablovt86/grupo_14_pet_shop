@@ -14,7 +14,8 @@
 <div class="shopping"> <i class="fal fa-shopping-cart"></i></div>
 
 <div class="caja-foto">
-  <img src="../images/zyro-image4.png" >
+  <a href="/"><img src="../images/zyro-image4.png" ></a>
+  
 </div> 
 <div class="container-search">
 
@@ -33,7 +34,7 @@
               <a href="/users/profile">Mis datos</a>
               <a href="/users/logout">Cerrar sesión</a>
               <% if (session.user.rol === "ROL_ADMIN") { %>
-                  <a href="/admin/administrador">ADMIN</a>
+                  <a href="/admin/products">ADMIN</a>
               <% } %>
           </div>
       <% } else {%>
@@ -131,7 +132,7 @@ mascotas
             <a href="/users/profile">Mis datos</a>
             <a href="/users/logout">Cerrar sesión</a>
             <% if (session.user.rol === "ROL_ADMIN") { %>
-                <a href="/admin/index">ADMIN</a>
+                <a href="/admin/products">ADMIN</a>
             <% } %>
         </div>
     <% } else {%>

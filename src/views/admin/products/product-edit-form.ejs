@@ -29,7 +29,7 @@
                             <input class="input-agregar-dato" name="price" type="number" id="agregar-precio" value="<%= locals.old? old.price: product.price %>">
                         </div>
                         <% if (locals.errors && errors.price) { %>
-                            <small><%= errors.price %></small>
+                            <small><%= errors.price.msg %></small>
                         <% } %>
                     </div>
                     <div class="datos-productos-admin">
@@ -39,7 +39,7 @@
                             <input class="input-agregar-dato" name="discount" type="number" id="agregar-discount" value="<%= locals.old? old.discount: product.discount %>">
                         </div>
                         <% if (locals.errors && errors.discount) { %>
-                            <small><%= errors.discount %></small>
+                            <small><%= errors.discount.msg %></small>
                         <% } %>
                     </div>
                     <div class="descripcion-productos-admin">
@@ -50,7 +50,7 @@
                             </textarea>
                         </div>
                         <% if (locals.errors && errors.description) { %>
-                            <small><%= errors.description %></small>
+                            <small><%= errors.description.msg %></small>
                         <% } %>
                     </div>    
                 </div>
@@ -61,14 +61,14 @@
                             <select class="seleccion-admin" name="category">
                                 <option selected hidden value="">categorias</option>
                                 <% categories.forEach(category => { %>  
-                                <option class="opcion-admin" value="<%= category.idcategory %>" <%- locals.old && old.category == category.idcategory? "selected" : category.idcategory == product.category ? "selected" : "" %>>
+                                <option class="opcion-admin" value="<%= category.idcategory %>" <%- locals.old && old.category == category.idcategory? "selected" : category.idcategory == product.subcategory.idcategory ? "selected" : "" %>>
                                     <%= category.name %>
                                 </option>
                                 <% }) %> 
                             </select>
                         </div>
                         <% if (locals.errors && errors.category) { %>
-                            <small><%= errors.category %></small>
+                            <small><%= errors.category.msg %></small>
                         <% } %>
                     </div>
                     <div class="select-opciones-administrador">
@@ -84,7 +84,7 @@
                             </select>
                         </div>
                         <% if (locals.errors && errors.subcategory) { %>
-                            <small><%= errors.subcategory %></small>
+                            <small><%= errors.subcategory.msg %></small>
                         <% } %>
                     </div>
                     <div class="upload-image">
@@ -94,8 +94,8 @@
                             <input class="imagen-admin" type="file" name="image" id="image-create-product">
                         </div>
                         <div class="imagen-producto-admin" id="image-preview">
-                            <img src="/images/products/<%= image.images %>" 
-                            alt="imagen previa del producto" id="imagen-previa">
+                            <img src="" 
+                            alt="" id="imagen-previa">
                             <i class="fas fa-camera"></i>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                             <input class="input-agregar-dato" name="stock" type="number" id="agregar-marca" value="<%= locals.old? old.stock : product.stock %>">
                         </div>
                         <% if (locals.errors && errors.stock) { %>
-                            <small><%= errors.stock %></small>
+                            <small><%= errors.stock.msg %></small>
                         <% } %>
                     </div>
                     <div class="contenedor-botones-admin">
@@ -123,6 +123,7 @@
               
             </form>
         </div>
-    </main>  
+    </main> 
+    <script src="/js/image-preview.js"></script> 
 </body>
 </html>

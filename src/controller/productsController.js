@@ -17,7 +17,7 @@ let productController = {
         Promise.all([productsInSale,images])
         .then(([productsInSale,images]) => { 
         res.render('admin/products/home', {
-            sliderTitle: "Novedades",
+            sliderTitle: "PROMOCIONES",
             sliderProducts: productsInSale,
             title:"home",
             images,
