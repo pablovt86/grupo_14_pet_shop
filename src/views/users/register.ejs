@@ -11,77 +11,75 @@
     <div class="form">
         <div><i class="fas fa-camera camera-user"></i><img src="" id="user-profile"></div>
         <div class="data-container"><h1 class="login">Registro</h1></div>
-            <form action="/users/register" method="POST" enctype="multipart/form-data">
+            <form id="form" action="/users/register" method="POST" enctype="multipart/form-data">
                 <div class="data-container">
                     <div class="input-user-container">
                         <i class="fas fa-user"></i>
-                        <input type="text" class="input-text" name="name" placeholder="NOMBRE" value="<%= locals.old && old.name %>">
+                        <input type="text" id="name" class="input-text" name="name" placeholder="NOMBRE" value="<%= locals.old && old.name %>">
                     </div>
+                    <small class="text-error errorSubmit" id="errorName"></small>
                     <% if (locals.errors && errors.name) { %>
-                    <small class="text-error"><%= errors.name.msg %></small>
+                    <small id="errorName" class="text-error"><%= errors.name.msg %></small>
                     <% } %>
                 </div>
                 <div class="data-container">
                     <div class="input-user-container">
                         <i class="fas fa-user"></i>
-                        <input type="text" class="input-text" name="last_name" placeholder="APELLIDO" value="<%= locals.old && old.last_name %>">
+                        <input type="text" id="lastName" class="input-text" name="last_name" placeholder="APELLIDO" value="<%= locals.old && old.last_name %>">
                     </div>
+                    <small class="text-error errorSubmit" id="errorLastName"></small>
                     <% if (locals.errors && errors.last_name) { %>
-                    <small class="text-error"><%= errors.last_name.msg %></small>
+                    <small class="text-error" id="errorLastName"><%= errors.last_name.msg %></small>
                     <% } %>
                 </div>
-                <!--<div class="data-container">
-                    <div class="input-user-container">
-                        <i class="fas fa-phone"></i>
-                        <input type="tel" class="input-text" name="tel" placeholder="TELÉFONO" value="<%= locals.old && old.tel %>">
-                    </div>
-                    /*<% if (locals.errors && errors.tel) { %>
-                    <small class="text-error"><%= errors.tel.msg %></small>
-                    <% } %>*/
-                </div>-->
                 <div class="data-container">
                     <div class="input-user-container">
                         <i class="fas fa-envelope"></i>
-                        <input type="text" class="input-text" name="email" placeholder="EMAIL" value="<%= locals.old && old.email %>">
+                        <input type="text" id="email" class="input-text" name="email" placeholder="EMAIL" value="<%= locals.old && old.email %>">
                     </div>
+                    <small class="text-error errorSubmit" id="errorEmail"></small>
                     <% if (locals.errors && errors.email) { %>
-                    <small class="text-error"><%= errors.email.msg %></small>
+                    <small class="text-error" id="errorEmail"><%= errors.email.msg %></small>
                     <% } %>
                 </div>
                 <div class="data-container">
                     <div class="input-user-container">
                         <i class="fas fa-unlock"></i>
-                        <input type="password" class="input-text"name="password" placeholder="CONTRASEÑA">
+                        <input type="password" id="password" class="input-text"name="password" placeholder="CONTRASEÑA">
                     </div>
+                    <small class="text-error errorSubmit" id="errorPassword"></small>
                     <% if (locals.errors && errors.password) { %>
-                    <small class="text-error"><%= errors.password.msg %></small>
+                    <small class="text-error" id="errorPassword"><%= errors.password.msg %></small>
                     <% } %>
                 </div>
                 <div class="data-container">
                     <div class="input-user-container">
                         <i class="fas fa-lock"></i>
-                        <input type="password" class="input-text" name="pass2" placeholder="CONFIRME CONTRASEÑA">
+                        <input type="password" id="pass2" class="input-text" name="pass2" placeholder="CONFIRME CONTRASEÑA">
                     </div>
+                    <small class="text-error errorSubmit" id="errorPass2"></small>
                     <% if (locals.errors && errors.pass2) { %>
-                    <small class="text-error"><%= errors.pass2.msg %></small>
+                    <small class="text-error" id="errorPass2"><%= errors.pass2.msg %></small>
                     <% } %>
                 </div>
                 <div class="data-container">
                     <div class="file-user-container">
                         <label for="avatar">SUBIR FOTO</label>
-                        <input class="input-file-user" type="file" name="avatar" id="avatar">
+                        <input type="file" id="avatar" class="input-file-user" name="avatar" id="avatar">
                     </div>
+                    <small class="text-error" id="errorAvatar"></small>
                     <% if (locals.errors && errors.image) { %>
-                    <small class="text-error"><%= errors.image.msg %></small>
+                    <small class="text-error" id="errorAvatar"><%= errors.image.msg %></small>
                     <% } %>
                 </div>
-                <div class="data-container" >
+                <div class="data-container">
                     <div class="check-user-container">
-                        <input type="checkbox" name="terms" id="check">
+                        <input type="checkbox" id="terms" name="terms" id="check">
                         <label for="check">Acepto términos y condiciones</label>
                     </div>
+                    <small class="text-error" id="errorTerms"></small>
                     <% if (locals.errors && errors.terms) { %>
-                    <small class="text-error"><%= errors.terms.msg %></small>
+                    <small class="text-error" id="errorTerms"><%= errors.terms.msg %></small>
                     <% } %>
                 </div>
                 <div class="btn-submit-container" >
@@ -95,7 +93,6 @@
         </div>
   </main>
     <%- include('../partials/footer.ejs') %> 
-  <script src="/js/image-user.js
-  "></script>
+    <script src="/js/validations-register.js"></script>
 </body>
 </html>
