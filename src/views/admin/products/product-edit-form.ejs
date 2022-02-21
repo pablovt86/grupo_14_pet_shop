@@ -10,7 +10,7 @@
     <main class="tablero-admin-producto">
         <div class="contenedor-admin-producto">
             <p class="titulo-formulario-admin">Editando el producto: <%= product.nombre %></p>
-            <form class="formulario-admin-producto"action="/admin/products/<%=product.idproducts %>/update?_method=PUT" method="POST" enctype="multipart/form-data" >
+            <form id="formProduct" class="formulario-admin-producto"action="/admin/products/<%=product.idproducts %>/update?_method=PUT" method="POST" enctype="multipart/form-data" >
                 <div class="contenedor-datos-1">
                     <div class="datos-productos-admin">
                         <label for="agregar-nombre">Nombre de producto:</label>
@@ -18,6 +18,7 @@
                             <i class="fas fa-pencil-alt"></i>
                             <input class="input-agregar-dato" name="nombre" type="text" id="agregar-nombre" value="<%= locals.old? old.nombre: product.nombre %>">
                         </div>
+                        <small id="errorNombre" class="errorSubmit"></small>
                         <% if (locals.errors && errors.nombre) { %>
                          <small><%= errors.nombre.msg %></small>
                         <% } %>
@@ -26,18 +27,20 @@
                         <label for="agregar-precio">Precio:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-dollar-sign"></i>
-                            <input class="input-agregar-dato" name="price" type="number" id="agregar-precio" value="<%= locals.old? old.price: product.price %>">
+                            <input class="input-agregar-dato" name="price" type="text" id="agregar-precio" value="<%= locals.old? old.price: product.price %>">
                         </div>
+                        <small id="errorPrice" class="errorSubmit"></small>
                         <% if (locals.errors && errors.price) { %>
                             <small><%= errors.price.msg %></small>
                         <% } %>
                     </div>
                     <div class="datos-productos-admin">
-                        <label for="agregar-color">descuento:</label>
+                        <label for="agregar-discount">descuento:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-paint-brush"></i>
-                            <input class="input-agregar-dato" name="discount" type="number" id="agregar-discount" value="<%= locals.old? old.discount: product.discount %>">
+                            <input class="input-agregar-dato" name="discount" type="text" id="agregar-discount" value="<%= locals.old? old.discount: product.discount %>">
                         </div>
+                        <small id="errorDiscount"></small>
                         <% if (locals.errors && errors.discount) { %>
                             <small><%= errors.discount.msg %></small>
                         <% } %>
@@ -45,14 +48,13 @@
                     <div class="descripcion-productos-admin">
                         <label for="descripcion">Descripción del producto</label>
                         <div>
-                            <textarea class="textarea-admin" name="description" id="descripcion"  rows="5" >
-                                <%= locals.old? old.description: product.description %>
-                            </textarea>
+                            <textarea class="textarea-admin" name="description" id="descripcion" cols="10" rows="10" ><%= locals.old? old.description: product.description %></textarea>
                         </div>
                         <% if (locals.errors && errors.description) { %>
                             <small><%= errors.description.msg %></small>
-                        <% } %>
-                    </div>    
+                        <% } %>    
+                    </div> 
+                    <small id="errorDescription" class="errorSubmit"></small>   
                 </div>
                 <div class="contenedor-datos-2">
                     <div class="select-opciones-administrador">
@@ -67,6 +69,7 @@
                                 <% }) %> 
                             </select>
                         </div>
+                        <small id="errorCategory" class="errorSubmit"></small>
                         <% if (locals.errors && errors.category) { %>
                             <small><%= errors.category.msg %></small>
                         <% } %>
@@ -83,6 +86,7 @@
                                 <% }) %> 
                             </select>
                         </div>
+                        <small id="errorSubcategory" class="errorSubmit"></small>
                         <% if (locals.errors && errors.subcategory) { %>
                             <small><%= errors.subcategory.msg %></small>
                         <% } %>
@@ -94,17 +98,18 @@
                             <input class="imagen-admin" type="file" name="image" id="image-create-product">
                         </div>
                         <div class="imagen-producto-admin" id="image-preview">
-                            <img src="" 
-                            alt="" id="imagen-previa">
+                            <img src="" alt="" id="imagen-previa">
                             <i class="fas fa-camera"></i>
                         </div>
+                        <small id="errorImage"></small>
                     </div>
                     <div class="datos-productos-admin">
-                        <label for="agregar-marca">Cantidad:</label>
+                        <label for="agregar-cantidad">Cantidad:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-dollar-sign"></i>
-                            <input class="input-agregar-dato" name="stock" type="number" id="agregar-marca" value="<%= locals.old? old.stock : product.stock %>">
+                            <input class="input-agregar-dato" name="stock" type="text" id="agregar-cantidad" value="<%= locals.old? old.stock : product.stock %>">
                         </div>
+                        <small id="errorStock" class="errorSubmit"></small>
                         <% if (locals.errors && errors.stock) { %>
                             <small><%= errors.stock.msg %></small>
                         <% } %>

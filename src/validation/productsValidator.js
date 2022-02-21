@@ -20,20 +20,20 @@ module.exports = [
     check('description')
     .notEmpty()
     .withMessage('Incluya una breve descripción.')
-    .isLength({ max: 1200 })
+    .isLength({ max: 255 })
     .withMessage('Máximo permitido 255 caracteres.'),
 
     check('category')
     .notEmpty()
-    .withMessage('Elija una categoría'),
+    .withMessage('Elija una categoría.'),
 
     check('subcategory')
     .notEmpty()
-    .withMessage('Elija una subcategoría'),
+    .withMessage('Elija una subcategoría.'),
 
     check('stock')
     .notEmpty()
     .withMessage('Debe ingresar cantidad de unidades.').bail()
     .isNumeric()    
-    .withMessage('El valor debe ser numérico')
+    .withMessage('El valor debe ser numérico.')
 ]

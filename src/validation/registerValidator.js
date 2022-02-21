@@ -40,8 +40,8 @@ module.exports = [
     check('password')
     .notEmpty()
     .withMessage('El password es obligatorio.').bail()
-    .isLength({min: 6, max: 6})
-    .withMessage('Contraseña de 6 caracteres.'),
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/)
+    .withMessage('De 6 o 12 caracteres, al menos una mayúscula, una minúscula y un número.'),
 
     check('pass2')
     .notEmpty()
@@ -53,6 +53,4 @@ module.exports = [
     check('terms')
     .isString('on')
     .withMessage('Debes aceptar los términos.')
-
-
 ]

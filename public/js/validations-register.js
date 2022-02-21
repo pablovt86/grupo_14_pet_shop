@@ -44,7 +44,6 @@ window.addEventListener('load', () => {
         
             default:
                 $errorName.innerHTML = '';
-                $inputName.classList.add('is-valid');
                 validationErrors = false;
             break;
         }

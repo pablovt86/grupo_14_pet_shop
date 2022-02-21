@@ -26,7 +26,9 @@ module.exports = [
     
     check('password')
     .notEmpty()
-    .withMessage('Olvidaste escribir tu contraseña.'),
+    .withMessage('Olvidaste escribir tu contraseña.')
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/)
+    .withMessage('De 6 o 12 caracteres, al menos una mayúscula, una minúscula y un número.'),
 
     body('password')
     .custom((value, {req}) => {

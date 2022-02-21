@@ -8,12 +8,13 @@
       <img class="background-form" src="../images/images-forms/background-2.jpg" alt="Imagen fondo de mascotas">
     <div class="form">
       <div class="data-container"><h1 class="login">Login</h1></div>
-      <form action="/users/login" method="POST">
+      <form id="form" action="/users/login" method="POST">
           <div class="data-container">
               <div class="input-user-container">
                   <i class="fas fa-envelope"></i>
-                  <input type="text" class="input-text" name="email" placeholder="EMAIL" value="<%= locals.old && old.email %>">
+                  <input type="text" id="email" class="input-text" name="email" placeholder="EMAIL" value="<%= locals.old && old.email %>">
               </div>
+              <small id="errorEmail" class="text-error errorSubmit"></small>
               <% if (locals.errors && errors.email) { %>
               <small class="text-error"><%= errors.email.msg %></small>
               <% } %>
@@ -21,8 +22,9 @@
           <div class="data-container">
               <div class="input-user-container">
                   <i class="fas fa-lock"></i>
-                  <input type="password" class="input-text"name="password" placeholder="CONTRASEÑA">
+                  <input type="password" id="password" class="input-text"name="password" placeholder="CONTRASEÑA">
               </div>
+              <small id="errorPassword" class="text-error errorSubmit"></small>
               <% if (locals.errors && errors.password) { %>
               <small class="text-error"><%= errors.password.msg %></small>
               <% } %>
@@ -32,9 +34,6 @@
                   <input type="checkbox" name="terms" id="check">
                   <label for="check">Recordarme</label>
               </div>
-              <% if (locals.errors && errors.terms) { %>
-              <small class="text-error"><%= errors.terms.msg %></small>
-              <% } %>
           </div>
           <div class="btn-submit-container" >
               <button class="btn-form" type="submit">INICIAR SESIÓN</button>
@@ -48,6 +47,7 @@
     </div>
   </main>
 
-    <%- include('../partials/footer.ejs') %> 
+    <%- include('../partials/footer.ejs') %>
+    <script src="/js/validations-login.js"></script> 
 </body>
 </html>
