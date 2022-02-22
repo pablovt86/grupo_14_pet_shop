@@ -5,8 +5,6 @@ window.addEventListener('load', () => {
     $price = document.querySelector('#agregar-precio');
     $discount = document.querySelector('#agregar-discount');
     $description = document.querySelector('#descripcion');
-    $category = document.querySelector('#category');
-    $subcategory = document.querySelector('#subcategory');
     $image = document.querySelector('#image-create-product');
     $stock = document.querySelector('#agregar-cantidad');
 
@@ -15,8 +13,6 @@ window.addEventListener('load', () => {
     $errorPrice = document.querySelector('#errorPrice');
     $errorDiscount = document.querySelector('#errorDiscount');
     $errorDescription = document.querySelector('#errorDescription');
-    $errorCategory = document.querySelector('#errorCategory');
-    $errorSubcategory = document.querySelector('#errorSubcategory');
     $errorImage = document.querySelector('#errorImage');
     $errorStock = document.querySelector('#errorStock');
     $errorSubmit = document.querySelectorAll('.errorSubmit');
@@ -88,7 +84,7 @@ window.addEventListener('load', () => {
                 validationErrors = true;
             break;
 
-            case $description.value.length > 255:
+            case $description.value.length > 1200:
                 $errorDescription.innerHTML = 'Máximo permitido 255 caracteres.';
                 validationErrors = true;
             break;
@@ -97,27 +93,6 @@ window.addEventListener('load', () => {
                 $errorDescription.innerHTML = '';
                 validationErrors = false;
             break;
-        }
-    });
-
-
-    $category.addEventListener('blur', () => {
-        if (!$category.value) {
-            $errorCategory.innerHTML = 'Elija una categoría.';
-            validationErrors = true;
-        } else {
-            $errorCategory.innerHTML = '';
-            validationErrors = false;
-        }
-    });
-
-    $subcategory.addEventListener('blur', () => {
-        if (!$subcategory.value) {
-            $errorSubcategory.innerHTML = 'Elija una subcategoría.';
-            validationErrors = true;
-        } else {
-            $errorSubcategory.innerHTML = '';
-            validationErrors = false;
         }
     });
 
@@ -159,7 +134,7 @@ window.addEventListener('load', () => {
 
         [...$errorSubmit].forEach(element => {
             const div = element.parentElement;
-            const input = div.querySelector('.require');
+            const input = div.querySelector('input');
             if(input.value == ''){
                 element.innerHTML = 'Este dato es obligatorio.';
                 error = true;

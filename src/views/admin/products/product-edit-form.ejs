@@ -69,7 +69,7 @@
                                 <% }) %> 
                             </select>
                         </div>
-                        <small id="errorCategory" class="errorSubmit"></small>
+                        <small id="errorCategory"></small>
                         <% if (locals.errors && errors.category) { %>
                             <small><%= errors.category.msg %></small>
                         <% } %>
@@ -86,7 +86,7 @@
                                 <% }) %> 
                             </select>
                         </div>
-                        <small id="errorSubcategory" class="errorSubmit"></small>
+                        <small id="errorSubcategory"></small>
                         <% if (locals.errors && errors.subcategory) { %>
                             <small><%= errors.subcategory.msg %></small>
                         <% } %>
@@ -129,6 +129,6 @@
             </form>
         </div>
     </main> 
-    <script src="/js/image-preview.js"></script> 
+    <script src="/js/validations-edit-product.js"></script> 
 </body>
 </html>

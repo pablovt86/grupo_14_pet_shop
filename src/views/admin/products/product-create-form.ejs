@@ -16,7 +16,7 @@
                         <label for="agregar-nombre">Nombre de producto:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-pencil-alt"></i>
-                            <input class="input-agregar-dato" name="nombre" type="text" id="agregar-nombre" value="<%= locals.old && old.nombre %>">
+                            <input class="input-agregar-dato require" name="nombre" type="text" id="agregar-nombre" value="<%= locals.old && old.nombre %>">
                         </div>
                         <small id="errorNombre" class="errorSubmit"></small>
                         <% if (locals.errors && errors.nombre) { %>  
@@ -27,7 +27,7 @@
                         <label for="agregar-precio">Precio:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-dollar-sign"></i>
-                            <input class="input-agregar-dato" name="price" type="text" id="agregar-precio" value="<%= locals.old && old.price %>">
+                            <input class="input-agregar-dato require" name="price" type="text" id="agregar-precio" value="<%= locals.old && old.price %>">
                         </div>
                         <small id="errorPrice" class="errorSubmit"></small>
                         <% if (locals.errors && errors.price) { %>
@@ -48,7 +48,7 @@
                     <div class="descripcion-productos-admin">
                         <label for="descripcion">Descripción del producto</label>
                         <div>
-                            <textarea class="textarea-admin" name="description" id="descripcion" cols="10"  rows="10"><%= locals.old && old.description %></textarea>
+                            <textarea class="textarea-admin require" name="description" id="descripcion" cols="10"  rows="10"><%= locals.old && old.description %></textarea>
                         </div>
                         <% if (locals.errors && errors.description) { %>
                             <small><%= errors.description.msg %></small>
@@ -61,7 +61,7 @@
                     <div class="select-opciones-administrador">
                         <label>Categorías:</label>
                         <div class="select-opcion-administrador">     
-                            <select class="seleccion-admin" name="category" id="category">
+                            <select class="seleccion-admin require" name="category" id="category">
                                 <option selected hidden value="">categorias</option>
                                 <% categories.forEach(category => { %>
                                 <option class="opcion-admin" value="<%= category.idcategory %>" <%=locals.old && old.category == category.idcategory ? 'selected':''%>><%= category.name %></option>
@@ -76,7 +76,7 @@
                     <div class="select-opciones-administrador">
                         <label>Sub-Categorías:</label>
                         <div class="select-opcion-administrador">
-                            <select class="seleccion-admin" name="subcategory" id="subcategory">
+                            <select class="seleccion-admin require" name="subcategory" id="subcategory">
                                 <option selected hidden value="">sub-categorias</option>
                                 <% subcategories.forEach(subcategory => { %>     
                                     <option class="opcion-admin" value="<%- subcategory.idsubcategory %>" <%=locals.old && old.subcategory == subcategory.idsubcategory ? 'selected':''%>><%= subcategory.name %></option>
@@ -104,7 +104,7 @@
                         <label for="agregar-cantidad">Cantidad:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-dollar-sign"></i>
-                            <input class="input-agregar-dato" name="stock" type="text" id="agregar-cantidad" value="<%= locals.old && old.stock %>">
+                            <input class="input-agregar-dato require" name="stock" type="text" id="agregar-cantidad" value="<%= locals.old && old.stock %>">
                         </div>
                         <small id="errorStock" class="errorSubmit"></small>
                         <% if (locals.errors && errors.stock) { %>
