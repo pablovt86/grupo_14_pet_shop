@@ -31,14 +31,14 @@ app.set('view engine', 'ejs');
 let usersRouter = require('./routes/users');
 let productsRouter = require('./routes/products');
 let adminRouter = require('./routes/adminRouter');
-
+const newHomeRouter = require('./routes/newHomeRouter');
 
 
 // MIDDLEWARES
 app.use('/users', usersRouter)
 app.use('/', productsRouter)
 app.use('/admin', adminRouter);
-
+app.use('/home', newHomeRouter);
 
 
 app.listen(port, ()=>console.log(`servidor Escuchando en Puerto ${port} http://localhost:${port}`));

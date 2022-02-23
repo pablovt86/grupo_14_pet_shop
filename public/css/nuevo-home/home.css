@@ -1,0 +1,19 @@
+img.home-banner {
+    width: 100%;
+    min-height: 120px;
+    margin-top: 100px;
+}
+
+div.home-contact {
+    width: 100%;
+}
+
+img.image-contact {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    img.home-banner {
+        margin-top: 200px;
+    }
+}

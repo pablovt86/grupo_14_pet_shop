@@ -1,0 +1,388 @@
+/** Barra de navegación **/
+
+nav.nav-petshop {
+    width: 100%;
+    height: 80px;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    position: fixed;
+}
+
+
+/** Menu hamburguesa **/
+
+label.bars {
+    font-size: 26px;
+}
+
+input#bars-image {
+    display: none;
+}
+
+input#close {
+    display: none;
+}
+
+
+input#bars-image:checked ~ ul.nav-menu {
+   margin-top: 0;
+}
+
+
+/** Logo **/
+
+div.petshop-logo-container {
+    width: 100px;
+    height: 60px;
+}
+
+img.petshop-logo {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/** Buscador **/
+
+label.searcher {
+    font-size: 26px;
+    margin-right: 5px;
+}
+
+input#search-menu {
+    display: none;
+}
+
+input#search-menu:checked ~ div.searcher-container {
+    top: 80px;
+}
+
+div.searcher-container {
+    position: absolute;
+    top: -100px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(to right, #B24592, #F15F79);
+    transition: all 0.5s;   
+}
+
+label.close-searcher {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 10px 10px 0px 0px;
+    color: #fff;
+}
+
+form.form-search {
+    margin: auto;
+    display: flex;
+    width: 80%;
+    padding: 5px;
+    border-radius: 15px;
+    font-weight: bold;
+    background: #fff;
+}
+
+input#search {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+button.submit-search {
+    background: none;
+    border: none;
+    font-size: 20px;
+}
+
+
+
+/** Login menu **/
+
+label.login i {
+    border: none;
+    font-size: 24px;
+}
+
+input#login {
+   display: none;
+}
+
+input#login:checked ~ ul.login-menu {
+    display: block;
+}
+
+ul.login-menu {
+    list-style: none;
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    display: none;
+    transition: all 1s;
+    background-image: linear-gradient(to right, #B24592, #F15F79);
+}
+
+li.login-option-menu {
+    display: block;
+    width: 100%;
+    border-bottom: 3px solid #fff;
+}
+
+a.login-link-menu {
+    display: block;
+    height: 100%;
+    padding: 20px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 26px;
+}
+
+i#login-profile {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    font-size: 26px;
+    color: #fff;
+    border: none;
+}
+
+label.close-login-menu {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    font-size: 14px;
+    color: #fff;
+}
+
+
+
+/** Carrito **/
+
+label.cart-icon {
+    font-size: 24px;
+}
+
+input#shopping-cart {
+    display: none;
+}
+
+div.cart-menu {
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    width: 50%;
+    border-right: 2px solid #555;
+    border-bottom: 2px solid #555;
+    border-top: 2px solid #555;
+    min-height: 300px;
+    margin-left: -75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    transition: all 0.5s;
+}
+
+input#shopping-cart:checked ~ div.cart-menu {
+    margin-left: 0%;
+}
+
+label.close-cart {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 10px 10px 0px 0px;
+    color: #555;
+}
+
+p.cart-message {
+    text-transform: uppercase;
+    color: #555;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/** Menu de navegación **/
+
+ul.nav-menu {
+    list-style: none;
+    padding: 0px;
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    width: 100%;
+    margin-top: -200%;
+    transition: all 0.5s;
+    border-top: 2px solid #fff;
+    background-image: linear-gradient(to right, #B24592, #F15F79);
+}
+
+li.close-menu {
+    padding: 10px 10px 0px 0px;
+    text-align: end;
+    color: #fff;
+    font-weight: bold;
+}
+
+li.nav-source {
+    display: block;
+    width: 100%;
+    border-bottom: 3px solid #fff;
+}
+
+li.last {
+    display: none;
+}
+
+a.link-source {
+    display: block;
+    height: 100%;
+    padding: 30px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input#login-desktop {
+   display: none;
+}
+
+@media (min-width: 468px) {
+    div.petshop-logo-container {
+        width: 150px;
+        height: 70px;
+    }
+
+    label.searcher {
+        margin-right: 30px;
+    }
+}
+
+@media (min-width: 768px) {
+    label.bars {
+        display: none;
+    }
+
+    nav.nav-petshop {
+        height: 90px;
+    }
+
+    ul.nav-menu {
+        margin-top: 10px;
+        left: 0px;
+        width: 100%;
+        height: 60px;
+        transition: all 0s;
+        border-top: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
+    
+    li.close-menu {
+        display: none;
+    }
+
+    li.nav-source {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-bottom: none;
+        text-align: center;
+    }
+
+    a.link-source {
+        display: block;
+        height: 100%;
+        padding: 20px;
+        text-decoration: none;
+        color: #fff;
+        text-transform: uppercase;
+        font-family: sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    a.link-source:hover {
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    input#login-desktop:checked ~ ul.login-menu {
+        display: block;
+        top: 150px;
+        right: 0px;
+        width: 16.6%;
+        background-image: linear-gradient(to bottom, #F15F79, #B24592);
+    }
+
+    label.searcher {
+       display: none;
+    }
+
+    div.searcher-container {
+        position: absolute;
+        top: -0px;
+        left: 50%;
+        width: 50%;
+        transform: translate(-50%);
+        background: none;
+        z-index: 1;
+        transition: all 0s;   
+    }
+
+    label.close-searcher {
+        display: none;
+    }
+
+    form.form-search {
+        border: 2px solid #000;
+    }
+
+    div.cart-menu {
+        top: 150px;
+    }
+
+    label.login i {
+        display: none;
+    }
+
+    label.close-login-menu {
+        display: none;
+    }
+
+    a.login-link-menu:hover {
+        background: rgba(0, 0, 0, 0.3); 
+    }
+
+    li.last {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    li.last:hover {
+        background: rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+}
