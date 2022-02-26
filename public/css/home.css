@@ -1,18 +1,13 @@
 
 
-/* .home{
-  background-image: url("/images/fondo-2.png");
-background-color: black;
-} */
+/* slider */
+
 .bannerHome{
   width: 100%;
-
-  
 
 }
 .bannerHome img{
   width: 100%;
-  height: 470px;
 }
 
 .navbar {
@@ -75,9 +70,9 @@ background-color: black;
     background: #563434;
   }
   
-  .header {
+  /* .header {
     background: radial-gradient(#fff, #ffd6d6);
-  }
+  } */
   
   .header .row {
     margin-top: 30px;
@@ -297,6 +292,7 @@ background-color: black;
   }
   
   /*---------------media query ----------------------*/
+ 
  
   @media only screen and (max-width: 800px) {
     nav ul {

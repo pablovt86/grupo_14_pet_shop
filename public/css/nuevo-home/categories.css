@@ -6,7 +6,7 @@ div.categories-container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(to bottom, #F15F79, #B24592);
+    background-image: linear-gradient(to top, #f7eeef,var(--tex));
 }
 
 p.section-title {
@@ -45,6 +45,11 @@ li.align-up {
 a.categories-link {
     width: 100%;
     height: 100%;
+}
+li.categories-item p{
+    text-align: center;
+    color: var(--tex);
+    font-size: var(--estandar);
 }
 
 img.categories-image {
