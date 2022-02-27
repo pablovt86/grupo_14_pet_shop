@@ -14,7 +14,8 @@ module.exports = [
     .withMessage('El valor debe ser numérico'),
 
     check('discount')
-    .isNumeric()    
+    .optional({ checkFalsy: true }).isISO8601()
+    .isNumeric()  
     .withMessage('El valor debe ser numérico'),
 
     check('description')
