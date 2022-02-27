@@ -15,7 +15,7 @@
                 <div class="data-container">
                     <div class="input-user-container">
                         <i class="fas fa-user"></i>
-                        <input type="text" id="name" class="input-text" name="name" placeholder="NOMBRE" value="<%= locals.old && old.name %>">
+                        <input type="text" id="name" class="input-text data" name="name" placeholder="NOMBRE" value="<%= locals.old && old.name %>">
                     </div>
                     <small class="text-error errorSubmit" id="errorName"></small>
                     <% if (locals.errors && errors.name) { %>
@@ -25,7 +25,7 @@
                 <div class="data-container">
                     <div class="input-user-container">
                         <i class="fas fa-user"></i>
-                        <input type="text" id="lastName" class="input-text" name="last_name" placeholder="APELLIDO" value="<%= locals.old && old.last_name %>">
+                        <input type="text" id="lastName" class="input-text data" name="last_name" placeholder="APELLIDO" value="<%= locals.old && old.last_name %>">
                     </div>
                     <small class="text-error errorSubmit" id="errorLastName"></small>
                     <% if (locals.errors && errors.last_name) { %>
@@ -35,7 +35,7 @@
                 <div class="data-container">
                     <div class="input-user-container">
                         <i class="fas fa-envelope"></i>
-                        <input type="text" id="email" class="input-text" name="email" placeholder="EMAIL" value="<%= locals.old && old.email %>">
+                        <input type="text" id="email" class="input-text data" name="email" placeholder="EMAIL" value="<%= locals.old && old.email %>">
                     </div>
                     <small class="text-error errorSubmit" id="errorEmail"></small>
                     <% if (locals.errors && errors.email) { %>
@@ -45,7 +45,7 @@
                 <div class="data-container">
                     <div class="input-user-container">
                         <i class="fas fa-unlock"></i>
-                        <input type="password" id="password" class="input-text"name="password" placeholder="CONTRASEÑA">
+                        <input type="password" id="password" class="input-text data"name="password" placeholder="CONTRASEÑA">
                     </div>
                     <small class="text-error errorSubmit" id="errorPassword"></small>
                     <% if (locals.errors && errors.password) { %>
@@ -55,7 +55,7 @@
                 <div class="data-container">
                     <div class="input-user-container">
                         <i class="fas fa-lock"></i>
-                        <input type="password" id="pass2" class="input-text" name="pass2" placeholder="CONFIRME CONTRASEÑA">
+                        <input type="password" id="pass2" class="input-text data" name="pass2" placeholder="CONFIRME CONTRASEÑA">
                     </div>
                     <small class="text-error errorSubmit" id="errorPass2"></small>
                     <% if (locals.errors && errors.pass2) { %>
@@ -65,7 +65,7 @@
                 <div class="data-container">
                     <div class="file-user-container">
                         <label for="avatar">SUBIR FOTO</label>
-                        <input type="file" id="avatar" class="input-file-user" name="avatar" id="avatar">
+                        <input type="file" id="avatar" class="input-file-user data" name="avatar" id="avatar">
                     </div>
                     <small class="text-error" id="errorAvatar"></small>
                     <% if (locals.errors && errors.image) { %>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="data-container">
                     <div class="check-user-container">
-                        <input type="checkbox" id="terms" name="terms" id="check">
+                        <input type="checkbox" name="terms" id="check" class="data">
                         <label for="check">Acepto términos y condiciones</label>
                     </div>
                     <small class="text-error" id="errorTerms"></small>
@@ -93,6 +93,6 @@
         </div>
   </main>
     <%- include('../partials/footer.ejs') %> 
-    <script src="/js/validations/validations-register.js"></script>
+    <script src="/js/validations/validationsUsers.js"></script>
 </body>
 </html>

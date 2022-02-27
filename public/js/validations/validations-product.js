@@ -129,6 +129,8 @@ window.addEventListener('load', () => {
             img.src = imagen;
             $errorImage.innerHTML = '';
         } else {
+            const img = document.querySelector('#imagen-previa');
+            img.src = "";
             $errorImage.innerHTML = 'Solo extensiones .jpg .jpeg .png .webp'
         }
     });

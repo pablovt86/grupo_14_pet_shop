@@ -37,16 +37,14 @@ module.exports = [
                 email: req.body.email
             }
         })
-        .then((user)=>{
-            
+        .then((user)=>{     
             if(user){
-                console.log(value)
                 const clave = bcrypt.compareSync(value, user.dataValues.password);
                    
                 if(clave){
                     return true;
                 }else{
-                    return Promise.reject('credeciales inválida.');
+                    return Promise.reject('Contraseña inválida.');
                 }
             }else{
                 return Promise.reject('Usuario no encontrado.')
