@@ -13,7 +13,7 @@ module.exports = [
     .notEmpty()
     .withMessage('El apellido no puede estar vacío.').bail()
     .isLength({min: 3, max: 20})
-    .withMessage('Escriba entre 3 y 20 caracteres.'),
+    .withMessage('Escriba entre 3 y 15 caracteres.'),
 
     check('email')
     .notEmpty()

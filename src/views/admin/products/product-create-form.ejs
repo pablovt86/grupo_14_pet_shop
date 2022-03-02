@@ -18,7 +18,7 @@
                             <i class="fas fa-pencil-alt"></i>
                             <input class="input-agregar-dato require" name="nombre" type="text" id="agregar-nombre" value="<%= locals.old && old.nombre %>">
                         </div>
-                        <small id="errorNombre" class="errorSubmit"></small>
+                        <small class="errorNombre"></small>
                         <% if (locals.errors && errors.nombre) { %>  
                             <small><%= errors.nombre.msg  %> </small>
                         <% } %>
@@ -29,7 +29,7 @@
                             <i class="fas fa-dollar-sign"></i>
                             <input class="input-agregar-dato require" name="price" type="text" id="agregar-precio" value="<%= locals.old && old.price %>">
                         </div>
-                        <small id="errorPrice" class="errorSubmit"></small>
+                        <small class="errorPrice"></small>
                         <% if (locals.errors && errors.price) { %>
                             <small><%= errors.price.msg %> </small>
                         <% } %>
@@ -38,9 +38,9 @@
                         <label for="agregar-discount">descuento:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-paint-brush"></i>
-                            <input class="input-agregar-dato" name="discount" type="text" id="agregar-discount" value="<%= locals.old && old.discount %>">
+                            <input class="input-agregar-dato require" name="discount" type="text" id="agregar-discount" value="<%= locals.old && old.discount %>">
                         </div>
-                        <small id="errorDiscount"></small>
+                        <small class="errorDiscount"></small>
                         <% if (locals.errors && errors.discount) { %>
                             <small><%= errors.discount.msg %></small>
                         <% } %>
@@ -54,7 +54,7 @@
                             <small><%= errors.description.msg %></small>
                         <% } %>
                     </div>
-                    <small id="errorDescription" class="errorSubmit"></small>    
+                    <small class="errorDescription"></small>    
                 </div>
                 
                 <div class="contenedor-datos-2">
@@ -68,7 +68,7 @@
                                 <% }) %> 
                             </select>
                         </div>
-                        <small id="errorCategory" class="errorSubmit"></small>
+                        <small class="errorCategory"></small>
                         <% if (locals.errors && errors. category) { %>
                             <small><%= errors.category.msg %></small>
                         <% } %>
@@ -83,7 +83,7 @@
                                 <% }) %> 
                             </select>
                         </div>
-                        <small id="errorSubcategory" class="errorSubmit"></small>
+                        <small class="errorSubcategory"></small>
                         <% if (locals.errors && errors.subcategory) { %>
                             <small><%= errors.subcategory.msg %></small>
                         <% } %>
@@ -92,13 +92,13 @@
                         <label>Agregar imagen:</label>
                         <div class="contenedor-imagen-admin">
                             <label for="image-create-product">- Subir imagen -</label>
-                            <input class="imagen-admin" type="file" name="image" id="image-create-product">
+                            <input class="imagen-admin require" type="file" name="image" id="image-create-product">
                         </div>
                         <div class="imagen-producto-admin" id="image-preview">
                             <img src="" id="imagen-previa">
                             <i class="fas fa-camera"></i>
                         </div>
-                        <small id="errorImage"></small>
+                        <small class="errorImage"></small>
                     </div>
                     <div class="datos-productos-admin">
                         <label for="agregar-cantidad">Cantidad:</label>
@@ -106,7 +106,7 @@
                             <i class="fas fa-dollar-sign"></i>
                             <input class="input-agregar-dato require" name="stock" type="text" id="agregar-cantidad" value="<%= locals.old && old.stock %>">
                         </div>
-                        <small id="errorStock" class="errorSubmit"></small>
+                        <small class="errorStock"></small>
                         <% if (locals.errors && errors.stock) { %>
                             <small><%= errors.stock.msg %></small>
                         <% } %>
@@ -125,6 +125,6 @@
             </form>
         </div>
     </main> 
-    <script src="/js/validations/validations-product.js"></script>
+    <script src="/js/validations/validationsProducts.js"></script>
 </body>
 </html>

@@ -16,9 +16,9 @@
                         <label for="agregar-nombre">Nombre de producto:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-pencil-alt"></i>
-                            <input class="input-agregar-dato" name="nombre" type="text" id="agregar-nombre" value="<%= locals.old? old.nombre: product.nombre %>">
+                            <input class="input-agregar-dato require" name="nombre" type="text" id="agregar-nombre" value="<%= locals.old? old.nombre: product.nombre %>">
                         </div>
-                        <small id="errorNombre" class="errorSubmit"></small>
+                        <small class="errorNombre"></small>
                         <% if (locals.errors && errors.nombre) { %>
                          <small><%= errors.nombre.msg %></small>
                         <% } %>
@@ -27,9 +27,9 @@
                         <label for="agregar-precio">Precio:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-dollar-sign"></i>
-                            <input class="input-agregar-dato" name="price" type="text" id="agregar-precio" value="<%= locals.old? old.price: product.price %>">
+                            <input class="input-agregar-dato require" name="price" type="text" id="agregar-precio" value="<%= locals.old? old.price: product.price %>">
                         </div>
-                        <small id="errorPrice" class="errorSubmit"></small>
+                        <small class="errorPrice"></small>
                         <% if (locals.errors && errors.price) { %>
                             <small><%= errors.price.msg %></small>
                         <% } %>
@@ -38,9 +38,9 @@
                         <label for="agregar-discount">descuento:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-paint-brush"></i>
-                            <input class="input-agregar-dato" name="discount" type="text" id="agregar-discount" value="<%= locals.old? old.discount: product.discount %>">
+                            <input class="input-agregar-dato require" name="discount" type="text" id="agregar-discount" value="<%= locals.old? old.discount: product.discount %>">
                         </div>
-                        <small id="errorDiscount"></small>
+                        <small class="errorDiscount"></small>
                         <% if (locals.errors && errors.discount) { %>
                             <small><%= errors.discount.msg %></small>
                         <% } %>
@@ -48,19 +48,19 @@
                     <div class="descripcion-productos-admin">
                         <label for="descripcion">Descripción del producto</label>
                         <div>
-                            <textarea class="textarea-admin" name="description" id="descripcion" cols="10" rows="10" ><%= locals.old? old.description: product.description %></textarea>
+                            <textarea class="textarea-admin require" name="description" id="descripcion" cols="10" rows="10" ><%= locals.old? old.description: product.description %></textarea>
                         </div>
                         <% if (locals.errors && errors.description) { %>
                             <small><%= errors.description.msg %></small>
                         <% } %>    
                     </div> 
-                    <small id="errorDescription" class="errorSubmit"></small>   
+                    <small class="errorDescription"></small>   
                 </div>
                 <div class="contenedor-datos-2">
                     <div class="select-opciones-administrador">
                         <label>Categorías:</label>
                         <div class="select-opcion-administrador">
-                            <select class="seleccion-admin" name="category">
+                            <select class="seleccion-admin require" name="category">
                                 <option selected hidden value="">categorias</option>
                                 <% categories.forEach(category => { %>  
                                 <option class="opcion-admin" value="<%= category.idcategory %>" <%- locals.old && old.category == category.idcategory? "selected" : category.idcategory == product.subcategory.idcategory ? "selected" : "" %>>
@@ -69,7 +69,7 @@
                                 <% }) %> 
                             </select>
                         </div>
-                        <small id="errorCategory"></small>
+                        <small class="errorCategory"></small>
                         <% if (locals.errors && errors.category) { %>
                             <small><%= errors.category.msg %></small>
                         <% } %>
@@ -77,7 +77,7 @@
                     <div class="select-opciones-administrador">
                         <label>Sub-Categorías:</label>
                         <div class="select-opcion-administrador">
-                            <select class="seleccion-admin" name="subcategory">
+                            <select class="seleccion-admin require" name="subcategory">
                                 <option selected hidden value="">sub-categorias</option>
                                 <% subcategories.forEach(subcategory => { %>
                                 <option class="opcion-admin" value="<%- subcategory.idsubcategory %> " <%- locals.old && old.subcategory == subcategory.idsubcategory? "selected": subcategory.idsubcategory == product.idsubcategory? "selected": "" %>>
@@ -86,7 +86,7 @@
                                 <% }) %> 
                             </select>
                         </div>
-                        <small id="errorSubcategory"></small>
+                        <small class="errorSubcategory"></small>
                         <% if (locals.errors && errors.subcategory) { %>
                             <small><%= errors.subcategory.msg %></small>
                         <% } %>
@@ -95,21 +95,21 @@
                         <label>Agregar imagen:</label>
                         <div class="contenedor-imagen-admin">
                             <label for="image-create-product">- Subir imagen -</label>
-                            <input class="imagen-admin" type="file" name="image" id="image-create-product">
+                            <input class="imagen-admin require" type="file" name="image" id="image-create-product">
                         </div>
                         <div class="imagen-producto-admin" id="image-preview">
                             <img src="" alt="" id="imagen-previa">
                             <i class="fas fa-camera"></i>
                         </div>
-                        <small id="errorImage"></small>
+                        <small class="errorImage"></small>
                     </div>
                     <div class="datos-productos-admin">
                         <label for="agregar-cantidad">Cantidad:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-dollar-sign"></i>
-                            <input class="input-agregar-dato" name="stock" type="text" id="agregar-cantidad" value="<%= locals.old? old.stock : product.stock %>">
+                            <input class="input-agregar-dato require" name="stock" type="text" id="agregar-cantidad" value="<%= locals.old? old.stock : product.stock %>">
                         </div>
-                        <small id="errorStock" class="errorSubmit"></small>
+                        <small class="errorStock"></small>
                         <% if (locals.errors && errors.stock) { %>
                             <small><%= errors.stock.msg %></small>
                         <% } %>
@@ -129,6 +129,6 @@
             </form>
         </div>
     </main> 
-    <script src="/js/validations/validations-edit-product.js"></script> 
+    <script src="/js/validations/validationsProducts.js"></script> 
 </body>
 </html>

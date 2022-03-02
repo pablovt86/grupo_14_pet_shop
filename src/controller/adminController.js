@@ -2,7 +2,7 @@ const path = require('path');
 const { validationResult } = require('express-validator');
 const fs = require('fs');
 const db = require('../database/models');
-const { products } = require('../database/dataBase');
+const { products, subcategories } = require('../database/dataBase');
 const { Op } = require('sequelize');
 
 let controller = {
@@ -87,6 +87,9 @@ let controller = {
         const subcategories = db.Subcategory.findAll();
         Promise.all([product, categories, subcategories])
         .then(([product, categories, subcategories]) => {
+            if (product.discount == 0) {
+                product.discount = '';
+            }
             res.render('admin/products/product-edit-form', {
                 product,
                 categories,      
@@ -187,11 +190,16 @@ let controller = {
             include: [{association: 'product_images'}]
         })
         .then((resultados) => {
-            res.render('admin/products/searchAdmin', {
-                resultados,
-                search: req.query.searchAdmin,
-                session: req.session
+            db.Subcategory.findAll({include:[{association: 'category'}]})
+            .then((subcategories) => {
+                res.render('admin/products/searchAdmin', {
+                    resultados,
+                    subcategories,
+                    search: req.query.searchAdmin,
+                    session: req.session
+                });
             })
+            .catch((error) => {console.log(error)});
         })
         .catch((error) => {console.log(error)});
     }
