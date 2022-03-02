@@ -2,6 +2,29 @@
     width: 100%; 
   
 }
+
+/* banner-categorias.ejs */
+.card-filter-container-category{
+    width: 100%;
+    height: 680px;
+
+}
+.banner-category{
+    width: 760px;
+    height: 450px;
+    border-radius: 50px;
+    margin: 0 auto;
+
+}
+.banner-category img{
+    width: 960px;
+    height: 450px;
+    border-radius: 50px;
+    margin: 0 auto;}
+
+
+
+/* end banner-categorias.ejs */
 .content-oculto{
     display: none;
 }

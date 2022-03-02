@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head.ejs') %> 
+<body>
+    <%- include('../../partials/header.ejs') %> 
+    <section class="card-filter-container">
+        <div class="banner-category">
+    <% if (query == "1") { %>
+        <img  src="/images/nuevo-home/categories/aves.jpg" alt="imagen categoría aves">
+
+
+     <% } else if (query =="2") { %>
+        <img  src="/images/nuevo-home/categories/felinos.jpg" alt="imagen categoría felinos">
+
+
+        <% } else if (query =="3") { %>
+            <img  src="/images/nuevo-home/categories/peces.jpg" alt="imagen categoría peces">
+
+
+
+            <% } else if (query == "4") { %>
+                <img  src="/images/nuevo-home/categories/caninos.webp" alt="imagen categoría caninos">
+
+
+
+                <% } else if (query == "5") { %>
+                    <img class="categories-image" src="/images/nuevo-home/categories/roedores.webp" alt="imagen categoría roedores">
+<% } else { %>
+    <h1 >"resultado de busqueda:"</h1>
+ <% } %> 
+     
+
+                 </div>
+        <h3 class="section-title">Categorias y sus productos:</h3> 
+    <div class="container-listProduct">
+    <div class="filter-list">
+       <h3 class="title-filter">Filtrar Por Precio</h3>
+<form action="" class="formAll" method="get">
+      <div class="input-filter">
+      <label for="filtro">$1000 a $2500</label>
+      <input type="radio" name="price" value="2500" checked>
+    </div>
+
+    <div class="input-filter">
+      <label for="filtro">$2500 a $4000</label>
+      <input type="radio" name="price" value="4000">
+    </div>
+
+    <div class="input-filter">
+      <label for="filtro">$4000 a $6000</label>
+
+      <input type="radio" name="price" value="6000">
+    </div>
+    <div class="input-filter">
+      <label for="filtro">$6000 a $10000</label>
+      <input type="radio" name="price" value="10000">
+    </div>
+
+  </form>
+    <h3 class="title-filter"> subcategoria</h3>
+
+    <div class="input-filter-subcategory">
+      
+        <% categories.forEach(subcategory => { %>
+            <a href="/subcategory/<%- subcategory.idsubcategory %>"><%- subcategory.name %></a>
+        <% }) %>  
+
+    </div>
+
+    <!-- <div class="content-oculto">
+      <h3 class="title-filter">contenido</h3>
+      <img src="/images/ong-animales.png" width="100%" alt="">
+      <p>con tu compra ayudas a contribuir a la ONG "salvemos a los animales"</p>
+      <p>es una ONG si fines de lucro que solamente es contribuir y fomentar una ayuda idonia a los animales desamparados</p>
+      <p>magirnados por los estados es por eso que se decidio crear esta ONG para brindarle los alimentos necesarios, refugio, y contencion</p>
+      <p>por eso te alentamos a que nos ayudes a ayudar</p>
+      <img src="/images/gracias-animales.jfif"width="100%" alt="">
+    </div> -->
+    </div>
+      
+
+   <div class="list-products">
+     <% for(let i = 0; i < products.length; i++) { %>
+    
+          <article class="card-filter">
+            <img
+              src="/images/products/<%- products[i].product_images[0].images %> "
+              width="100%"
+              alt="Foto "
+            />
+            <div class="card-content">
+              
+              <hr>
+              <div class="product-info-filter">
+                <div class="product-discount"><%- products[i].discount %> % OFF</div>
+                <h5 class="product-name-filter">  <% if (products[i].nombre.length >= 15) { %>
+                  <%- `${products[i].nombre.slice(0,15)}...` %>
+              <% } else { %>
+                  <%= products[i].nombre %>
+              <% } %> </h5>
+                <p class="product-price-filter">$<%-products[i].price %> </p>
+                    </p>
+              </div>
+              <div class="button-container-filter">
+            <form action="/carrito" method="get">
+                <button type="submit" class="button-card-filter">comprar</button>
+              </form>
+    
+              <form action="/productDetail" method="get">
+                <button type="submit" class="button-ver-filter"><i class="far fa-eye"></i>ver</button>
+              </form>
+            </div>
+            </div>
+          </article>
+          <% } %>
+      
+    </div>
+    </section>
+<%- include('../../partials/footer.ejs') %> 
+<script src="/js/validations/filtrador.js"></script>
+</body>
+</html>

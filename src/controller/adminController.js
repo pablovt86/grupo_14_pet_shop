@@ -8,16 +8,21 @@ const { Op } = require('sequelize');
 let controller = {
 
     products: (req, res) => {
+        console.log(req.headers.host); 
+       console.log(req.originalUrl); 
+       const url = `http//${req.headers.host}${req.originalUrl}`  
+       console.log(url)
+
         let products = db.Product.findAll();
-        let images = db.ProductImage.findAll();
-        Promise.all([products, images])
-        .then(([products, images]) => {
-            res.render('admin/products/adminProducts', {
-                products,
-                images,
-                session: req.session
-            });
-        }) 
+        // let images = db.ProductImage.findAll();
+        // Promise.all([products, images])
+        // .then(([products, images]) => {
+        //     res.render('admin/products/adminProducts', {
+        //         products,
+        //         images,
+        //         session: req.session
+        //     });
+        // }) 
     },
 
 
