@@ -1,0 +1,264 @@
+/* Estilos de la vista del perfil de usuario. */
+
+/* Contenedor principal. */
+main.profileView {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card del perfil de usuario. */
+div.containerProfile {
+    width: 90%;
+    margin: 20px 0px;
+    border-radius: 15px;
+    box-shadow: 8px 8px 20px #000;
+}
+
+/* Encabezado card. */
+div.headerProfile {
+    width: 100%;
+    height: 150px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-image: linear-gradient(to top, #f7eeef,var(--tex));
+    display: flex;
+    justify-content: center;
+}
+
+img#user-profile {
+    width: 100px;
+    height: 120px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    position: relative;
+    top: 60%;
+}
+
+/* Cuerpo card. */
+div.bodyProfile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+ul.dataListProfile {
+    list-style: none;
+    margin: 100px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li.itemDataProfile {
+    padding: 0px;
+}
+
+.dataProfile {
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+h1.dataProfile {
+    text-transform: uppercase;
+    color: #555;
+    font-weight: 600;
+}
+
+i.iconDataProfile {
+    font-size: 16px;
+    color: var(--tex);
+    border: none;
+    padding: 0px 5px;
+}
+
+/* Footer card. */
+div.footerProfile {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(to top, var(--tex), #f7eeef);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+ul.linksListProfile {
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+li.itemProfile {
+    display: block;
+    padding: 5px;
+}
+
+a.linkProfile {
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+i.iconLinkProfile {
+    font-size: 18px;
+    color: #fff;
+    padding: 10px;
+    margin: 15px 0px 5px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-image: linear-gradient(to top, #f7eeef, var(--tex));
+}
+
+p.nameIconLink {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Estilos de la vista de editar perfil de usuario. */
+
+form.formProfile {
+    margin-top: 70px;
+    width: 100%;
+}
+
+div.blockProfile {
+    margin-top: 10px;
+    width: 100%;
+}
+
+div.contAvatarProfile {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+label.linkAvatar {
+    position: absolute;
+    bottom: -50px;
+    right: -10px;
+    z-index: 1;
+}
+
+i.cameraProfile {
+    font-size: 30px;
+    color: var(--tex);
+}
+
+div.infoProfile{
+    width: 90%;
+    display: flex;
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+    margin: 5px auto;
+}
+
+i.iconEditProfile {
+    border: none;
+    color: var(--tex);
+    padding: 10px;
+}
+
+input.inputProfile {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+div.btnsProfile {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+input.inputFileUser {
+    display: none;
+}
+
+small#errorAvatar {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+small.textError {
+    display: block;
+    width: 85%;
+    color: red;
+    font-family: sans-serif;
+    text-align: start;
+    margin: 0px auto;
+}
+
+.btnProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    background-image: linear-gradient(to top, var(--tex),#f7eeef);
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+a.btnProfile:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+::placeholder {
+    font-family: sans-serif;
+}
+
+@media (min-width: 768px) {
+
+    /* Estilos de la vista del perfil de usuario. */
+
+    div.containerProfile {
+        width: 50%;
+        max-width: 400px;
+    }
+
+    div.footerProfile {
+        height: 100px;
+    }
+
+    i.iconLinkProfile:hover {
+        font-size: 20px;
+        color: #fff;
+        padding: 14px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        background-image: linear-gradient(to top, #f7eeef,var(--tex));
+    }
+
+    p.nameIconLink {
+        display: none;
+    }
+
+    /* Estilos de la vista de editar perfil de usuario. */
+}
+
+
+

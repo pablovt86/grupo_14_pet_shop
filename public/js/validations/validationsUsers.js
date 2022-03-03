@@ -1,9 +1,7 @@
 window.addEventListener('load', () => {
-
+    
     $inputs = document.querySelectorAll('.data');
-
     $smalls = document.querySelectorAll('small');
-
     $form = document.querySelector('#form');
 
     regExName = /^[a-zA-Z\sñáéíóúü ]*$/;
@@ -69,7 +67,8 @@ window.addEventListener('load', () => {
                         img.src = imagen;
                         $smalls[i].innerHTML = '';
                     } else {
-                        $smalls[i].innerHTML = 'Solo extensiones .jpg .jpeg .png .webp'
+                        $smalls[i].innerHTML = 'Solo extensiones .jpg .jpeg .png .webp';
+                        const img = document.getElementById('user-profile');
                     }
                 break;
                 case 'terms':
@@ -100,5 +99,4 @@ window.addEventListener('load', () => {
             $form.submit();
         }
     });
-
 });

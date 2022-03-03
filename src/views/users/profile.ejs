@@ -3,63 +3,30 @@
   <%- include('../partials/head', {title: 'Perfil de usuario'}) %> 
 <body >
   <%- include('../partials/header.ejs') %> 
-      <section class ="container-profile">
-       <h3 class="title-profile">Profile User</h3>
-
-        <div class="image-profile">
-
-          <img src="/images/users/<%= locals.old? old.avatar: user.avatar %> " alt="">
-        </div>
-         
-        <form class="container-form" action="/users/profile/<%= user.idusers %>/edit?_method=PUT" method="POST">
-          <div class="form-row">
-            <div class="col-md-4 mb-3 ">
-              <label for="validationDefault01">Nombre</label>
-              <input type="text" class="form-control" id="validationDefault01" name="name" placeholder="Escriba su nombre" value="<%= locals.old? old.name: user.name %>">
-              <% if (locals.errors && errors.name) { %>
-                <small><%= errors.name %></small>
-              <% } %>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationDefault02">Apellido</label>
-              <input type="text" class="form-control" id="validationDefault02" name="last_name" placeholder="Escriba su apellido" value="<%= locals.old? old.last_name: user.last_name %>">
-              <% if (locals.errors && errors.last_name) { %>
-                <small><%= errors.last_name %></small>
-              <% } %>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationDefaultUsername">Email</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                </div>
-                <input type="text" class="form-control" id="validationDefaultUsername" name="email" placeholder="Aquí su email" value="<%= locals.old? old.email: user.email %>" aria-describedby="inputGroupPrepend2">
-                <% if (locals.errors && errors.email) { %>
-                  <small><%= errors.email %></small>
-                <% } %>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col-md-6 mb-3">
-              <label for="validationDefault03">Password</label> 
-              <input type="text" class="form-control" id="validationDefault03" name="password"  placeholder="Escriba nueva contraseña" value="">
-              <% if (locals.errors && errors.password) { %>
-                <small><%= errors.password %></small>
-              <% } %>
-            </div>
-            <% if (user.rol === 'ROL_ADMIN') { %>
-              <div class="col-md-6 mb-3">
-                <label for="validationDefault04">Rol</label>
-                <input type="text" class="form-control" id="validationDefault04" name="rol" value ="<%= user.rol %>" placeholder="Rol de usuario">
-              </div>
-            <% } %>
-          </div>
-          <button class="btn btn-primary" type="submit">Editar perfil</button>
-        </form>
-        </div>
-
-      </section>
-    <%- include('../partials/footer.ejs') %> 
+  <main class="profileView">
+    <div class="containerProfile">
+      <div class="headerProfile">
+        <div class="avatarProfileForm"><img id="user-profile" src="/images/users/<%= user.avatar %> " alt=""></div>
+      </div>
+      <div class="bodyProfile">
+        <ul class="dataListProfile">
+          <li class="itemDataProfile"><h1 class="dataProfile">Bienvenid@ <%= user.name %>!!!</h1></li>
+          <li class="itemDataProfile"><p class="dataProfile"><i class="fas fa-user iconDataProfile"></i><%= user.name %> <%= user.last_name %></p></li>
+          <li class="itemDataProfile"><p class="dataProfile"><i class="fas fa-envelope iconDataProfile"></i><%= user.email %></p></li>
+          <li class="itemDataProfile"><p class="dataProfile"><i class="fas fa-envelope iconDataProfile"></i><%= user.rol === 'ROL_ADMIN'? 'Administrador': 'Usuario' %></p></li>
+        </ul>
+      </div>
+      <div class="footerProfile">
+        <ul class="linksListProfile">
+          <li class="itemProfile"><a class="linkProfile" href="/users/profile/<%= user.idusers %>/edit"><i class="fas fa-edit iconLinkProfile"></i><p class="nameIconLink">Editar</p></a></li>
+          <% if (user.rol === 'ROL_ADMIN') { %>
+            <li class="itemProfile"><a class="linkProfile" href="/admin/products"><i class="fas fa-analytics iconLinkProfile"></i><p class="nameIconLink">Administrar</p></a></li>
+          <% } %>
+          <li class="itemProfile"><a class="linkProfile" href="/users/logout"><i class="fas fa-sign-out-alt iconLinkProfile"></i><p class="nameIconLink">Salir</p></a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+<%- include('../partials/footer.ejs') %> 
 </body>
 </html>

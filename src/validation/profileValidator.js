@@ -1,7 +1,6 @@
 const { check, body } = require('express-validator');
 const db = require('../database/models');
 
-
 module.exports = [
     check('name')
     .notEmpty()
@@ -21,25 +20,16 @@ module.exports = [
     .isEmail()
     .withMessage('Debes ingresar un email válido.'),
 
-    body('email')
-    .custom((value) => {
-        return db.User.findOne({
-            where: {
-                email: value
-            }
-        })
-        .then((user)=>{
-            if (value !== req.session.user.email && value === user.email) {
-                return Promise.reject('Este email ya está registrado.')
-            } else {
-                return true; 
-            }
-        })
-    }),
-
     check('password')
     .notEmpty()
-    .withMessage('El password es obligatorio.').bail()
-    .isLength({min: 6, max: 6})
-    .withMessage('Contraseña de 6 caracteres.')
+    .withMessage('Olvidaste escribir tu contraseña.')
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/)
+    .withMessage('De 6 o 12 caracteres, al menos una mayúscula, una minúscula y un número.'),
+
+    check('pass2')
+    .notEmpty()
+    .withMessage('Repita la contraseña.').bail(),
+
+    body('pass2').custom((value, {req}) => value !== req.body.password ? false : true)
+    .withMessage('Las contraseñas no coinciden.'),
 ]
