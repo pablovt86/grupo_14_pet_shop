@@ -39,7 +39,8 @@ main.main-login div.form {
     border-radius: 100%;
     position: absolute;
     top: 5px;
-    right: 5px;
+    left: 50%;
+    transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.5);
 
 }
@@ -47,18 +48,20 @@ main.main-login div.form {
 .camera-user {
     color: #fff;
     position: absolute;
-    top: 25px;
-    right: 20px;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 main.main-login div.form h1.login {
     color: #000;
-    padding: 10px 0px; 
+    padding: 10px 0px;
+    font-family: sans-serif; 
 }
 
 main.main-login div.form div.data-container {
     width: 95%;
-    margin: 10px auto 0px;
+    margin: 5px auto 0px;
 }
 
 main.main-login div.form div.data-container div.input-user-container {
@@ -68,6 +71,7 @@ main.main-login div.form div.data-container div.input-user-container {
     border: 2px solid #000;
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.4);
+    box-shadow: 8px 8px 20px #000;
 }
 
 main.main-login div.form div.data-container div.check-user-container {
@@ -77,14 +81,21 @@ main.main-login div.form div.data-container div.check-user-container {
 }
 
 main.main-login div.form div.data-container div.input-user-container .fa-envelope, .fa-lock, .fa-unlock, .fa-user, .fa-phone {
-    font-size: 20px;
+    font-size: 22px;
     padding: 0px 15px;
     border-right: 2px solid #000;
     color: #000;
 }
 
-main.main-login div.form div.data-container .fa-home {
-    font-size: 24px;
+div.data-links {
+    height: 70px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.fa-home, .fa-sign-out-alt, .fa-analytics, .fa-undo-alt, .fa-user-edit {
+    font-size: 26px;
     padding: 0px 15px;
     color: #fff;
 }
@@ -98,9 +109,11 @@ main.main-login div.form div.data-container div.input-user-container input.input
 }
 
 main.main-login div.form div.data-container small.text-error {
+    display: block;
+    width: 100%;
     color: #fff;
     font-size: 13px;
-    padding-left: 10px;
+    padding: 5px;
     text-transform: uppercase;
 }
 
@@ -116,6 +129,7 @@ main.main-login div.form div.data-container div.file-user-container {
     color: #fff;
     font-size: 16px;
     padding-top: 5px;
+    box-shadow: 8px 8px 20px #000;
 }
 
 main.main-login div.form div.data-container div.file-user-container input.input-file-user {
@@ -140,6 +154,7 @@ main.main-login div.form div.btn-submit-container button.btn-form {
     background: none;
     color: #fff;
     font-size: 16px;
+    box-shadow: 8px 8px 20px #000;
 }
 
 main.main-login div.form div.link-pass-user {
@@ -162,8 +177,56 @@ a.link-login {
 
 ::placeholder {
     color: #000;
-    font-size: 16px;
+    font-size: 14px;
     text-decoration: none;
+}
+
+h1.principal-data-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(43, 33, 33, 0.6);
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 8px 8px 20px #000;
+}
+
+ul.data-list-profile {
+    margin-top: 20px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: rgba(43, 33, 33, 0.6);
+    box-shadow: 8px 8px 20px #000;
+}
+
+li.item-data-profile {
+    width: 100%;
+}
+
+p.data-profile {
+    text-align: start;
+    margin-left: 40px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+i.icon-link-profile {
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    margin-right: 10px;
+    padding: 0px;
 }
 
 @media (min-width: 768px) {

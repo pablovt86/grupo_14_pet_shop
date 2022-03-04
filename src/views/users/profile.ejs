@@ -3,30 +3,30 @@
   <%- include('../partials/head', {title: 'Perfil de usuario'}) %> 
 <body >
   <%- include('../partials/header.ejs') %> 
-  <main class="profileView">
-    <div class="containerProfile">
-      <div class="headerProfile">
-        <div class="avatarProfileForm"><img id="user-profile" src="/images/users/<%= user.avatar %> " alt=""></div>
-      </div>
-      <div class="bodyProfile">
-        <ul class="dataListProfile">
-          <li class="itemDataProfile"><h1 class="dataProfile">Bienvenid@ <%= user.name %>!!!</h1></li>
-          <li class="itemDataProfile"><p class="dataProfile"><i class="fas fa-user iconDataProfile"></i><%= user.name %> <%= user.last_name %></p></li>
-          <li class="itemDataProfile"><p class="dataProfile"><i class="fas fa-envelope iconDataProfile"></i><%= user.email %></p></li>
-          <li class="itemDataProfile"><p class="dataProfile"><i class="fas fa-envelope iconDataProfile"></i><%= user.rol === 'ROL_ADMIN'? 'Administrador': 'Usuario' %></p></li>
+  <main class="main-login">  
+    <img class="background-form" src="/images/back.jpg" alt="Imagen fondo de mascotas">
+    <div class="form">
+      <div><i class="fas fa-camera camera-user"></i><img src="/images/users/<%= user.avatar %>" id="user-profile"></div>
+      <div class="data-container"><h1 class="login">Mi perfil</h1></div>
+      <div class="data-container">
+        <h1 class="principal-data-profile">Bienvenid@ <%= user.name %>!!!</h1>
+        <ul class="data-list-profile">
+          <li class="item-data-profile"><p class="data-profile"><i class="fas fa-user icon-link-profile"></i><%= user.name %> <%= user.last_name %></p></li>
+          <li class="item-data-profile"><p class="data-profile"><i class="fas fa-envelope icon-link-profile"></i><%= user.email %></p></li>
+          <li class="item-data-profile"><p class="data-profile"><i class="fas fa-analytics icon-link-profile"></i><%= user.rol === 'ROL_ADMIN'? 'Administrador': 'Usuario' %></p></li>
         </ul>
       </div>
-      <div class="footerProfile">
-        <ul class="linksListProfile">
-          <li class="itemProfile"><a class="linkProfile" href="/users/profile/<%= user.idusers %>/edit"><i class="fas fa-edit iconLinkProfile"></i><p class="nameIconLink">Editar</p></a></li>
+      
+      <div class="data-links">
+          <a href="/"><i class="fas fa-home"></i></a>
+          <a href="/users/profile/<%= user.idusers %>/edit"><i class="fas fa-user-edit"></i></a>
           <% if (user.rol === 'ROL_ADMIN') { %>
-            <li class="itemProfile"><a class="linkProfile" href="/admin/products"><i class="fas fa-analytics iconLinkProfile"></i><p class="nameIconLink">Administrar</p></a></li>
+            <a href="/admin/products"><i class="fas fa-analytics"></i></a>
           <% } %>
-          <li class="itemProfile"><a class="linkProfile" href="/users/logout"><i class="fas fa-sign-out-alt iconLinkProfile"></i><p class="nameIconLink">Salir</p></a></li>
-        </ul>
+          <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
       </div>
-    </div>
   </main>
-<%- include('../partials/footer.ejs') %> 
+  <%- include('../partials/footer.ejs') %> 
 </body>
 </html>

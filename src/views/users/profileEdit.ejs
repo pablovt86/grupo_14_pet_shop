@@ -3,88 +3,87 @@
   <%- include('../partials/head', {title: 'Perfil de usuario'}) %> 
 <body >
   <%- include('../partials/header.ejs') %> 
-      <main class="profileView">
-        <div class="containerProfile">
-          <div class="headerProfile">
-            <div class="contAvatarProfile"><img id="user-profile" src="/images/users/<%= user.avatar %>" alt=""><label class="linkAvatar" for="avatar"><i class="fas fa-camera cameraProfile"></i></label></div>
+  <main class="main-login">
+    <img class="background-form" src="/images/back.jpg" alt="Imagen fondo de mascotas">
+    <div class="form">
+      <div><i class="fas fa-camera camera-user"></i><img src="/images/users/<%= user.avatar %>" id="user-profile"></div>
+      <div class="data-container"><h1 class="login">Editando perfil</h1></div>
+        <form id="form" action="/users/profile/<%= user.idusers %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+          <div class="data-container">
+            <div class="input-user-container">
+              <i class="fas fa-user"></i>
+              <input type="text" id="name" class="input-text data" name="name" placeholder="NOMBRE" value="<%= locals.old? old.name: user.name %>">
+            </div>
+            <small class="text-error errorSubmit" id="errorName"></small>
+            <% if (locals.errors && errors.name) { %>
+            <small id="errorName" class="text-error"><%= errors.name.msg %></small>
+            <% } %>
           </div>
-          <div class="bodyProfile">
-            <form id="form" class="formProfile" action="/users/profile/<%= user.idusers %>/edit?_method=PUT" enctype="multipart/form-data" method="post">
-                <div class="blockProfile">
-                    <div class="infoProfile">
-                        <i class="fas fa-user iconEditProfile"></i>
-                        <input type="text" id="name" class="inputProfile data" name="name" placeholder="NOMBRE" value="<%= locals.old? old.name: user.name %>">
-                    </div>
-                    <small class="textError errorSubmit" id="errorName"></small>
-                    <% if (locals.errors && errors.name) { %>
-                    <small id="errorName" class="text-error"><%= errors.name.msg %></small>
-                    <% } %>
-                </div>
-                <div class="blockProfile">
-                    <div class="infoProfile">
-                        <i class="fas fa-user iconEditProfile"></i>
-                        <input type="text" id="lastName" class="inputProfile data" name="last_name" placeholder="APELLIDO" value="<%= locals.old? old.last_name: user.last_name %>">
-                    </div>
-                    <small class="textError errorSubmit" id="errorLastName"></small>
-                    <% if (locals.errors && errors.last_name) { %>
-                    <small class="text-error" id="errorLastName"><%= errors.last_name.msg %></small>
-                    <% } %>
-                </div>
-                <div class="blockProfile">
-                    <div class="infoProfile">
-                        <i class="fas fa-envelope iconEditProfile"></i>
-                        <input type="text" id="email" class="inputProfile data" name="email" placeholder="EMAIL" value="<%= locals.old? old.email: user.email %>">
-                    </div>
-                    <small class="textError errorSubmit" id="errorEmail"></small>
-                    <% if (locals.errors && errors.email) { %>
-                    <small class="text-error" id="errorEmail"><%= errors.email.msg %></small>
-                    <% } %>
-                </div>
-                <div class="blockProfile">
-                    <div class="infoProfile">
-                        <i class="fas fa-unlock iconEditProfile"></i>
-                        <input type="text" id="password" class="inputProfile data" name="password" placeholder="CONTRASEÑA">
-                    </div>
-                    <small class="textError errorSubmit" id="errorPassword"></small>
-                    <% if (locals.errors && errors.password) { %>
-                    <small class="text-error" id="errorPassword"><%= errors.password.msg %></small>
-                    <% } %>
-                </div>
-                <div class="blockProfile">
-                    <div class="infoProfile">
-                        <i class="fas fa-lock iconEditProfile"></i>
-                        <input type="text" id="pass2" class="inputProfile data" name="pass2" placeholder="CONFIRME CONTRASEÑA">
-                    </div>
-                    <small class="textError errorSubmit" id="errorPass2"></small>
-                    <% if (locals.errors && errors.pass2) { %>
-                    <small class="text-error" id="errorPass2"><%= errors.pass2.msg %></small>
-                    <% } %>
-                </div>
-                <div>
-                  <input type="file" id="avatar" class="inputFileUser data" name="avatar" id="avatar">
-                  <small class="textError" id="errorAvatar"></small>
-                  <% if (locals.errors && errors.image) { %>
-                  <small class="text-error" id="errorAvatar"><%= errors.image.msg %></small>
-                  <% } %>
-                </div>
-                <div class="btnsProfile">
-                  <a class="btnProfile" href="/users/profile">Cancelar</a>
-                  <button class="btnProfile" type="submit">Guardar</button>
-              </div>
-            </form>
+          <div class="data-container">
+            <div class="input-user-container">
+              <i class="fas fa-user"></i>
+              <input type="text" id="lastName" class="input-text data" name="last_name" placeholder="APELLIDO" value="<%= locals.old? old.last_name: user.last_name %>">
+            </div>
+            <small class="text-error errorSubmit" id="errorLastName"></small>
+            <% if (locals.errors && errors.last_name) { %>
+            <small class="text-error" id="errorLastName"><%= errors.last_name.msg %></small>
+            <% } %>
           </div>
-          <div class="footerProfile">
-            <ul class="linksListProfile">
-              <% if (user.rol === 'ROL_ADMIN') { %>
-                <li class="itemProfile"><a class="linkProfile" href="/admin/products"><i class="fas fa-analytics iconLinkProfile"></i><p class="nameIconLink">Administrar</p></a></li>
-              <% } %>
-              <li class="itemProfile"><a class="linkProfile" href="/users/logout"><i class="fas fa-sign-out-alt iconLinkProfile"></i><p class="nameIconLink">Salir</p></a></li>
-            </ul>
+          <div class="data-container">
+            <div class="input-user-container">
+              <i class="fas fa-envelope"></i>
+              <input type="text" id="email" class="input-text data" name="email" placeholder="EMAIL" value="<%= locals.old? old.email: user.email %>">
+            </div>
+            <small class="text-error errorSubmit" id="errorEmail"></small>
+            <% if (locals.errors && errors.email) { %>
+            <small class="text-error" id="errorEmail"><%= errors.email.msg %></small>
+            <% } %>
           </div>
-        </div>
-      </main>
-
-    <%- include('../partials/footer.ejs') %> 
+          <div class="data-container">
+            <div class="input-user-container">
+              <i class="fas fa-unlock"></i>
+              <input type="text" id="password" class="input-text data"name="password" placeholder="CONTRASEÑA">
+            </div>
+            <small class="text-error errorSubmit" id="errorPassword"></small>
+            <% if (locals.errors && errors.password) { %>
+            <small class="text-error" id="errorPassword"><%= errors.password.msg %></small>
+            <% } %>
+          </div>
+          <div class="data-container">
+            <div class="input-user-container">
+              <i class="fas fa-lock"></i>
+              <input type="text" id="pass2" class="input-text data" name="pass2" placeholder="CONFIRME CONTRASEÑA">
+            </div>
+            <small class="text-error errorSubmit" id="errorPass2"></small>
+            <% if (locals.errors && errors.pass2) { %>
+            <small class="text-error" id="errorPass2"><%= errors.pass2.msg %></small>
+            <% } %>
+          </div>
+          <div class="data-container">
+            <div class="file-user-container">
+                <label for="avatar">SUBIR FOTO</label>
+                <input type="file" id="avatar" class="input-file-user data" name="avatar" id="avatar">
+            </div>
+            <small class="text-error" id="errorAvatar"></small>
+            <% if (locals.errors && errors.image) { %>
+            <small class="text-error" id="errorAvatar"><%= errors.image.msg %></small>
+            <% } %>
+          </div> 
+          <div class="btn-submit-container" >
+            <button class="btn-form" type="submit">GUARDAR CAMBIOS</button>
+          </div>
+          <div class="data-links">
+            <a href="/users/profile"><i class="fas fa-undo-alt"></i></a>
+            <a href="/"><i class="fas fa-home"></i></a>
+            <% if (user.rol === 'ROL_ADMIN') { %>
+            <a href="/admin/products"><i class="fas fa-analytics"></i></a>
+            <% } %>
+            <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+          </div>
+        </form>
+    </div>
+  </main>
+  <%- include('../partials/footer.ejs') %> 
   <script src="/js/validations/validationsUsers.js"></script>
 </body>
 </html>
