@@ -73,8 +73,8 @@
 <div class="modal-tach" id="modal-tach"><h5 class="modal-end" onclick="tach()">x</h5>
 
 <h5>Buscar</h5></div>
-<form action="" method="get" class="search-form">
-<input type="text" name="searchAdmin" placeholder="Buscar productos, marcas y más" class="search-form_input">
+<form action="/product/search" method="get" class="form-search" id="form-search">
+<input type="text" name="searchAdmin" placeholder="Buscar productos marcas y más" class="search-form_input">
 <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 </form>
 </div>
@@ -166,5 +166,5 @@ mascotas
 </div>
 
 </header>
-<script src="/js/header.js"> 
-</script>
+<script src="/js/header.js"> </script>
+<script src="/js/validations/search.js"> </script>

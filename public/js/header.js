@@ -1,3 +1,5 @@
+
+
 let navBar = document.querySelector("#navigation-bar-mobile")
 function tach(){
     document.getElementById("search-hidden").style.display = "none"
@@ -24,3 +26,6 @@ function tach(){
       document.querySelector(".main-header").classList.remove("header-opacity");
     }
   });
+
+
+
