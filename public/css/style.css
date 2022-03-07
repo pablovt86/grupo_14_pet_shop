@@ -5,10 +5,10 @@
 @import url("home.css");
 @import url("product-detail.css");
 @import url("carrito.css");
-@import url('panel-administrador.css');
+/* @import url('panel-administrador.css');
 @import url('vista-productos-administrador.css');
 @import url('formulario-editar-administrador.css');
-@import url('formulario-agregar-administrador.css');
+@import url('formulario-agregar-administrador.css'); */
 @import url('listadosProductos.css');
 @import url('header-admin.css');
 @import url('main-admin.css');
@@ -23,5 +23,5 @@
 @import url('nuevo-home/banner-carrousel.css');
 @import url('nuevo-home/home.css');
 @import url('nuevo-home/categories.css');
-@import url('profileUser.css');
+/* @import url('profileUser.css'); */
 
