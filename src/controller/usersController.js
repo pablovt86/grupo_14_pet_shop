@@ -70,9 +70,47 @@ let usersController = {
                     });
                 }
      
-                res.locals.user = req.session.user;
+                req.session.cart = [];
+
+                db.Order.findOne({
+                    where : {
+                        idusers : req.session.user.id,
+                        state : 'pending'
+                    },
+                    include : [
+                        {
+                            association : 'cart',
+                            include : [
+                                {
+                                    association : 'products',
+                                    include : ['product_images']
+                                }
+                            ]
+                        }
+                    ]
+                
+                }).then(order => {
+                    if(order) {
+                        order.cart.forEach(item => {
+                            let product = {
+                                id : item.idproducts,
+                                nombre : item.nombre,
+                                price : item.price,
+                                discount : item.discount,
+                                image : item.images,
+                                amount : +item.quantity,
+                                total : +item.price * item.quantity,
+                                idorder : order.idorder
+                            }
+                            req.session.cart.push(product)
+                        });
+                    }
+                    res.locals.user = req.session.user;
+
+                    res.redirect('/')
+    
+                })
      
-                res.redirect('/');
             })
             .catch((error) => {console.log(error)});
         } else {

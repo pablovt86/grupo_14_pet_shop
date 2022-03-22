@@ -1,8 +1,8 @@
 module.exports = (Sequelize, dataTypes)=>{
-    const alias = 'OrderItem';
+    const alias = 'Cart';
 
     const cols = {
-        idorder_items: {
+        idcart: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -18,33 +18,37 @@ module.exports = (Sequelize, dataTypes)=>{
             type: dataTypes.INTEGER,
             allowNull: false
         },
+        iduser: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
 
         quantity: {
             type: dataTypes.BIGINT(12),
             allowNull: false
         }
+       
     };
 
     const config = {
-        tableName: 'order_items',
+        tableName: 'cart',
         createdAt: 'created_at',
-        updatedAt: 'updated_at'
+        updatedAt: 'update_at'
         
     }
 
-    const OrderItem = Sequelize.define(alias, cols, config);
+    const Cart = Sequelize.define(alias, cols, config);
 
-    OrderItem.associate = (models)=>{
-        OrderItem.belongsTo(models.Order, {
-            as: 'order',
-            foreignKey: 'idorder'
-        });
-
-        OrderItem.belongsTo(models.Product, {
+    Cart.associate = (models)=>{
+        Cart.belongsTo(models.Product, {
             as: 'products',
             foreignKey: 'idproducts'
         });
+        Cart.belongsTo(models.Order, {
+            as: 'order',
+            foreignKey: 'idorder'
+        });
     };
 
-    return OrderItem;
+    return Cart;
 }

@@ -30,3 +30,4 @@ let $count = document.getElementById('count');
         $count.innerHTML = `<p>${counter}</p>`
     }
   }
+  

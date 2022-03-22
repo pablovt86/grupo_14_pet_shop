@@ -9,8 +9,6 @@ let productController = {
     home:(req, res)=>{
         let images = db.ProductImage.findAll()
         let categories = db.Category.findAll();
-
-
         let productsInSale = db.Product.findAll({
             where:{
                 discount:{[Op.gte] : 15}
@@ -90,12 +88,6 @@ let productController = {
         }))
     },
             
-
-              
-            
-
-    
-
     carrito:(req, res)=>{
         res.render('users/carrito',{session: req.session});
 

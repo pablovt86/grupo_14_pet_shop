@@ -1,6 +1,6 @@
 
 
-let navBar = document.querySelector("#navigation-bar-mobile")
+// let navBar = document.querySelector("#navigation-bar-mobile")
 function tach(){
     document.getElementById("search-hidden").style.display = "none"
 

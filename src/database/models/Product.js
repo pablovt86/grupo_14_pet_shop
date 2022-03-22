@@ -63,10 +63,7 @@ module.exports = (Sequelize, dataTypes)=>{
             foreignKey: 'idproducts'
         });
 
-        Product.hasMany(models.OrderItem, {
-            as: 'order_items',
-            foreignKey: 'idproducts'
-        });
+    
     };
 
     return Product;

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -45,6 +46,7 @@ app.use('/home', newHomeRouter);
 app.use('/category', categoriesRouter);
 app.use('/subcategory', subcategoriesRouter);
 
+app.use('/api/cart',require('./routes/cart'));
 
 
 app.listen(port, ()=>console.log(`servidor Escuchando en Puerto ${port} http://localhost:${port}`));

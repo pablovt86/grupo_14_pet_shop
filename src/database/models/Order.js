@@ -1,4 +1,3 @@
-const User = require("./User");
 
 module.exports = (Sequelize, dataTypes)=>{
     const alias = 'Order';
@@ -24,23 +23,21 @@ module.exports = (Sequelize, dataTypes)=>{
 
     const config = {
         tableName: 'order',
-        createdAt: 'created_at',
-        updatedAt: 'updated_at'
+        createdAt: 'creadted_at',
+        updatedAt: 'update_at'
     };
 
     const Order = Sequelize.define(alias, cols, config);
 
     Order.associate = (models)=>{
-        Order.belongsTo(models.User, {
-            as: 'user',
-            foreignKey: 'idusers'
-        });
+        Order.hasMany(models.Cart, {
+            as: 'cart',
+            foreignKey: 'idorder',
+            onDelete : 'cascade',
 
-        Order.hasMany(models.OrderItem, {
-            as: 'order_items',
-            foreignKey: 'idorder'
         });
     };
 
     return Order;
 }
+
