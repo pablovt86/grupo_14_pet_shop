@@ -104,7 +104,7 @@ const cargarTabla = (data) => {
         ${amount}
         <button class="btn btn-success" onclick="addItem('${idproducts}')" ><i class="fas fa-plus-square"></i></button>
         </th>
-        <td><img src="../images/products/" class="w-25" /> </td>
+        <td><img src="../images/products/${image}" class="w-25" /> </td>
         <td>${nombre}</td>
         <td>${price}</td>
         <td>${total}</td>
