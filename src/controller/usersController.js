@@ -90,16 +90,17 @@ let usersController = {
                     ]
                 
                 }).then(order => {
+
                     if(order) {
                         order.cart.forEach(item => {
                             let product = {
                                 id : item.idproducts,
-                                nombre : item.nombre,
-                                price : item.price,
-                                discount : item.discount,
-                                image : item.images,
+                                nombre : item.products.nombre,
+                                price : item.products.price,
+                                discount : item.products.discount,
+                                image : item.products.product_images[0].images,
                                 amount : +item.quantity,
-                                total : +item.price * item.quantity,
+                                total : +item.products.price * item.quantity,
                                 idorder : order.idorder
                             }
                             req.session.cart.push(product)
