@@ -1,7 +1,11 @@
 const db = require('../database/models');
 const productVerify = (carrito, id) => {
+
     let index = -1;
-    for (let i = 0; i < carrito.length; i++) {        
+    for (let i = 0; i < carrito.length; i++) {    
+        
+        console.log('>>>>>>>>>>>>>>>>><<',carrito[i])
+
         if(carrito[i].id === +id){
             index = i;
             break
@@ -36,16 +40,18 @@ module.exports = {
                     }
                 ]
             });
-            console.log(product);
+            
             let item = {
-                idproducts:product.idproducts,
+                id:product.idproducts,
                 nombre:product.nombre,
                 price:product.price,
                 discount:product.discount,
-                image : product.product_images[0],
+                image : product.product_images[0].images,
                 amount : 1,
                 total : product.price
             }
+            // console.log(product);
+
             
             if(req.session.cart.length === 0){
 
@@ -59,7 +65,7 @@ module.exports = {
                 }
                 await db.Cart.create({
                     idorder: order.idorder,
-                    idproducts: item.idproducts,
+                    idproducts: item.id,
                     quantity: 1,
                     iduser: order.idusers
                 })
@@ -82,21 +88,21 @@ module.exports = {
                         ...item,
                         idorder : order.idorder
                     }
-
+              console.log(req.session.cart);
                     req.session.cart.push(item);
                     await db.Cart.create({
                         idorder: order.idorder,
-                        idproducts: item.idproducts,
+                        idproducts: item.id,
                         quantity: 1,
                         iduser: order.idusers
                     })
                 }else{
 
                     let product = req.session.cart[index];
+                    console.log(product.price);
                     product.amount++;
-                    product.total = product.price  * product.amount;
+                    product.total = product.amount  * product.price;
                     req.session.cart[index] = product;
-                  console.log(product);
 
                     await db.Cart.update(
                         {
@@ -184,14 +190,14 @@ module.exports = {
     removeItem : async (req,res) => {
 
         try {
-            
+
             let index = productVerify(req.session.cart,req.params.id);
-            let product = req.session.cart[index];
+            let product = req.session.cart[index]
             req.session.cart.splice(index,1);
 
             await db.Cart.destroy({
                 where : {
-                    idproducts : product.idproducts,
+                    idproducts : product.id,
                     idorder : product.idorder
                 }
             })
