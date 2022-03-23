@@ -7,6 +7,7 @@ body.vista-admin-producto {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 70px;
 }
 
 .tablero-admin-producto .contenedor-admin-producto {
@@ -20,7 +21,14 @@ body.vista-admin-producto {
 .titulo-formulario-admin {
  margin-bottom: 10px;
  text-transform: uppercase;
- font-size: 16px;
+ font-family: sans-serif;
+ font-size: 14px;
+ font-weight: bold;
+ color: #fff;
+ padding: 5px 10px;
+ background-image: linear-gradient(to right, #396085, #28435d);
+ border-radius: 5px;
+ box-shadow: 5px 5px 8px #000;
 }
 
 .formulario-admin-producto {
@@ -34,43 +42,64 @@ body.vista-admin-producto {
 }
 
 
+
+
 /* Inputs del formulario */
 
 .contenedor-agregar-dato {
     display: flex;
     align-items: center;
-    border: 2px solid #234;
+    border-right: 4px solid #396085;
     background: #fff;
-    height: 40px;
-    margin-bottom: 10px;
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 9px #000;
 }
 
 .input-agregar-dato {
     border: none;
     background: none;
     outline: none;
+    width: 100%;
+    height: 50px;
     padding: 0px 5px;
-    height: 40px;
-    font-size: 16px;
+    font-size: 12px;
+    font-family: sans-serif;
+    color: #555;
 }
 
-.fa-pencil-alt, .fa-dollar-sign, .fa-paint-brush {
-    width: 40px;
-    height: 40px;
-    background: #234;
-    font-size: 20px;
+small.errorDanger {
+    color: red;
+    font-size: 12px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.fa-pencil-alt, .fa-dollar-sign, .fa-percentage, .fa-layer-group {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right, #396085, #28435d);
+    font-size: 24px;
     color: #f0f0f0;
     padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 
 /* Textarea del formulario */
-.descripcion-productos-admin {
-    background: #234;
+div.descripcion-productos-admin {
+    background: #396085;
     text-align: center;
     padding: 5px;
-    margin-bottom: 20px;
     color: #fff;
+    border-radius: 5px;
+    margin-top: 30px;
+    box-shadow: 5px 5px 8px #000;
 }
 
 .textarea-admin {
@@ -78,8 +107,28 @@ body.vista-admin-producto {
     border: none;
     width: 100%;
     text-align:left;
+    font-size: 12px;
+    font-family: sans-serif;
+    color: #555;
+    padding: 5px;
 }
 
+label.titleLabel {
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #396085;
+    margin-top: 20px;
+}
+
+label.titleTextarea {
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+}
 
 
 /* Select del formulario */
@@ -87,29 +136,65 @@ body.vista-admin-producto {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 40px;
+    height: 50px;
     padding: 5px;
     border: none;
-    margin-bottom: 40px;
-    background: #234;   
-     border: 2px solid lightgrey;
+    outline: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #396085, #28435d);
     color: #fff;
-    font-size: 16px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
     text-align: center;
+    box-shadow: 5px 5px 8px #000;
+}
+
+div.select-opciones-administrador {
+    margin-bottom: 10px;
+}
+
+option.opcion-admin {
+    background-color: #396085;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.containerName {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #396085, #28435d);
+    border-radius: 5px;
 }
 
 
 /* Imagen del formulario */
+div.upload-image {
+    margin-bottom: 40px;
+}
+
 .contenedor-imagen-admin {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
-    height: 40px;
-    padding: 5px;
-    background: #234;
+    height: 50px;
+    background-image: linear-gradient(to right, #396085, #28435d);
     color: #fff;
-    border: 2px solid lightgrey;
+    border-radius: 5px;
+    box-shadow: 5px 5px 8px #000;
 }
 
 .imagen-admin {
@@ -117,13 +202,16 @@ body.vista-admin-producto {
 }
 
 .imagen-producto-admin {
+    margin: 0px auto;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 4px dashed #555;
+    max-width: 250px;
     height: 250px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     position: relative;
+    box-shadow: 5px 5px 8px #000;
 }
 
 #imagen-previa {
@@ -154,38 +242,39 @@ body.vista-admin-producto {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 110px;
+    width: 100px;
     height: 40px;
-    background: #234;
+    background-image: linear-gradient(to right, #396085, #28435d);
     margin-bottom: 20px;
-    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 5px 5px 8px #000;
 }
 
 .titulo-boton-admin {
     color: #fff;
-    padding: 0px 5px;
     text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.fa-times-circle {
-    font-size: 20px;
-    color: red;
-}
-
-.fa-check-circle {
-    font-size: 20px;
-    color: green;
+.titulo-boton-admin:hover {
+    color: #fff;
+    text-decoration: none;
 }
 
 
 @media (min-width: 468px){
     .formulario-admin-producto {
         max-width: 90%;
-    }
-
-    .imagen-producto-admin {
-        max-width: 400px;
-        margin: auto;
     }
 
     .imagen-admin {
@@ -201,7 +290,7 @@ body.vista-admin-producto {
 
 @media (min-width: 768px){
     .titulo-formulario-admin {
-        font-size: 22px;
+        font-size: 16px;
     }
     
     .imagen-admin {
@@ -210,14 +299,27 @@ body.vista-admin-producto {
     }
 
     .contenedor-boton-admin {
-        width: 150px;
+        width: 100px;
         height: 50px;
+    }
+
+    ::placeholder {
+        text-transform: uppercase;
+    }
+
+    label.titleLabel, label.titleTextarea {
+        font-size: 15px;
+    }
+
+    .contenedor-boton-admin, .titulo-boton-admin, .input-agregar-dato, .textarea-admin, .containerName, .seleccion-admin {
+        font-size: 14px;
     }
 }
 
 @media (min-width: 992px){
     .tablero-admin-producto {
         height: calc(100vh - 100px);
+        padding-top: 140px;
     }
     
     .contenedor-admin-producto {
@@ -228,7 +330,7 @@ body.vista-admin-producto {
     }
 
     .titulo-formulario-admin {
-        margin-top: 80px;
+        margin-top: 10px;
     }
 
     .formulario-admin-producto {
@@ -236,10 +338,6 @@ body.vista-admin-producto {
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
-    }
-
-    .contenedor-agregar-dato {
-        margin-bottom: 30px;
     }
 
     .contenedor-datos-1 {

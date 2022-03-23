@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">Carita Felices Pet-Shop</a>
   <button class="navbar-toggler" type="submit" name="searchAdmin"data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -20,4 +20,24 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
+</nav>-->
+<nav class="navAdmin">
+  <label class="barsMenu" for="bars"><i class="fas fa-bars iconBars"></i></label>
+  <input type="radio" id="bars" name="btnToggle">
+  <a href="#"><img class="" src="" alt=""></a>
+  <ul class="navMenu">
+      <li class="iconClose">
+          <label for="close"><i class="fas fa-times iconLink"></i></label>
+          <input type="radio" id="close" name="btnToggle">
+      </li>
+      <div class="itemSearch">
+          <button class="btnSearch" type="submit"><i class="fas fa-search iconSearch"></i></button>
+          <input class="inputSearch" type="search" id="" placeholder="Buscar productos...">
+      </div>
+      <li class="itemMenu"><a class="linkMenu" href="/"><i class="fas fa-home iconLink"></i>Inicio</a></li>
+      <li class="itemMenu"><a class="linkMenu" href="/users/profile"><i class="fas fa-user iconLink"></i>Mi perfil</a></li>
+      <li class="itemMenu"><a class="linkMenu" href="/admin/products"><i class="fas fa-tags iconLink"></i>Productos</a></li>
+      <li class="itemMenu"><a class="linkMenu" href="/admin/products/create"><i class="fas fa-folder-plus iconLink"></i>Agregar</a></li>
+      <li class="itemMenu"><a class="linkMenu" href="/users/logout"><i class="fas fa-sign-out-alt iconLink"></i>Salir</a></li>
+  </ul>
 </nav>

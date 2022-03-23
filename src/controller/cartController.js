@@ -9,6 +9,7 @@ const productVerify = (carrito, id) => {
     }
     return index
 }
+
 module.exports = {
     show : async (req,res) => {
         if(!req.session.cart){

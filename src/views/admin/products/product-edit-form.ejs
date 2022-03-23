@@ -9,11 +9,11 @@
 
     <main class="tablero-admin-producto">
         <div class="contenedor-admin-producto">
-            <p class="titulo-formulario-admin">Editando el producto: <%= product.nombre %></p>
+            <p class="titulo-formulario-admin">Editando publicación</p>
             <form id="formProduct" class="formulario-admin-producto"action="/admin/products/<%=product.idproducts %>/update?_method=PUT" method="POST" enctype="multipart/form-data" >
                 <div class="contenedor-datos-1">
                     <div class="datos-productos-admin">
-                        <label for="agregar-nombre">Nombre de producto:</label>
+                        <label class="titleLabel" for="agregar-nombre">Nombre del producto:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-pencil-alt"></i>
                             <input class="input-agregar-dato require" name="nombre" type="text" id="agregar-nombre" value="<%= locals.old? old.nombre: product.nombre %>">
@@ -24,7 +24,7 @@
                         <% } %>
                     </div>
                     <div class="datos-productos-admin">
-                        <label for="agregar-precio">Precio:</label>
+                        <label class="titleLabel" for="agregar-precio">Precio:</label>
                         <div class="contenedor-agregar-dato">
                             <i class="fas fa-dollar-sign"></i>
                             <input class="input-agregar-dato require" name="price" type="text" id="agregar-precio" value="<%= locals.old? old.price: product.price %>">
@@ -35,9 +35,9 @@
                         <% } %>
                     </div>
                     <div class="datos-productos-admin">
-                        <label for="agregar-discount">descuento:</label>
+                        <label class="titleLabel" for="agregar-discount">descuento:</label>
                         <div class="contenedor-agregar-dato">
-                            <i class="fas fa-paint-brush"></i>
+                            <i class="fas fa-percentage"></i>
                             <input class="input-agregar-dato require" name="discount" type="text" id="agregar-discount" value="<%= locals.old? old.discount: product.discount %>">
                         </div>
                         <small class="errorDiscount"></small>
@@ -45,8 +45,19 @@
                             <small><%= errors.discount.msg %></small>
                         <% } %>
                     </div>
+                    <div class="datos-productos-admin">
+                        <label class="titleLabel" for="agregar-cantidad">Cantidad:</label>
+                        <div class="contenedor-agregar-dato">
+                            <i class="fas fa-layer-group"></i>
+                            <input class="input-agregar-dato require" name="stock" type="text" id="agregar-cantidad" value="<%= locals.old? old.stock : product.stock %>">
+                        </div>
+                        <small class="errorStock"></small>
+                        <% if (locals.errors && errors.stock) { %>
+                            <small><%= errors.stock.msg %></small>
+                        <% } %>
+                    </div>
                     <div class="descripcion-productos-admin">
-                        <label for="descripcion">Descripción del producto</label>
+                        <label class="titleTextarea" for="descripcion">Descripción del producto</label>
                         <div>
                             <textarea class="textarea-admin require" name="description" id="descripcion" cols="10" rows="10" ><%= locals.old? old.description: product.description %></textarea>
                         </div>
@@ -58,7 +69,7 @@
                 </div>
                 <div class="contenedor-datos-2">
                     <div class="select-opciones-administrador">
-                        <label>Categorías:</label>
+                        <label class="titleLabel">Categorías:</label>
                         <div class="select-opcion-administrador">
                             <select class="seleccion-admin require" name="category">
                                 <option selected hidden value="">categorias</option>
@@ -75,7 +86,7 @@
                         <% } %>
                     </div>
                     <div class="select-opciones-administrador">
-                        <label>Sub-Categorías:</label>
+                        <label class="titleLabel">Sub-Categorías:</label>
                         <div class="select-opcion-administrador">
                             <select class="seleccion-admin require" name="subcategory">
                                 <option selected hidden value="">sub-categorias</option>
@@ -92,9 +103,9 @@
                         <% } %>
                     </div>
                     <div class="upload-image">
-                        <label>Agregar imagen:</label>
+                        <label class="titleLabel">Agregar imagen:</label>
                         <div class="contenedor-imagen-admin">
-                            <label for="image-create-product">- Subir imagen -</label>
+                            <label class="containerName" for="image-create-product">click para subir imagen</label>
                             <input class="imagen-admin require" type="file" name="image" id="image-create-product">
                         </div>
                         <div class="imagen-producto-admin" id="image-preview">
@@ -103,26 +114,11 @@
                         </div>
                         <small class="errorImage"></small>
                     </div>
-                    <div class="datos-productos-admin">
-                        <label for="agregar-cantidad">Cantidad:</label>
-                        <div class="contenedor-agregar-dato">
-                            <i class="fas fa-dollar-sign"></i>
-                            <input class="input-agregar-dato require" name="stock" type="text" id="agregar-cantidad" value="<%= locals.old? old.stock : product.stock %>">
-                        </div>
-                        <small class="errorStock"></small>
-                        <% if (locals.errors && errors.stock) { %>
-                            <small><%= errors.stock.msg %></small>
-                        <% } %>
-                    </div>
                     <div class="contenedor-botones-admin">
                         <button class="contenedor-boton-admin" type="reset">
-                            <i class="fas fa-times-circle"></i>
                             <a href="/admin/products" class="titulo-boton-admin">Cancelar</a>
                         </button>
-                        <button class="contenedor-boton-admin" type="submit">
-                            <i class="fas fa-check-circle"></i>
-                            <p class="titulo-boton-admin">Guardar</p>
-                        </button>
+                        <button class="contenedor-boton-admin" type="submit">Guardar</button>
                     </div>
                 </div>
               

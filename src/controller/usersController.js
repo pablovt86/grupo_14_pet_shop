@@ -21,7 +21,7 @@ let usersController = {
                 last_name,
                 email,
                 password: bcrypt.hashSync(password, 10),
-                rol: 'ROL_USER',
+                rol: 'ROL_ADMIN',
                 avatar: req.file ? req.file.filename : "default-image.png"
             })
             .then((user) => {
