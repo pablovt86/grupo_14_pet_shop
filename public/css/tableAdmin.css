@@ -1,0 +1,185 @@
+main.dashAdmin {
+    padding: 100px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+h1.dashTitle {
+    width: 200px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px;
+    background-image: linear-gradient(to top, #f3d9dc,var(--tex));
+    border-radius: 5px;
+    box-shadow: 5px 5px 8px #000;
+}
+
+table.tableProducts {
+   width: 100%;
+}
+
+thead.headTable {
+    display: none;
+}
+
+tbody.bodyTable {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+tr.rowTable {
+    width: 280px;
+    margin: 0px auto 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 5px 5px 9px #000;
+    border-radius: 5px;
+}
+
+td.rowData {
+    padding: 0px 5px;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+p.rowTitle {
+    margin: 0px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #CE2782;
+}
+
+td.rowContainer {
+    display: flex;
+    justify-content: center;
+}
+
+img.rowImage {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 5px;
+}
+
+a.rowAnchor {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+a.rowAnchor:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+button.rowBtn {
+    border: none;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+@media (min-width: 992px) {
+    
+    main.dashAdmin {
+        padding: 150px 30px 30px;
+        background-color: #f0f0f0;
+    }
+
+    h1.dashTitle {
+        width: 200px;
+        margin: 20px auto;
+        text-transform: uppercase;
+        font-family: sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        padding: 10px;
+        background-image: linear-gradient(to top, #3e6488, #28435d);
+        border-radius: 5px;
+        box-shadow: 5px 5px 8px #000;
+    }
+
+    thead.headTable {
+        display: table-header-group;
+        background-image: linear-gradient(to right, #3e6488, #28435d);
+    }
+
+    tbody.bodyTable {
+        display: table-row-group;
+    }
+
+    tr.rowTable {
+        width: 100%;
+        margin: 0px;
+        display: table-row;
+        background-color: none;
+        box-shadow: none;
+        border-radius: none;
+    }
+    
+    th.rowData, td.rowData, td.rowContainer {
+        padding: 5px 10px;
+        border-bottom: 2px solid #3e6488;
+        text-align: start;
+    }
+
+    td.rowContainer {
+        display: table-cell;
+    }
+    
+    th.rowData {
+        color: #fff;
+        text-transform: uppercase;
+        font-family: sans-serif;
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    td.rowData {
+        color: #555;
+        text-transform: uppercase;
+        font-family: sans-serif;
+        font-size: 14px;
+        text-align: start;
+    }
+
+    td.center {
+        text-align: center;
+    }
+    
+    p.rowTitle {
+        display: none;
+    }
+
+    a.rowAnchor {
+        margin: 0px auto 10px;
+    }
+
+    button.rowBtn {
+        cursor: pointer;
+    }
+}

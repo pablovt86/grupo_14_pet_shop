@@ -95,7 +95,7 @@ window.addEventListener('load', () => {
         event.preventDefault();
         let error = false;
         for (let i = 0; i < $inputs.length; i++) {
-            if ($inputs[i].name != 'discount' && $inputs[i].value.trim() == '') {
+            if ($inputs[i].name != 'discount' && $inputs[i].type != 'file' && $inputs[i].value.trim() == '') {
                 $smalls[i].innerHTML = 'Este dato es obligatorio.';
                 error = true;
             }

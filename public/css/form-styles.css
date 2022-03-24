@@ -81,7 +81,7 @@ main.main-login div.form div.data-container div.check-user-container {
     text-transform: uppercase;
 }
 
-main.main-login div.form div.data-container div.input-user-container .fa-envelope, .fa-lock, .fa-unlock, .fa-user, .fa-phone {
+main.main-login div.form div.data-container div.input-user-container i.iconFormUser {
     font-size: 22px;
     padding: 0px 15px;
     border-right: 2px solid #000;
@@ -95,7 +95,7 @@ div.data-links {
     align-items: center;
 }
 
-.fa-home, .fa-sign-out-alt, .fa-analytics, .fa-undo-alt, .fa-user-edit {
+i.iconProfile {
     font-size: 26px;
     padding: 0px 15px;
     color: #fff;

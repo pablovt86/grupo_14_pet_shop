@@ -41,7 +41,7 @@ module.exports = [
             if(user){
                 const clave = bcrypt.compareSync(value, user.dataValues.password);
                    
-                if(!clave){
+                if(clave){
                     return true;
                 }else{
                     return Promise.reject('Contraseña inválida.');

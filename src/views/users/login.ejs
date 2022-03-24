@@ -11,7 +11,7 @@
       <form id="form" action="/users/login" method="POST">
           <div class="data-container">
               <div class="input-user-container">
-                  <i class="fas fa-envelope"></i>
+                  <i class="fas fa-envelope iconFormUser"></i>
                   <input type="text" id="email" class="input-text data" name="email" placeholder="EMAIL" value="<%= locals.old && old.email %>">
               </div>
               <small id="errorEmail" class="text-error errorSubmit"></small>
@@ -21,13 +21,8 @@
           </div>
           <div class="data-container">
               <div class="input-user-container">
-                  <i class="fas fa-lock"></i>
-                  <input type="password" id="password" class="input-text data" name="password" placeholder="CONTRASEÑA">
+                  <input type="text" id="password" class="input-text data" name="password" placeholder="CONTRASEÑA">
               </div>
-              <small id="errorPassword" class="text-error errorSubmit"></small>
-              <% if (locals.errors && errors.password) { %>
-              <small class="text-error"><%= errors.password.msg %></small>
-              <% } %>
           </div>
           <div class="data-container" >
               <div class="check-user-container">

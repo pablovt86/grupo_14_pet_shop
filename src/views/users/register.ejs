@@ -14,7 +14,7 @@
             <form id="form" action="/users/register" autocomplete="off" method="POST" enctype="multipart/form-data">
                 <div class="data-container">
                     <div class="input-user-container">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-user iconFormUser"></i>
                         <input type="text" id="name" class="input-text data" name="name" placeholder="NOMBRE" value="<%= locals.old && old.name %>">
                     </div>
                     <small class="text-error errorSubmit" id="errorName"></small>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="data-container">
                     <div class="input-user-container">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-user iconFormUser"></i>
                         <input type="text" id="lastName" class="input-text data" name="last_name" placeholder="APELLIDO" value="<%= locals.old && old.last_name %>">
                     </div>
                     <small class="text-error errorSubmit" id="errorLastName"></small>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="data-container">
                     <div class="input-user-container">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-envelope iconFormUser"></i>
                         <input type="text" id="email" class="input-text data" name="email" placeholder="EMAIL" value="<%= locals.old && old.email %>">
                     </div>
                     <small class="text-error errorSubmit" id="errorEmail"></small>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="data-container">
                     <div class="input-user-container">
-                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-lock iconFormUser"></i>
                         <input type="password" id="pass2" class="input-text data" name="pass2" placeholder="CONFIRME CONTRASEÑA">
                     </div>
                     <small class="text-error errorSubmit" id="errorPass2"></small>
