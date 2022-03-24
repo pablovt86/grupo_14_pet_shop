@@ -81,7 +81,7 @@ let productController = {
                     product,
                     title: "Productos relacionados",
                     sliderProducts: relatedProducts,
-                    session: req.session
+                    session: req.session,
                 })
             }).catch((error) => {console.log(error)});
    

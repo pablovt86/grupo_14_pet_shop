@@ -45,7 +45,7 @@
                 <div class="data-container">
                     <div class="input-user-container">
                         <i class="fas fa-unlock"></i>
-                        <input type="text" id="password" class="input-text data"name="password" placeholder="CONTRASEÑA">
+                        <input type="password" id="password" class="input-text data"name="password" placeholder="CONTRASEÑA">
                     </div>
                     <small class="text-error errorSubmit" id="errorPassword"></small>
                     <% if (locals.errors && errors.password) { %>
@@ -55,7 +55,7 @@
                 <div class="data-container">
                     <div class="input-user-container">
                         <i class="fas fa-lock"></i>
-                        <input type="text" id="pass2" class="input-text data" name="pass2" placeholder="CONFIRME CONTRASEÑA">
+                        <input type="password" id="pass2" class="input-text data" name="pass2" placeholder="CONFIRME CONTRASEÑA">
                     </div>
                     <small class="text-error errorSubmit" id="errorPass2"></small>
                     <% if (locals.errors && errors.pass2) { %>

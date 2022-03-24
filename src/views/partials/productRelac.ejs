@@ -23,7 +23,7 @@
           </div>
           <div class="button-container">
         <form action="/carrito" method="get">
-            <button type="submit" class="button-card">comprar</button>
+            <button type="submit" class="button-card"onclick="addItem('<%-product.idproducts%>')" >comprar</button>
           </form>
 
           <form action="/productDetail/<%=product.idproducts %> " method="get">

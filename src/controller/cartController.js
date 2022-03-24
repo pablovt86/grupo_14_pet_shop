@@ -49,7 +49,6 @@ module.exports = {
                 amount : 1,
                 total : product.price
             }
-            // console.log(product);
 
             
             if(req.session.cart.length === 0){
@@ -87,7 +86,6 @@ module.exports = {
                         ...item,
                         idorder : order.idorder
                     }
-              console.log(req.session.cart);
                     req.session.cart.push(item);
                     await db.Cart.create({
                         idorder: order.idorder,
@@ -98,7 +96,6 @@ module.exports = {
                 }else{
 
                     let product = req.session.cart[index];
-                    console.log(product.price);
                     product.amount++;
                     product.total = product.amount  * product.price;
                     req.session.cart[index] = product;
