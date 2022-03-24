@@ -58,7 +58,7 @@ li.iconClose {
 
 li.itemMenu {
     width: 100%;
-    padding: 20px 50px;
+    padding: 10px 0px 30px 50px;
     border-bottom: 2px solid #fff;
 }
 
@@ -102,6 +102,7 @@ input.inputSearch {
     background: none;
     margin-left: 5px;
     border-bottom: 2px solid #fff;
+    color: #fff;
 }
 
 input.inputSearch::placeholder {
@@ -113,6 +114,15 @@ input.inputSearch::placeholder {
 i.iconSearch {
     font-size: 18px;
     color: #fff;
+}
+
+
+@media (min-width: 800px) {
+    li.itemMenu {
+        width: 100%;
+        padding: 30px 0px 30px 50px;
+        border-bottom: 2px solid #fff;
+    }
 }
 
 @media (min-width: 992px) {
@@ -135,8 +145,6 @@ i.iconSearch {
     ul.navMenu {
         height: 70px;
         flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
         top: 70px;
         left: 0px;
         transition: 0s;
@@ -149,16 +157,13 @@ i.iconSearch {
 
     li.itemMenu {
         border-bottom: none;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: 70px;
+        margin-right: none;
     }
 
     
 
     a.linkMenu {
-        width: 100px;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -182,6 +187,7 @@ i.iconSearch {
 
     input.inputSearch {
         border-bottom: 2px solid #234;
+        color: #555;
     }
 
     input.inputSearch::placeholder {

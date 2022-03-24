@@ -1,26 +1,3 @@
-<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Carita Felices Pet-Shop</a>
-  <button class="navbar-toggler" type="submit" name="searchAdmin"data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-     
-      <li class="nav-item">
-        <a class="nav-link" href="/admin/products">carga de productos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/">ir home</a>
-      </li>
-    
-    </ul>
-    <form action="/product/search" class="form-inline my-2 my-lg-0 formFind  form-search" action="/admin/products/search" method="get">
-      <input class="form-control mr-sm-2 inputFind" name="searchAdmin" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>-->
 <nav class="navAdmin">
   <label class="barsMenu" for="bars"><i class="fas fa-bars iconBars"></i></label>
   <input type="radio" id="bars" name="btnToggle">
@@ -30,10 +7,12 @@
           <label for="close"><i class="fas fa-times iconLink"></i></label>
           <input type="radio" id="close" name="btnToggle">
       </li>
+      <form action="/product/search" method="get">
       <div class="itemSearch">
           <button class="btnSearch" type="submit"><i class="fas fa-search iconSearch"></i></button>
-          <input class="inputSearch" type="search" id="" placeholder="Buscar productos...">
+          <input class="inputSearch" type="search" name="searchAdmin" placeholder="Buscar productos...">
       </div>
+    </form>
       <li class="itemMenu"><a class="linkMenu" href="/"><i class="fas fa-home iconLink"></i>Inicio</a></li>
       <li class="itemMenu"><a class="linkMenu" href="/users/profile"><i class="fas fa-user iconLink"></i>Mi perfil</a></li>
       <li class="itemMenu"><a class="linkMenu" href="/admin/products"><i class="fas fa-tags iconLink"></i>Productos</a></li>
