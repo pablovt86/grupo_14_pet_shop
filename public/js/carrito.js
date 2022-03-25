@@ -96,7 +96,6 @@ const cargarTabla = (data) => {
 
     carrito.innerHTML = null;
     data.forEach(({ id, amount, image, nombre, price, total }) => {
-        console.log(id)
         let item = `
         <tr>
         <th scope="row">

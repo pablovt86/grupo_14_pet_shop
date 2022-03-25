@@ -30,4 +30,9 @@ let $count = document.getElementById('count');
         $count.innerHTML = `<p>${counter}</p>`
     }
   }
+    function logueate(){
+      alert('Estimado Usuario Debes Estar Registrado Para Cargar Productos Al Carrito.!!!')
+
+    }
+  
   

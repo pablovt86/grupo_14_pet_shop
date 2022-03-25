@@ -32,10 +32,35 @@
       
       <p><i class="fa fa-credit-card" aria-hidden="true"></i>12 cuotas de <span><% let interes = product.price * 10 /100 %>$<%= interes %>  </span></p>
      <div class="esp-a"> <a href="#"> ver mas detalle</a></div>
-      <div class="button-signos">
+      <div class="button-signos" id="button-signos">
+        <% if (typeof session.user != "undefined") { %>
+          <div class="signos">
+            <div class="union">
+              <span> <button type="button" class="btn-subtract" onclick="removeAllItem('<%-product.idproducts%>')">
+                -
+            </button></span>
+              <!-- <div> -->
+    
+                <div id="count">1</div>
+              <!-- </div> -->
+            
+              <span> <button type="button" id="btn-add" onclick="addItem('<%-product.idproducts%>')">
+                +
+            </button> </span>
+            </div>
+    
+          </div>
+          <div class="button-shopping">
+            <button onclick="addItem('<%-product.idproducts%>')" >agregar al carrito</button>
+          </div>
+        </div>
+            
+      <% } else {%>
+     
+    
       <div class="signos">
         <div class="union">
-          <span> <button type="button" class="btn-subtract" onclick="subtract();">
+          <span> <button type="button" class="btn-subtract"onclick="subtract();" >
             -
         </button></span>
           <!-- <div> -->
@@ -50,10 +75,10 @@
 
       </div>
       <div class="button-shopping">
-        <button onclick="addItem('<%-product.idproducts%>')" >agregar al carrito</button>
+        <button onclick="logueate();">agregar al carrito</button>
       </div>
     </div>
-   
+    <% } %>
 <div class="product-envio">
   <h4 class="title-envio"><i class="fas fa-truck"></i>
     Envió a domicilio</h4>
