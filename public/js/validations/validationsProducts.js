@@ -12,8 +12,8 @@ window.addEventListener('load', () => {
         $inputs[i].addEventListener('change', () => {
             switch ($inputs[i].name) {
                 case 'nombre':
-                    if ($inputs[i].value.trim() == '' || ($inputs[i].value.trim()).length > 45) {
-                        $smalls[i].innerHTML = 'Complete con nombre, marca, etc hasta 45 caracteres.';
+                    if ($inputs[i].value.trim() == '' || ($inputs[i].value.trim()).length > 45 || ($inputs[i].value.trim()).length < 10) {
+                        $smalls[i].innerHTML = 'Complete con nombre, marca, etc entre 10 y 45 caracteres.';
                         validationErrors = true;
                     } else {
                         $smalls[i].innerHTML = '';
@@ -30,8 +30,8 @@ window.addEventListener('load', () => {
                     }
                 break;
                 case 'discount':
-                    if (!Number($inputs[i].value.trim())) {
-                        $smalls[i].innerHTML = 'Ingrese un valor numérico o puede dejar el campo vacío.';
+                    if (isNaN($inputs[i].value.trim())) {
+                        $smalls[i].innerHTML = 'Ingrese un valor numérico.';
                         validationErrors = true;
                     } else {
                         $smalls[i].innerHTML = '';

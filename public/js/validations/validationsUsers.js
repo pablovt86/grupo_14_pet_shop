@@ -85,13 +85,11 @@ window.addEventListener('load', () => {
         let error = false;
         for (let i = 0; i < $inputs.length; i++) {
             if ($inputs[i].name == 'terms' && !$inputs[i].checked) {
-                console.log($inputs[i]);
                 $smalls[i].innerHTML = 'Debe aceptar términos y condiciones.';
                 error = true;
             } else if ($inputs[i].type != 'file' && $inputs[i].value.trim() == '') {
                 $smalls[i].innerHTML = 'Este dato es obligatorio.';
                 error = true;
-                console.log($smalls[i]);
             }
         }
 

@@ -136,9 +136,7 @@ button.rowBtn {
         width: 100%;
         margin: 0px;
         display: table-row;
-        background-color: none;
         box-shadow: none;
-        border-radius: none;
     }
     
     th.rowData, td.rowData, td.rowContainer {

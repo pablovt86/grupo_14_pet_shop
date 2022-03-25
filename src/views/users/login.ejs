@@ -22,7 +22,8 @@
           <div class="data-container">
               <div class="input-user-container">
                   <i class="fas fa-lock iconFormUser"></i>
-                  <input type="text" id="password" class="input-text data" name="password" placeholder="CONTRASEÑA">
+                  <input type="password" id="password" class="input-text pass data" name="password" placeholder="CONTRASEÑA">
+                  <i class="fas fa-eye iconSee"></i>
               </div>
               <small id="errorPassword" class="text-error errorSubmit"></small>
               <% if (locals.errors && errors.password) { %>
@@ -41,13 +42,14 @@
           <div class="link-pass-user"><a class="link-login" href="#">¿Olvidaste tu contraseña?</a></div>
           <div class="link-register-user"><a class="link-login" href="/users/register"><i class="fas fa-reply"></i>Crear cuenta</a></div>
           <div class="data-container">
-              <a href="/"><i class="fas fa-home"></i></a>
+              <a href="/"><i class="fas fa-home iconProfile"></i></a>
           </div>
       </form>
     </div>
   </main>
 
     <%- include('../partials/footer.ejs') %>
-    <script src="/js/validations/validationsUsers.js"></script> 
+    <script src="/js/validations/validationsUsers.js"></script>
+    <script src="/js/seePassword.js"></script> 
 </body>
 </html>

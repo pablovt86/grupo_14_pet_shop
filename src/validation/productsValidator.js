@@ -1,11 +1,11 @@
-const { check } = require('express-validator');
+const { check, body } = require('express-validator');
 
 module.exports = [
     check('nombre')
     .notEmpty()
     .withMessage('Complete con nombre, marca, etc...').bail()
-    .isLength({ max: 45 })
-    .withMessage('Máximo permitido 45 caracteres.'),
+    .isLength({ min:10, max: 45 })
+    .withMessage('Complete con nombre, marca, etc entre 10 y 45 caracteres.'),
 
     check('price')
     .notEmpty()
@@ -13,10 +13,19 @@ module.exports = [
     .isNumeric()    
     .withMessage('El valor debe ser numérico'),
 
-    check('discount')
-    .optional({ checkFalsy: true }).isISO8601()
-    .isNumeric()  
-    .withMessage('El valor debe ser numérico'),
+    body('discount')
+    .custom((value) => {
+        if (value) {
+            if (isNaN(value)) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return true;
+        }
+    })
+    .withMessage('El valor debe ser numérico.'),
 
     check('description')
     .notEmpty()

@@ -253,10 +253,7 @@ outline: none;
 .input-tablet{
 display: none;
 }
-.search-form_input:focus{
-border-radius: none;
 
-}
 /* container-hidden */
 
 .container-hidden{

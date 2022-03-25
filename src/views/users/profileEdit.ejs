@@ -42,7 +42,8 @@
           <div class="data-container">
             <div class="input-user-container">
               <i class="fas fa-unlock iconFormUser"></i>
-              <input type="text" id="password" class="input-text data"name="password" placeholder="CONTRASEÑA">
+              <input type="password" id="password" class="input-text pass data"name="password" placeholder="CONTRASEÑA">
+              <i class="fas fa-eye iconSee"></i>
             </div>
             <small class="text-error errorSubmit" id="errorPassword"></small>
             <% if (locals.errors && errors.password) { %>
@@ -52,7 +53,8 @@
           <div class="data-container">
             <div class="input-user-container">
               <i class="fas fa-lock iconFormUser"></i>
-              <input type="text" id="pass2" class="input-text data" name="pass2" placeholder="CONFIRME CONTRASEÑA">
+              <input type="password" id="pass2" class="input-text pass data" name="pass2" placeholder="CONFIRME CONTRASEÑA">
+              <i class="fas fa-eye iconSee"></i>
             </div>
             <small class="text-error errorSubmit" id="errorPass2"></small>
             <% if (locals.errors && errors.pass2) { %>
@@ -85,5 +87,6 @@
   </main>
   <%- include('../partials/footer.ejs') %> 
   <script src="/js/validations/validationsUsers.js"></script>
+  <script src="/js/seePassword.js"></script>
 </body>
 </html>

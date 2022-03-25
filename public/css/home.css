@@ -203,7 +203,7 @@
   }
   
   .col-5 {
-    width: 160;
+    width: 160px;
   }
   
   .col-5 img {
@@ -238,7 +238,7 @@
   .footer-col-2,
   .footer-col-3,
   .footer-col-4 {
-    min-width: 250;
+    min-width: 250px;
     margin-bottom: 20px;
   }
   

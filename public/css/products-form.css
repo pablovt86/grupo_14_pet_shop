@@ -76,6 +76,11 @@ small.errorDanger {
     text-transform: uppercase;
 }
 
+small.errorImage {
+    display: block;
+    text-align: center;
+}
+
 .fa-pencil-alt, .fa-dollar-sign, .fa-percentage, .fa-layer-group {
     width: 50px;
     height: 50px;
@@ -209,7 +214,7 @@ div.upload-image {
     border: 4px dashed #555;
     max-width: 250px;
     height: 250px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     position: relative;
     box-shadow: 5px 5px 8px #000;
 }

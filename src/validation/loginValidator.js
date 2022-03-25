@@ -19,16 +19,14 @@ module.exports = [
         }) 
         .then((user)=>{
             if(!user){
-                return Promise.reject('Este email no está registrado.');
+                return Promise.reject('Credenciales inválidas.');
             }
         });
     }),
     
     check('password')
     .notEmpty()
-    .withMessage('Olvidaste escribir tu contraseña.')
-    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/)
-    .withMessage('De 6 o 12 caracteres, al menos una mayúscula, una minúscula y un número.'),
+    .withMessage('Olvidaste escribir tu contraseña.'),
 
     body('password')
     .custom((value, {req}) => {
@@ -44,10 +42,10 @@ module.exports = [
                 if(clave){
                     return true;
                 }else{
-                    return Promise.reject('Contraseña inválida.');
+                    return Promise.reject('Credenciales inválidas.');
                 }
             }else{
-                return Promise.reject('Usuario no encontrado.')
+                return Promise.reject('Credenciales inválidas.');
             }
         });
     })
