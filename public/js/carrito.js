@@ -97,19 +97,27 @@ const cargarTabla = (data) => {
     carrito.innerHTML = null;
     data.forEach(({ id, amount, image, nombre, price, total }) => {
         let item = `
-        <tr>
-        <th scope="row">
-        <button class="btn btn-danger" onclick="removeItem('${id}')" ><i class="fas fa-minus-square"></i></button>
-        ${amount}
-        <button class="btn btn-success" onclick="addItem('${id}')" ><i class="fas fa-plus-square"></i></button>
-        </th>
-        <td><img src="../images/products/${image}" class="w-25" /> </td>
-        <td>${nombre}</td>
-        <td>${price}</td>
-        <td>${total}</td>
-        <td><button class="btn btn-sm btn-danger" onclick="removeAllItem('${id}')"><i class="fas fa-trash-alt"></i></button></td>
-      </tr>
-        `
+      
+        
+        
+        <div class="vista-articulo">
+            <div class="imagen-cucha"><img src="../images/products/${image}" /> </div>
+            <div class="accountant">
+                <button class="button-accountant" id="increment-product"onclick="addItem('${id}')" >+</button>
+                <span>${amount}</span>
+                <button class="button-accountant" id="decrement-product"onclick="removeItem('${id}')"  >-</button>
+            </div>
+        
+        <div class="reseña">
+            <p>${nombre}</p>
+            <button class="delete"  onclick="removeAllItem('${id}')"><i class="fas fa-trash-alt"></i></button>
+        </div>
+        <div class="price-item"><p class="prices">${price}</p></div>
+        <div class="sub-item"><p class="totals">${total}</p></div>
+        </div>
+
+`
+
         carrito.innerHTML += item
     });
     console.log(carrito);

@@ -3,46 +3,54 @@
   <%- include('../partials/head', {title: 'Carrito de compras'}) %> 
 <body >
   <%- include('../partials/header.ejs') %> 
-  
 
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Carrito de compras</h2>
-			</div>
-		</div>
-		<div class="card-card">
-			<div class="card-body table-responsive">
-				<table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Imagen</th>
-                        <th scope="col">Producto</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Subtotal</th>
-                        <th scope="col">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody id="carrito">
-                      <tr>
-                        <th scope="row">cant</th>
-                        <td>Imagen</td>
-                        <td>Producto</td>
-                        <td>Precio</td>
-                        <td>Subtotal</td>
-                        <td>Acciones</td>
-                      </tr>
-                    </tbody>
-                  <tfoot>
-                    <button onclick="emptyCart()" class="btn btn-danger">Vaciar carrito</button>
-                    <button class="btn btn-primary">Finalizar compra</button>
-                  </tfoot>
+  <main>
+    <div class="buy-cart-container">
+      <div class="buy-cart-form" >
+            <div class="buy-cart"><p>Carrito de compras</p></div>
+               <div class="encabezados-carrito" >
+                <p class="article-title">Producto</p>
+                <p class="article-title">Nombre</p>
+                <p class="price-title">Precio</p>
+                <p class="sub-title">Subtotal</p>
+            </div>
+            <div class="contenedor-articulo"id="carrito">
+               
+            </div> 
+            <div class="gral-delivery"><p>Envio</p></div>
+            <div class="pay-delivery">
+                <label for="">Calcular envio
+                    <select name="envio" id="envio">
+                        <option value="disable">Provincia</option>
+                        <optgroup label="Buenos Aires">
+                            <option value="">Adrogué</option>
+                            <option value="">Avellaneda</option>
+                            <option value="">Otra localidad...</option>
+                        </optgroup>
+                        <optgroup label="Catamarca"></optgroup>
+                        <option value="">San Fernando</option>
+                        <option value="">Otra localidad..</option>
+                        <optgroup label="Chaco"></optgroup>
+                        <option value="">Resistencia</option>
+                        <optgroup label="Córdoba">
+                            <option value="">Alta Córdoba</option>
+                        </optgroup>
+                        <option value="">Otra provincia...</option>
+                    </select>
+                </label>
+                <p>$0.00</p>
+            </div>
+            <div class="free-delivery">
+                <label for="caba"><input type="radio" name="caba" id="caba">   Ciudad de Buenos Aires</label>
+                <p>Gratis</p>
+            </div>
+            <div class="total-buy"><p>Total</p><p>$0.00</p></div>
+            <div class="buy"><button type="submit">Finalizar compra</button></div>
+            <div class="back-shop"><a href="/">Volver a la tienda!</a></div>
+          </div>
+    </div>
+</main>
 
-                  </table>
-			</div>
-		</div>
-	</div> 
 
  
     <%- include('../partials/footer.ejs') %> 
@@ -50,44 +58,3 @@
 </body>
 </html>
 
-
-
-<!-- 
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Carrito de compras</h2>
-			</div>
-		</div>
-		<div class="card">
-			<div class="card-body table-responsive">
-				<table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Imagen</th>
-                        <th scope="col">Producto</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Subtotal</th>
-                        <th scope="col">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody id="carrito">
-                      <tr>
-                        <th scope="row">cant</th>
-                        <td>Imagen</td>
-                        <td>Producto</td>
-                        <td>Precio</td>
-                        <td>Subtotal</td>
-                        <td>Acciones</td>
-                      </tr>
-                    </tbody>
-                  <tfoot>
-                    <button onclick="emptyCart()" class="btn btn-danger">Vaciar carrito</button>
-                    <button class="btn btn-primary">Finalizar compra</button>
-                  </tfoot>
-
-                  </table>
-			</div>
-		</div>
-	</div> -->

@@ -35,8 +35,8 @@
       <div class="button-signos" id="button-signos">
         <% if (typeof session.user != "undefined") { %>
           <div class="signos">
-            <div class="union">
-              <span> <button type="button" class="btn-subtract" onclick="removeAllItem('<%-product.idproducts%>')">
+            <div class="union" id="union">
+              <span> <button type="button" class="btn-subtract" id="btn-remove" onclick="removeItem('<%-product.idproducts%>')">
                 -
             </button></span>
               <!-- <div> -->

@@ -210,8 +210,30 @@ color: var(--tex);
     margin-top: 2px;
     margin-right: 5px;
 }
+@media(min-width:320px){
+    .banner-category img{
+    max-width: 320px;
+    border-radius: 50px;
+    margin: 0 auto}
+    .banner-category {
+        width: auto;
+    }
+    .filter-list {
+        margin: 20px auto;
+    }
+    .card-filter{
+        width: 100%;
+    margin: 20px 0px 20px 28px;
+    }
+}
 
 @media(min-width:768px){
+    .banner-category img{
+        max-width: 600px;
+        height: 450px;
+        border-radius: 50px;
+        margin: 0 auto;}
+
 
 .card-filter{
     max-width: 40%;  

@@ -16,6 +16,10 @@ function myFunction(imgs) {
   /* Contador de cantidad de productos */
 let counter = 1
 let $count = document.getElementById('count');
+let $union = document.getElementById('union');
+let $addItem = document.getElementById('btn-add');
+let $removeItem = document.getElementById('btn-remove');
+
 
   function add () {
     if(counter <= 10) {
@@ -32,7 +36,19 @@ let $count = document.getElementById('count');
   }
     function logueate(){
       alert('Estimado Usuario Debes Estar Registrado Para Cargar Productos Al Carrito.!!!')
+      
 
     }
+ 
+    $union.addEventListener('click',(e)=>{
+      if (e.target == $addItem) {
+          counter = counter + 1
+        $count.innerHTML = `<p>${counter}</p>`        
+      }else if(e.target == $removeItem && counter > 0){
+      counter = counter - 1 
+      $count.innerHTML = `<p>${counter}</p>`
+      }
+     
+    })
   
   
