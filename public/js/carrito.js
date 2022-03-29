@@ -101,21 +101,25 @@ const cargarTabla = (data) => {
         
         
         <div class="vista-articulo">
-            <div class="imagen-cucha"><img src="../images/products/${image}" /> </div>
+            <div class="imagen-cucha"><img src="../images/products/${image}" />
             <div class="accountant">
-                <button class="button-accountant" id="increment-product"onclick="addItem('${id}')" >+</button>
-                <span>${amount}</span>
-                <button class="button-accountant" id="decrement-product"onclick="removeItem('${id}')"  >-</button>
+            <button class="button-accountant" id="increment-product"onclick="addItem('${id}')" >+</button>
+            <span>${amount}</span>
+            <button class="button-accountant" id="decrement-product"onclick="removeItem('${id}')"  >-</button>
+        </div>
             </div>
+          
         
         <div class="reseña">
-            <p>${nombre}</p>
-            <button class="delete"  onclick="removeAllItem('${id}')"><i class="fas fa-trash-alt"></i></button>
-        </div>
-        <div class="price-item"><p class="prices">${price}</p></div>
-        <div class="sub-item"><p class="totals">${total}</p></div>
-        </div>
+        <div class="price-item""> <p>${nombre}</p></div>
+            <div class="price-item"><p class="prices">$${price}</p></div>
 
+            <div class="price-item"><p class="totals">$${total}</p></div>
+        </div>    
+        </div>
+        <div class="tachito">
+ <button class="delete"  onclick="removeAllItem('${id}')"><i class="fas fa-trash-alt"></i></button>
+ </div>
 `
 
         carrito.innerHTML += item
