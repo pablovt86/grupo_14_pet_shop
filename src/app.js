@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 const cookieSession = require('./middleware/cokkieSession');
 
 
+
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json())
 app.use(express.urlencoded({extended:false}));
@@ -30,6 +31,7 @@ app.set('view engine', 'ejs');
 //ENRUTADOR
 let categoriesRouter = require('./routes/categoriesRouter');
 let subcategoriesRouter = require('./routes/subcategoriesRouter');
+let apiProducts = require('./routes/api/apiProducts');
 
 let usersRouter = require('./routes/users');
 let productsRouter = require('./routes/products');
@@ -45,6 +47,7 @@ app.use('/admin', adminRouter);
 app.use('/home', newHomeRouter);
 app.use('/category', categoriesRouter);
 app.use('/subcategory', subcategoriesRouter);
+app.use(apiProducts)
 
 app.use('/api/cart',require('./routes/cart'));
 

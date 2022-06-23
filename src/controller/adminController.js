@@ -4,24 +4,110 @@ const fs = require('fs');
 const db = require('../database/models');
 const { products, subcategories } = require('../database/dataBase');
 const { Op } = require('sequelize');
+const { response } = require('express');
 
 let controller = {
+ products: (req, res) => {
+let url = `http://${req.headers.host}${req.originalUrl}`;
 
-    products: (req, res) => {
-    //     console.log(req.headers.host); 
-    //    console.log(req.originalUrl); 
-    //    const url = `http//${req.headers.host}${req.originalUrl}`  
-    //    console.log(url)
 
-        let products = db.Product.findAll();
-        let images = db.ProductImage.findAll();
-        Promise.all([products, images])
-        .then(([products, images]) => {
-            res.render('admin/products/adminProducts', {
-                products,
-                images,
-                session: req.session
-            });
+const getPageData= (data,page,limit)=>{
+const { count,rows:result} = data;
+const pages = Math.ceil(count/limit);
+const currentPage = page ? + page : 0;
+let netx_page = "";
+let previous_pages = "";
+if(url.includes('page')){
+    // buscar por string con expressiones regulares con url.search buscar los indices 
+    // y despues replazar esa porcion de texto "url.replace"
+    let page_params = url.substring(url.search(/page/i),url.search(/&/i))
+  if(currentPage == 0){
+      netx_page = url.replace(page_params, `page=${currentPage + 1}`)
+  }else{
+      previous_pages = url.replace(page_params, `page=${currentPage - 1}`)
+    netx_page = url.replace(page_params, `page=${currentPage + 1}`)
+
+    }
+
+
+}else{
+    netx_page = `${url}?page${currentPage + 1}&size=${limit}`
+}
+const next = page == (pages -1) ? null: netx_page;
+const previous = currentPage == 0 ? null : previous_pages
+
+
+
+// count-cantidad, pages-cantida de pagina currentPage-ubicacion de la pagina previous-pagina anterior next-pagina siguiente
+
+return {count,pages , currentPage , previous, next,result}
+}
+
+
+
+
+const{page,size}= req.query
+
+
+
+
+
+const getPagination = (page,size) =>{
+ const limit = size ? +size : 5;
+// le asignamos desde donde tiene que empezar la 
+// pagina y lo multiplicamos por la cantidad de pagina 
+ const offset = page ? page * limit : 0;
+    return {limit,offset}
+}
+const {limit,offset} =getPagination(page,size) 
+
+
+
+         db.Product.findAndCountAll({
+   
+           limit:limit,
+           offset:offset  
+
+
+        }).then(response =>{
+            const data = getPageData(response,page,limit)
+
+            let images = db.ProductImage.findAll();
+            Promise.all([data, images])
+
+           
+
+            .then(([data,images]) => {
+                res.render('admin/products/adminProducts', {
+                        products:data.result,
+                        images,
+                               count:data.count,
+                            pages: data.pages,
+                            currentPage:data.currentPage,
+                            previous:data.previous,
+                            next:data.next,
+                             session: req.session
+                    
+                 })
+
+                // res.json({
+                //         info :{
+                //             count:data.count,
+                //             pages: data.pages,
+                //             currentPage:data.currentPage,
+                //             previous:data.previous,
+                //             next:data.next
+                //         },
+                //         result:data
+                //     })
+    
+         
+        });
+
+
+        
+       
+      
         }) 
     },
 

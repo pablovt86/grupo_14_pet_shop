@@ -45,7 +45,7 @@ let usersController = {
 
     processLogin: (req, res) => {
         let errors = validationResult(req);
-        if (errors.isEmpty()) {
+        if (!errors.isEmpty()) {
             db.User.findOne({
                 where: {
                     email: req.body.email
