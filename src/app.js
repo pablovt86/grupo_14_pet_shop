@@ -8,6 +8,15 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cookieSession = require('./middleware/cokkieSession');
 
+app.get('/test-db', async (req, res) => {
+  try {
+    const [rows] = await connection.promise().query('SELECT 1 + 1 AS result');
+    res.send(`✅ Conexión OK: ${rows[0].result}`);
+  } catch (error) {
+    console.error('❌ Error al conectar con la DB:', error.message);
+    res.status(500).send(`❌ Error de conexión: ${error.message}`);
+  }
+});
 
 
 app.use(express.static(path.join(__dirname, '../public')));
