@@ -26,4 +26,5 @@ module.exports = {
     dialect: "mysql"
   }
 };
+console.log(`Sequelize config para ambiente ${process.env.NODE_ENV || 'development'}:`, module.exports[process.env.NODE_ENV || 'development']);
 
