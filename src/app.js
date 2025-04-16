@@ -51,6 +51,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Rutas
+app.use('/', require('./routes/home'));
 app.use('/users', require('./routes/users'));
 app.use('/', require('./routes/products'));
 app.use('/admin', require('./routes/adminRouter'));
