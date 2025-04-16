@@ -12,7 +12,7 @@ const newHomeController = {
         })
         Promise.all([productsInSale,images])
         .then(([productsInSale,images]) => { 
-        res.render('home', {
+        res.render('products', {
             sliderTitle: "PROMOCIONES",
             sliderProducts: productsInSale,
             title:"home",
