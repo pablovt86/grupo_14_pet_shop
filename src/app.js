@@ -51,10 +51,11 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Rutas
-¿app.use('/users', require('./routes/users'));
+app.use('/', require('./routes/newHomeRouter'));
+app.use('/users', require('./routes/users'));
 app.use('/', require('./routes/products'));
 app.use('/admin', require('./routes/adminRouter'));
-app.use('/', require('./routes/newHomeRouter'));
+
 app.use('/category', require('./routes/categoriesRouter'));
 app.use('/subcategory', require('./routes/subcategoriesRouter'));
 app.use('/api/products', require('./routes/api/apiProducts'));
