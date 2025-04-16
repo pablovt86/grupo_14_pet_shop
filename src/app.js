@@ -47,8 +47,8 @@ app.use(session({
 app.use(cookieSession);
 
 // Configuración de vistas
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views
 
 // Rutas
 app.use('/users', require('./routes/users'));
