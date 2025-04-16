@@ -2,15 +2,20 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 const methodOverride = require('method-override');
 const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const cookieParser = require('cookie-parser');
 const cookieSession = require('./middleware/cokkieSession');
 
+// Base de datos Sequelize
+const { sequelize } = require('./database/models'); // Ajustá si tu path es diferente
+
+// Middleware para probar conexión a la DB
 app.get('/test-db', async (req, res) => {
   try {
-    const [rows] = await connection.promise().query('SELECT 1 + 1 AS result');
+    const [rows] = await sequelize.query('SELECT 1 + 1 AS result');
     res.send(`✅ Conexión OK: ${rows[0].result}`);
   } catch (error) {
     console.error('❌ Error al conectar con la DB:', error.message);
@@ -18,47 +23,42 @@ app.get('/test-db', async (req, res) => {
   }
 });
 
-
+// Middlewares generales
 app.use(express.static(path.join(__dirname, '../public')));
-app.use(express.json())
-app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-app.use(session({
-    secret: 'petShop',
-    resave: false,
-    saveUninitialized: true
-}))
 app.use(cookieParser());
-app.use(cookieSession)
 
+// Configuración de sesiones con Sequelize
+app.use(session({
+  secret: 'petShop',
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+  resave: false,
+  saveUninitialized: false,
+  proxy: true,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24, // 1 día
+  }
+}));
 
+app.use(cookieSession);
 
+// Configuración de vistas
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//ENRUTADOR
-let categoriesRouter = require('./routes/categoriesRouter');
-let subcategoriesRouter = require('./routes/subcategoriesRouter');
-let apiProducts = require('./routes/api/apiProducts');
+// Rutas
+app.use('/users', require('./routes/users'));
+app.use('/', require('./routes/products'));
+app.use('/admin', require('./routes/adminRouter'));
+app.use('/home', require('./routes/newHomeRouter'));
+app.use('/category', require('./routes/categoriesRouter'));
+app.use('/subcategory', require('./routes/subcategoriesRouter'));
+app.use('/api/products', require('./routes/api/apiProducts'));
+app.use('/api/cart', require('./routes/cart'));
 
-let usersRouter = require('./routes/users');
-let productsRouter = require('./routes/products');
-let adminRouter = require('./routes/adminRouter');
-const newHomeRouter = require('./routes/newHomeRouter');
-// const { categories } = require('./database/dataBase');
-
-
-// MIDDLEWARES
-app.use('/users', usersRouter)
-app.use('/', productsRouter)
-app.use('/admin', adminRouter);
-app.use('/home', newHomeRouter);
-app.use('/category', categoriesRouter);
-app.use('/subcategory', subcategoriesRouter);
-app.use(apiProducts)
-
-app.use('/api/cart',require('./routes/cart'));
-
-
-app.listen(port, ()=>console.log(`servidor Escuchando en Puerto ${port} http://localhost:${port}`));
-
+// Iniciar servidor
+app.listen(port, () => console.log(`servidor Escuchando en Puerto ${port} http://localhost:${port}`));
